@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wall: #1a1614; --wall-2: #100d0c; --floor: #2e2622; --floor-2: #1c1714;
+    --wall: #4a0e14; --wall-2: #2e080c; --floor: #2e2622; --floor-2: #1c1714;
     --wood: #3a2e28; --wood-dark: #1c1512; --wood-light: #55453a;
     --parchment: #d8cfc0; --parchment-2: #c7bcab;
     --gold: #8a6a3a; --gold-dim: #6b5028;
@@ -76,14 +76,6 @@
     display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr); gap: 20px; align-items: end;
     z-index: 3;
   }
-
-  /* --- string lights across the top of the room --- */
-  .lights { position: absolute; top: -6px; left: 0; right: 0; height: 60px; z-index: 4; pointer-events: none; }
-  .lights svg { width: 100%; height: 100%; }
-  .bulb { animation: twinkle 3.4s ease-in-out infinite; }
-  .bulb:nth-child(3n) { animation-delay: 0.6s; }
-  .bulb:nth-child(4n) { animation-delay: 1.4s; }
-  @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
   /* --- shared "furniture" hotspot button reset --- */
   .hotspot {
@@ -346,13 +338,6 @@
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
   }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #303032); transform: rotate(-9deg); }
-  .sofa-dog {
-    position: absolute; bottom: 82px; left: 50%; transform: translateX(-50%);
-    width: 118px; height: 94px; z-index: 1;
-    filter: drop-shadow(0 8px 8px rgba(0,0,0,0.3));
-  }
-  .dog-body { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .dog-face { position: absolute; top: -14px; left: -10px; font-size: 4.4rem; line-height: 1; }
   .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 40px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
   .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
 .chair-book {
@@ -448,19 +433,19 @@
   .comic-art { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 60px; }
   .comic-cover {
     position: relative; width: 90px; height: 120px; border-radius: 4px; overflow: hidden;
-    background: linear-gradient(160deg, #8a2e22, #4a180f);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.25), inset 0 0 0 2px rgba(0,0,0,0.3);
+    background: linear-gradient(160deg, #3a0f0a, #150604);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.1), inset 0 0 0 2px rgba(0,0,0,0.4);
   }
-  .comic-burst-bg { position: absolute; inset: -12%; opacity: 0.85; }
+  .comic-burst-bg { position: absolute; inset: -12%; opacity: 0.5; }
   .comic-masthead {
     position: absolute; top: 8px; left: 0; right: 0; text-align: center;
     font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; line-height: 1.05;
-    color: #2a1810; letter-spacing: 0.01em;
+    color: #c9b8a0; letter-spacing: 0.01em; text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   }
   .comic-hero { position: absolute; left: 8px; right: 8px; bottom: 12px; height: 62%; }
   .comic-issue {
     position: absolute; bottom: 6px; right: 8px; font-family: var(--font-body); font-weight: 700; font-size: 0.62rem;
-    color: #f4e9d8; background: rgba(0,0,0,0.32); padding: 1px 7px; border-radius: 3px;
+    color: #c9b8a0; background: rgba(0,0,0,0.4); padding: 1px 7px; border-radius: 3px;
   }
 
   /* --- Game console + controller (Video Games) --- */
@@ -600,26 +585,6 @@
   <a class="hotspot newsletter-sign links-sign" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
     <div class="sign-inner">My<br>Links!</div>
   </a>
-  <div class="lights">
-    <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
-      <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
-      <g>
-        <circle class="bulb" cx="60" cy="18" r="6" fill="#8a6a3a"/>
-        <circle class="bulb" cx="160" cy="34" r="6" fill="#7a1f2b"/>
-        <circle class="bulb" cx="260" cy="44" r="6" fill="#4a4a4d"/>
-        <circle class="bulb" cx="360" cy="40" r="6" fill="#6b4a2a"/>
-        <circle class="bulb" cx="460" cy="24" r="6" fill="#8a6a3a"/>
-        <circle class="bulb" cx="560" cy="12" r="6" fill="#7a1f2b"/>
-        <circle class="bulb" cx="660" cy="14" r="6" fill="#4a4a4d"/>
-        <circle class="bulb" cx="760" cy="26" r="6" fill="#6b4a2a"/>
-        <circle class="bulb" cx="860" cy="42" r="6" fill="#8a6a3a"/>
-        <circle class="bulb" cx="960" cy="40" r="6" fill="#7a1f2b"/>
-        <circle class="bulb" cx="1060" cy="24" r="6" fill="#4a4a4d"/>
-        <circle class="bulb" cx="1140" cy="12" r="6" fill="#6b4a2a"/>
-      </g>
-    </svg>
-  </div>
-
   <div class="room-head">
     <div class="kicker">welcome to</div>
     <h1>Myfictionaladventure</h1>
@@ -636,11 +601,11 @@
             <div class="comic-stack">
               <div class="comic-cover">
                 <svg class="comic-burst-bg" viewBox="0 0 100 100" fill="none">
-                  <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#6b4a2a"/>
+                  <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#2a0d08"/>
                 </svg>
                 <div class="comic-masthead">ADVENTURE<br>TALES</div>
                 <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
-                  <polygon points="60,2 24,48 44,48 34,88 78,38 56,38" fill="#f4e9d8" stroke="#2a1810" stroke-width="2" stroke-linejoin="round"/>
+                  <polygon points="60,2 24,48 44,48 34,88 78,38 56,38" fill="#0a0604" stroke="#7a1f2b" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
                 <div class="comic-issue">No. 1</div>
               </div>
@@ -692,6 +657,7 @@
             <div class="bookend"></div>
           </div>
         </div>
+        <div class="shelf-plant" aria-hidden="true">🐦‍⬛</div>
         <span class="hotspot-label" style="left: 30%; z-index: 6;">📚 book reviews</span>
       </button>
     </div>
@@ -707,25 +673,6 @@
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
-          <div class="sofa-dog">
-            <svg class="dog-body" viewBox="0 0 70 56" fill="none">
-              <defs>
-                <clipPath id="dog-body-clip"><ellipse cx="33" cy="36" rx="28" ry="18"/></clipPath>
-                <clipPath id="dog-tail-clip"><path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q49 8 50 12 Q61 14 63 27 Q64 37 55 41 Q55 43 56 44 Z"/></clipPath>
-              </defs>
-              <ellipse cx="33" cy="36" rx="28" ry="18" fill="#8b5e3c"/>
-              <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q49 8 50 12 Q61 14 63 27 Q64 37 55 41 Q55 43 56 44 Z" fill="#8b5e3c"/>
-              <g clip-path="url(#dog-tail-clip)" fill="#f7f2ea">
-                <ellipse cx="59" cy="13" rx="7" ry="6"/>
-              </g>
-              <g clip-path="url(#dog-body-clip)" fill="#f7f2ea">
-                <path d="M12 27 Q19 22 25 27 Q29 32 23 37 Q15 40 11 34 Q9 30 12 27 Z"/>
-                <path d="M35 39 Q42 35 48 40 Q50 45 44 48 Q37 49 34 44 Q33 41 35 39 Z"/>
-                <path d="M44 22 Q50 20 53 25 Q53 29 48 30 Q43 29 44 22 Z"/>
-              </g>
-            </svg>
-            <span class="dog-face">🐶</span>
-          </div>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
           <div class="sofa-leg right"></div>
@@ -739,9 +686,8 @@
       </div>
       <span class="hotspot-label">💬 discussions</span>
     </button>
-    <div class="hotspot wall-photo" onclick="event.stopPropagation(); showPage('helpdogs')" role="button" tabindex="0" aria-label="Help Dogs">
-      <div class="wall-photo-inner">🐶</div>
-      <span class="hotspot-label">🐾 help dogs</span>
+    <div class="wall-photo" aria-hidden="true">
+      <div class="wall-photo-inner">🥀</div>
     </div>
     <button class="hotspot" onclick="showPage('writing')" aria-label="My Writing">
       <div class="side-table">
@@ -1020,23 +966,6 @@
   </div>
 </div>
 
-<!-- ============ HELP DOGS ============ -->
-<div class="page" id="page-helpdogs">
-  <div class="page-top">
-    <button class="back-link" onclick="showRoom()">← Back to the room</button>
-    <span class="page-title">🐾 Help Dogs</span>
-    <span></span>
-  </div>
-  <div class="page-inner">
-    <p class="page-lede">A little space for the other love of my life: dogs. If you're able, consider donating to or fostering through your local animal shelter or rescue.</p>
-    <div class="post-card">
-      <span class="post-tag" style="background:#2a4a32">Get Involved</span>
-      <h3>Adopt, foster, or donate</h3>
-      <div class="post-body"><p>Rescues are always in need of fosters, supplies, and donations. Search "animal rescue near me" to find one local to you, or ask me — I'm always happy to talk about dogs.</p></div>
-      <span class="example-flag">📝 example post — swap in your favorite rescue's link</span>
-    </div>
-  </div>
-</div>
 
 <!-- ============ COMING SOON ============ -->
 <div class="page" id="page-comingsoon">
