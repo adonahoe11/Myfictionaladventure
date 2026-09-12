@@ -1,0 +1,674 @@
+<title>My Fictional Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wall: #46323f; --wall-2: #3a2933; --floor: #5f4234; --floor-2: #4c342a;
+    --wood: #5a3d2e; --wood-dark: #3c2a20; --wood-light: #7a5540;
+    --parchment: #f4e9d8; --parchment-2: #ece0cb;
+    --gold: #dcae5c; --gold-dim: #b8904a;
+    --rose: #cf8891; --sage: #93ab8e; --dusk: #6c7ea3; --amber-glow: #ffcf8a;
+    --ink: #3a2a33; --ink-soft: #6b5762;
+    --text-light: #f4e9d8; --text-light-dim: #cdb9ab;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-display-italic: "Fraunces", Georgia, serif;
+    --font-body: "Literata", Georgia, serif;
+    --font-hand: "Caveat", cursive;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--wall-2); color: var(--text-light);
+    font-family: var(--font-body); line-height: 1.6; overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  button { font: inherit; }
+  a { color: inherit; }
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  /* ============ ROOM (home view) ============ */
+  #room {
+    position: relative; min-height: 100vh;
+    background: linear-gradient(180deg, var(--wall) 0%, var(--wall) 62%, var(--floor) 62%, var(--floor-2) 100%);
+    padding-bottom: 40px; overflow: hidden;
+  }
+  /* wallpaper texture: faint damask dots */
+  #room::before {
+    content: ""; position: absolute; inset: 0; height: 62%;
+    background-image: radial-gradient(circle, rgba(220,174,92,0.07) 2px, transparent 2.5px);
+    background-size: 46px 46px; pointer-events: none;
+  }
+  .room-head { position: relative; z-index: 5; text-align: center; padding: 40px 24px 10px; }
+  .brand-mark { display: flex; justify-content: center; margin-bottom: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35)); }
+  .room-head .kicker { font-family: var(--font-hand); font-size: 1.6rem; color: var(--gold); }
+  .room-head h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; color: var(--text-light); }
+  .room-head .signature { font-family: var(--font-hand); font-size: 1.4rem; color: var(--amber-glow); margin-top: 2px; }
+  .room-head p { margin-top: 10px; color: var(--text-light-dim); max-width: 52ch; margin-left: auto; margin-right: auto; font-size: 1.02rem; }
+
+  .room-scene {
+    position: relative; max-width: 1180px; margin: 20px auto 0; padding: 0 24px;
+    display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; gap: 28px; align-items: end;
+    z-index: 3;
+  }
+
+  /* --- string lights across the top of the room --- */
+  .lights { position: absolute; top: -6px; left: 0; right: 0; height: 60px; z-index: 4; pointer-events: none; }
+  .lights svg { width: 100%; height: 100%; }
+  .bulb { animation: twinkle 3.4s ease-in-out infinite; }
+  .bulb:nth-child(3n) { animation-delay: 0.6s; }
+  .bulb:nth-child(4n) { animation-delay: 1.4s; }
+  @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+  /* --- shared "furniture" hotspot button reset --- */
+  .hotspot {
+    all: unset; cursor: pointer; display: block; position: relative;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  .hotspot:hover, .hotspot:focus-visible { transform: translateY(-4px); }
+  .hotspot:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 8px; }
+  .hotspot-label {
+    position: absolute; left: 50%; bottom: -30px; transform: translateX(-50%);
+    font-family: var(--font-hand); font-size: 1.3rem; color: var(--amber-glow);
+    white-space: nowrap; opacity: 0; transition: opacity 0.2s ease;
+  }
+  .hotspot:hover .hotspot-label, .hotspot:focus-visible .hotspot-label { opacity: 1; }
+
+  /* --- Bookshelf (Books) --- */
+  .bookshelf { padding-bottom: 46px; }
+  .shelf-unit {
+    width: 360px; max-width: 100%;
+    background:
+      repeating-linear-gradient(100deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 3px, transparent 14px),
+      linear-gradient(180deg, var(--wood-light), var(--wood) 55%, var(--wood-dark));
+    border: 4px solid var(--wood-dark); border-radius: 8px 8px 3px 3px;
+    padding: 14px 14px 0; box-shadow: 0 28px 50px rgba(0,0,0,0.45), inset 0 0 30px rgba(0,0,0,0.2);
+  }
+  .shelf-topper { display: flex; justify-content: center; gap: 6px; margin-bottom: 10px; height: 26px; align-items: flex-end; }
+  .flat-book { border-radius: 2px 2px 0 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 -2px 4px rgba(0,0,0,0.15); }
+  .shelf-row {
+    display: flex; align-items: flex-end; gap: 2px; height: 122px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), transparent 30%);
+    border-bottom: 10px solid var(--wood-dark); padding: 0 2px 6px; margin-bottom: 8px;
+    box-shadow: inset 0 10px 14px -8px rgba(0,0,0,0.5);
+  }
+  .spine {
+    border-radius: 2px 4px 0 0;
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 9px;
+    font-family: var(--font-display); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.03em; text-align: center;
+    color: rgba(255,255,255,0.94); writing-mode: vertical-rl; text-orientation: mixed;
+    box-shadow: inset 3px 0 5px rgba(255,255,255,0.14), inset -4px 0 8px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.25);
+    position: relative; flex-shrink: 0;
+  }
+  .spine::after {
+    content: ""; position: absolute; top: 10px; left: 3px; right: 3px; height: 2px;
+    background: rgba(255,255,255,0.35); border-radius: 1px;
+  }
+  .spine.lean { transform: rotate(-4deg) translateY(2px); transform-origin: bottom center; }
+  .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,#8a6a4a,#5a3d2e); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+  .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
+
+  /* --- Armchair + lamp (About) --- */
+  .chair-scene { display: flex; flex-direction: column; align-items: center; }
+  .lamp { width: 90px; margin-bottom: -8px; }
+  .lamp-glow {
+    width: 190px; height: 190px; border-radius: 50%; margin: 0 auto -80px;
+    background: radial-gradient(circle, rgba(255,207,138,0.6), rgba(255,207,138,0.15) 55%, transparent 72%);
+    filter: blur(2px);
+  }
+  .lamp-shade {
+    width: 82px; height: 54px; margin: 0 auto; border-radius: 8px 8px 46px 46px / 8px 8px 70px 70px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dim));
+    box-shadow: 0 0 38px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
+  }
+  .lamp-pole { width: 7px; height: 54px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
+  .lamp-base { width: 40px; height: 10px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
+  .chair {
+    width: 240px; height: 165px; position: relative;
+    background: linear-gradient(165deg, var(--rose) 0%, #b5717a 45%, #98545e 100%);
+    border-radius: 64px 64px 16px 16px / 96px 96px 16px 16px;
+    box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 -18px 26px rgba(0,0,0,0.18), inset 0 10px 16px rgba(255,255,255,0.12);
+  }
+  .chair::before, .chair::after {
+    content: ""; position: absolute; bottom: 10px; width: 50px; height: 76px;
+    background: linear-gradient(165deg, var(--rose), #98545e); border-radius: 32px;
+    box-shadow: inset 0 -12px 18px rgba(0,0,0,0.18), inset 4px 4px 8px rgba(255,255,255,0.1);
+  }
+  .chair::before { left: -24px; } .chair::after { right: -24px; }
+  .chair-book {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+    width: 58px; height: 40px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 3px 8px 8px 3px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .chair-book::before {
+    content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--ink-soft);
+  }
+
+  /* --- Old-fashioned TV (Shows & Movies) --- */
+  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
+  .tv-antenna { display: flex; justify-content: center; gap: 26px; height: 26px; margin-bottom: -4px; }
+  .tv-antenna span { width: 2px; height: 26px; background: #8a8478; transform-origin: bottom center; }
+  .tv-antenna span:first-child { transform: rotate(-24deg); }
+  .tv-antenna span:last-child { transform: rotate(24deg); }
+  .tv-set {
+    width: 190px; display: flex; gap: 10px; align-items: center;
+    background: linear-gradient(155deg, #8a5a3f, #6b4530 55%, #4d3120);
+    border: 3px solid var(--wood-dark); border-radius: 14px; padding: 12px;
+    box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 2px 3px rgba(255,255,255,0.12);
+  }
+  .tv-tube {
+    width: 118px; height: 100px; background: #2a2118; border-radius: 50% / 44%; padding: 10px;
+    box-shadow: inset 0 0 0 4px #16110c, 0 3px 6px rgba(0,0,0,0.4);
+  }
+  .tv-screen {
+    width: 100%; height: 100%; border-radius: 50% / 44%;
+    background: radial-gradient(circle at 35% 30%, rgba(108,126,163,0.65), #10131e 72%);
+    display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+    box-shadow: inset 0 0 18px rgba(0,0,0,0.65), inset 0 0 0 2px rgba(255,255,255,0.06);
+  }
+  .tv-panel { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .tv-knob { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #8a6a4a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); position: relative; }
+  .tv-knob::after { content: ""; position: absolute; top: 2px; left: 50%; width: 2px; height: 7px; background: #4d3120; transform: translateX(-50%); }
+  .tv-knob.small { width: 13px; height: 13px; }
+  .tv-speaker {
+    width: 22px; height: 46px; border-radius: 4px;
+    background-image: radial-gradient(circle, #2a2118 1.6px, transparent 1.8px);
+    background-size: 6px 6px;
+  }
+  .tv-legs { display: flex; justify-content: space-between; width: 140px; margin: 6px auto 0; }
+  .tv-legs span { width: 9px; height: 16px; background: var(--wood-dark); border-radius: 0 0 3px 3px; }
+
+  /* --- Vintage radio (Podcast) --- */
+  .radio-antenna { width: 2px; height: 30px; background: #c9a86a; margin: 0 auto -6px 60px; transform: rotate(-8deg); }
+  .radio-set {
+    width: 168px; height: 118px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    background: linear-gradient(155deg, var(--wood-light), var(--wood) 55%, var(--wood-dark));
+    border: 3px solid var(--wood-dark); border-radius: 16px 16px 10px 10px; padding: 14px;
+    box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 2px 3px rgba(255,255,255,0.1);
+  }
+  .radio-grille {
+    width: 100%; flex: 1; border-radius: 8px; background: #241a14;
+    box-shadow: inset 0 0 0 3px #16110c;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; padding: 8px; align-items: center;
+  }
+  .radio-grille span { width: 100%; padding-top: 100%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #4a3a2c, #16110c); }
+  .radio-dial {
+    position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f0e6d0, #c9a86a); box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+  .radio-set { position: relative; }
+  .radio-needle { position: absolute; top: 50%; left: 50%; width: 2px; height: 11px; background: #a8342e; transform-origin: bottom center; transform: translate(-50%,-100%) rotate(25deg); }
+  .radio-knobs { display: flex; gap: 14px; }
+  .radio-knob { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #8a6a4a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+
+/* --- Comics stack (Manga & Comics) --- */
+  .table-row { display: flex; gap: 34px; justify-content: center; align-items: flex-end; }
+  .comic-stack { display: flex; flex-direction: column-reverse; align-items: center; }
+  .comic {
+    width: 96px; height: 132px; border-radius: 3px; margin-top: -108px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35), inset 0 2px 0 rgba(255,255,255,0.35), inset -6px 0 10px rgba(0,0,0,0.2);
+    position: relative; border: 2px solid rgba(0,0,0,0.25);
+  }
+  .comic:first-child { margin-top: 0; }
+  .comic.lean-left { transform: rotate(-7deg) translateX(-6px); }
+  .comic.lean-right { transform: rotate(6deg) translateX(6px); }
+  .comic-burst {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%) rotate(-8deg);
+    font-family: var(--font-display); font-weight: 700; font-size: 0.7rem; color: #2a2118;
+    background: #f4e9d8; padding: 2px 8px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .comic-title-block {
+    position: absolute; top: 12px; left: 10px; right: 10px; height: 14px; border-radius: 2px;
+    background: rgba(244,233,216,0.85);
+  }
+  .comic-title-block::after {
+    content: ""; position: absolute; top: 20px; left: 0; right: 30%; height: 6px; border-radius: 2px;
+    background: rgba(244,233,216,0.5);
+  }
+
+  /* --- Game console + controller (Video Games) --- */
+  .console-scene { display: flex; align-items: flex-end; gap: 12px; }
+  .game-console {
+    width: 118px; height: 66px;
+    background: linear-gradient(155deg, var(--sage), #6f8a6a 70%, #587455);
+    border-radius: 10px; position: relative; box-shadow: 0 20px 38px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.18);
+  }
+  .console-slot {
+    position: absolute; top: 8px; left: 12px; right: 12px; height: 10px; border-radius: 3px;
+    background: #26301f; box-shadow: inset 0 2px 3px rgba(0,0,0,0.5);
+  }
+  .console-buttons { position: absolute; bottom: 10px; left: 12px; display: flex; gap: 7px; }
+  .console-buttons span { width: 10px; height: 10px; border-radius: 50%; background: var(--parchment); box-shadow: inset 0 0 0 2px var(--wood-dark); }
+  .console-vent { position: absolute; bottom: 10px; right: 12px; width: 30px; height: 10px; background-image: repeating-linear-gradient(90deg, #26301f 0px, #26301f 2px, transparent 3px, transparent 6px); }
+  .game-controller {
+    width: 64px; height: 40px; background: linear-gradient(155deg, #2e2438, #1c1622);
+    border-radius: 16px 16px 20px 20px / 16px 16px 26px 26px; position: relative;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.4);
+  }
+  .dpad, .dpad-v { position: absolute; background: #4a3f56; }
+  .dpad { top: 15px; left: 9px; width: 16px; height: 6px; border-radius: 2px; }
+  .dpad-v { top: 12px; left: 14px; width: 6px; height: 16px; border-radius: 2px; }
+  .controller-btn { position: absolute; width: 8px; height: 8px; border-radius: 50%; }
+  .controller-btn.a { top: 12px; right: 10px; background: var(--rose); }
+  .controller-btn.b { top: 22px; right: 18px; background: var(--gold); }
+
+  .table-surface {
+    width: 100%; height: 20px;
+    background: repeating-linear-gradient(90deg, var(--wood-dark) 0px, var(--wood-dark) 30px, #4a3323 31px, #4a3323 32px);
+    border-radius: 4px; margin-top: 12px; box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  }
+
+  .room-nav-hint { text-align: center; margin-top: 44px; color: var(--text-light-dim); font-size: 0.9rem; position: relative; z-index: 5; }
+  .room-nav-hint a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* quick-nav pills for accessibility / "easy to use" */
+  .quick-nav {
+    position: relative; z-index: 5; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; max-width: 720px; margin: 30px auto 0; padding: 0 24px;
+  }
+  .quick-nav button {
+    all: unset; cursor: pointer; padding: 9px 18px; border-radius: 999px;
+    background: rgba(244,233,216,0.08); border: 1px solid rgba(244,233,216,0.25);
+    font-family: var(--font-body); font-size: 0.86rem; color: var(--text-light);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .quick-nav button:hover { background: rgba(220,174,92,0.18); border-color: var(--gold); }
+
+  /* ============ SECTION PAGES ============ */
+  .page { display: none; min-height: 100vh; background: var(--parchment); color: var(--ink); }
+  .page.active { display: block; }
+  #room.hidden { display: none; }
+
+  .page-top {
+    position: sticky; top: 0; z-index: 10; background: var(--parchment);
+    border-bottom: 2px solid var(--parchment-2); padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .back-link {
+    all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-weight: 600; color: var(--ink-soft);
+  }
+  .back-link:hover { color: var(--ink); }
+  .page-top .page-title { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; }
+
+  .page-inner { max-width: 880px; margin: 0 auto; padding: 40px 24px 100px; }
+  .page-lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 60ch; margin-bottom: 32px; }
+
+  .filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .filter-pill {
+    all: unset; cursor: pointer; padding: 8px 18px; border-radius: 999px;
+    border: 1.5px solid var(--ink-soft); font-size: 0.86rem; font-weight: 600; color: var(--ink-soft);
+    transition: all 0.2s ease;
+  }
+  .filter-pill.active, .filter-pill:hover { background: var(--ink); border-color: var(--ink); color: var(--parchment); }
+
+  .post-card {
+    background: #fff; border: 1px solid var(--parchment-2); border-radius: 16px;
+    padding: 26px 28px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(58,42,51,0.06);
+  }
+  .post-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; color: #fff;
+  }
+  .post-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
+  .post-meta { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 14px; font-style: italic; }
+  .post-body { color: #4a3a44; }
+  .post-body p + p { margin-top: 12px; }
+  .example-flag {
+    display: inline-block; margin-top: 16px; font-size: 0.76rem; color: var(--gold-dim);
+    background: #fbf3e3; border: 1px dashed var(--gold-dim); padding: 4px 10px; border-radius: 8px;
+  }
+
+  .comments-box {
+    margin-top: 40px; padding: 20px; border: 1.5px dashed var(--parchment-2); border-radius: 14px; text-align: center;
+    color: var(--ink-soft); font-size: 0.9rem;
+  }
+
+  .link-list { display: flex; flex-direction: column; gap: 14px; }
+  .link-item {
+    display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--parchment-2);
+    border-radius: 14px; padding: 16px 20px; text-decoration: none; color: var(--ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .link-item:hover { transform: translateX(4px); box-shadow: 0 6px 16px rgba(58,42,51,0.1); }
+  .link-item .emoji { font-size: 1.4rem; }
+  .link-item .name { font-weight: 700; font-family: var(--font-display); }
+  .link-item .desc { font-size: 0.85rem; color: var(--ink-soft); }
+</style>
+
+<!-- ============ HOME: THE ROOM ============ -->
+<div id="room">
+  <div class="lights">
+    <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
+      <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
+      <g>
+        <circle class="bulb" cx="60" cy="18" r="6" fill="#ffcf8a"/>
+        <circle class="bulb" cx="160" cy="34" r="6" fill="#cf8891"/>
+        <circle class="bulb" cx="260" cy="44" r="6" fill="#93ab8e"/>
+        <circle class="bulb" cx="360" cy="40" r="6" fill="#dcae5c"/>
+        <circle class="bulb" cx="460" cy="24" r="6" fill="#ffcf8a"/>
+        <circle class="bulb" cx="560" cy="12" r="6" fill="#cf8891"/>
+        <circle class="bulb" cx="660" cy="14" r="6" fill="#93ab8e"/>
+        <circle class="bulb" cx="760" cy="26" r="6" fill="#dcae5c"/>
+        <circle class="bulb" cx="860" cy="42" r="6" fill="#ffcf8a"/>
+        <circle class="bulb" cx="960" cy="40" r="6" fill="#cf8891"/>
+        <circle class="bulb" cx="1060" cy="24" r="6" fill="#93ab8e"/>
+        <circle class="bulb" cx="1140" cy="12" r="6" fill="#dcae5c"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="room-head">
+    <div class="brand-mark">
+      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true">
+        <rect x="3" y="34" width="52" height="7" rx="2" fill="#3c2a20"/>
+        <rect x="7" y="12" width="8" height="24" rx="1.5" fill="#cf8891"/>
+        <rect x="16" y="7" width="8" height="29" rx="1.5" fill="#dcae5c"/>
+        <rect x="25" y="14" width="8" height="22" rx="1.5" fill="#93ab8e"/>
+        <rect x="34" y="9" width="8" height="27" rx="1.5" fill="#6c7ea3"/>
+        <rect x="43" y="16" width="9" height="20" rx="1.5" fill="#a85e68"/>
+      </svg>
+    </div>
+    <div class="kicker">welcome to</div>
+    <h1>My Fictional Adventure</h1>
+    <p class="signature">— Allie</p>
+    <p>Writer, reviewer, and podcaster, permanently lost in fictional worlds. Pull up a chair. Everything in this room is something to dig into.</p>
+  </div>
+
+  <div class="room-scene">
+    <!-- Bookshelf -> Books -->
+    <button class="hotspot bookshelf" onclick="showPage('books')" aria-label="Browse Books">
+      <div class="shelf-unit">
+        <div class="shelf-topper">
+          <div class="flat-book" style="width:54px;height:10px;background:#a85e68;transform:rotate(-2deg)"></div>
+          <div class="flat-book" style="width:60px;height:12px;background:#c99a4b;"></div>
+          <span class="shelf-plant">🪴</span>
+        </div>
+        <div class="shelf-row">
+          <div class="bookend"></div>
+          <div class="spine" style="width:34px;height:96%;background:#a85e68">ROMANTASY</div>
+          <div class="spine" style="width:26px;height:88%;background:#5b6b96">DYSTOPIAN</div>
+          <div class="spine lean" style="width:30px;height:80%;background:#6f8a6a">FANTASY</div>
+          <div class="spine" style="width:22px;height:100%;background:#c99a4b">SCI-FI</div>
+          <div class="spine" style="width:28px;height:90%;background:#8a5a7a">MYSTERY</div>
+          <div class="bookend"></div>
+        </div>
+        <div class="shelf-row">
+          <div class="bookend"></div>
+          <div class="spine" style="width:24px;height:92%;background:#b2703f">LITRPG</div>
+          <div class="spine lean" style="width:32px;height:82%;background:#a85e68">ROMANTASY</div>
+          <div class="spine" style="width:20px;height:98%;background:#5b6b96">SCI-FI</div>
+          <div class="spine" style="width:30px;height:88%;background:#6f8a6a">FANTASY</div>
+          <div class="spine" style="width:26px;height:94%;background:#8a5a7a">MYSTERY</div>
+          <div class="spine" style="width:24px;height:84%;background:#b2703f">LITRPG</div>
+          <div class="bookend"></div>
+        </div>
+      </div>
+      <span class="hotspot-label">📚 the bookshelf</span>
+    </button>
+
+    <!-- Armchair -> About -->
+    <button class="hotspot chair-scene" onclick="showPage('about')" aria-label="About Allie">
+      <div class="lamp-glow"></div>
+      <div class="lamp-shade"></div>
+      <div class="lamp-pole"></div>
+      <div class="lamp-base"></div>
+      <div class="chair"><div class="chair-book"></div></div>
+      <span class="hotspot-label">🕯️ sit with me</span>
+    </button>
+
+    <!-- Media console -> Podcast + Shows & Movies -->
+    <div>
+      <div class="console-row">
+        <button class="hotspot" onclick="showPage('shows')" aria-label="Shows and Movies">
+          <div class="tv-antenna"><span></span><span></span></div>
+          <div class="tv-set">
+            <div class="tv-tube"><div class="tv-screen">🎬</div></div>
+            <div class="tv-panel"><div class="tv-knob"></div><div class="tv-knob small"></div><div class="tv-speaker"></div></div>
+          </div>
+          <div class="tv-legs"><span></span><span></span></div>
+          <span class="hotspot-label">📺 shows &amp; movies</span>
+        </button>
+        <button class="hotspot" onclick="showPage('podcast')" aria-label="Podcast">
+          <div class="radio-antenna"></div>
+          <div class="radio-set">
+            <div class="radio-grille">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="radio-dial"><div class="radio-needle"></div></div>
+            <div class="radio-knobs"><div class="radio-knob"></div><div class="radio-knob"></div></div>
+          </div>
+          <span class="hotspot-label">🎙️ the podcast</span>
+        </button>
+      </div>
+      <div class="table-row" style="margin-top:20px;">
+        <button class="hotspot" onclick="showPage('manga')" aria-label="Manga and Comics">
+          <div class="comic-stack">
+            <div class="comic lean-left" style="background:linear-gradient(135deg,#c99a4b,#a97a2f)"><span class="comic-burst">POW!</span></div>
+            <div class="comic" style="background:linear-gradient(135deg,#a85e68,#8a4650)"><span class="comic-title-block"></span></div>
+            <div class="comic lean-right" style="background:linear-gradient(135deg,#5b6b96,#425073)"><span class="comic-title-block"></span></div>
+          </div>
+          <span class="hotspot-label">📖 manga &amp; comics</span>
+        </button>
+        <button class="hotspot" onclick="showPage('games')" aria-label="Video Games">
+          <div class="console-scene">
+            <div class="game-console">
+              <div class="console-slot"></div>
+              <div class="console-buttons"><span></span><span></span></div>
+              <div class="console-vent"></div>
+            </div>
+            <div class="game-controller">
+              <div class="dpad"></div><div class="dpad-v"></div>
+              <div class="controller-btn a"></div><div class="controller-btn b"></div>
+            </div>
+          </div>
+          <span class="hotspot-label">🎮 video games</span>
+        </button>
+      </div>
+      <div class="table-surface"></div>
+    </div>
+  </div>
+
+  <div class="quick-nav">
+    <button onclick="showPage('books')">📚 Books</button>
+    <button onclick="showPage('shows')">📺 Shows &amp; Movies</button>
+    <button onclick="showPage('manga')">📖 Manga &amp; Comics</button>
+    <button onclick="showPage('games')">🎮 Video Games</button>
+    <button onclick="showPage('podcast')">🎙️ Podcast</button>
+    <button onclick="showPage('about')">🕯️ About Allie</button>
+    <button onclick="showPage('links')">🔗 Find Me Everywhere</button>
+  </div>
+
+  <p class="room-nav-hint">Click anything in the room, or use the shelf of buttons above. <a href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">All my links →</a></p>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" id="page-about">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">About Allie</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">Writer. Reviewer. Podcaster. Permanently geeking out about fictional worlds — currently deep in writing an epic romantasy-dystopian series of my own, and podcasting weekly about everything I'm reading, watching, and playing.</p>
+    <div class="post-card">
+      <p class="post-body">I started My Fictional Adventure because I could never talk about books, shows, manga, and games in just one place — my brain doesn't separate them, so why should the shelf? This room is that: one cozy spot for all of it, organized the way I actually think about it.</p>
+      <p class="post-body" style="margin-top:14px;">No last names, no personal details here — just Allie, and everything I'm currently obsessed with. Come sit by the lamp for a while.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BOOKS ============ -->
+<div class="page" id="page-books">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">📚 The Bookshelf</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">Reviews, reactions, and rambles — organized by genre so you can dig into exactly what you're in the mood for.</p>
+    <div class="filter-row" id="book-filters">
+      <button class="filter-pill active" data-genre="all">All</button>
+      <button class="filter-pill" data-genre="romantasy">Romantasy</button>
+      <button class="filter-pill" data-genre="dystopian">Dystopian</button>
+      <button class="filter-pill" data-genre="fantasy">Fantasy</button>
+      <button class="filter-pill" data-genre="scifi">Sci-Fi</button>
+      <button class="filter-pill" data-genre="mystery">Mystery</button>
+      <button class="filter-pill" data-genre="litrpg">LitRPG</button>
+    </div>
+    <div id="book-posts">
+      <article class="post-card" data-genre="romantasy">
+        <span class="post-tag" style="background:#a85e68">Romantasy</span>
+        <h3>A Court of Thorns and… okay, one more chapter</h3>
+        <div class="post-meta">Example post — swap with your real review</div>
+        <div class="post-body">
+          <p>You know the feeling: "just one more chapter" at 1am, and suddenly the sun's coming up and you've finished a 500-page romantasy in one sitting. This one earns every bit of the hype — the slow burn is genuinely slow, the fae politics actually matter to the plot, and the found family hits harder than the romance does (which is saying something).</p>
+          <p>Currently rationing the sequel so it lasts more than one night.</p>
+        </div>
+        <span class="example-flag">📝 example post</span>
+      </article>
+      <article class="post-card" data-genre="dystopian">
+        <span class="post-tag" style="background:#5b6b96">Dystopian</span>
+        <h3>The dystopia that actually earns its ending</h3>
+        <div class="post-meta">Example post — swap with your real review</div>
+        <div class="post-body">
+          <p>A lot of dystopian fiction sets up a fascinating broken world and then rushes the payoff. This one doesn't — the worldbuilding pays off in the final act in a way that made me go back and reread the first fifty pages differently.</p>
+        </div>
+        <span class="example-flag">📝 example post</span>
+      </article>
+      <article class="post-card" data-genre="litrpg">
+        <span class="post-tag" style="background:#b2703f">LitRPG</span>
+        <h3>Leveling up: a LitRPG that respects the numbers AND the story</h3>
+        <div class="post-meta">Example post — swap with your real review</div>
+        <div class="post-body">
+          <p>The hardest thing for a LitRPG to pull off is making the stat screens matter emotionally, not just mechanically. This series does — every level-up is earned, and I actually teared up at a skill tree once, which is a sentence I never thought I'd type.</p>
+        </div>
+        <span class="example-flag">📝 example post</span>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SHOWS & MOVIES ============ -->
+<div class="page" id="page-shows">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">📺 Shows &amp; Movies</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">What's on the screen when I'm not buried in a book.</p>
+    <article class="post-card">
+      <span class="post-tag" style="background:#5b6b96">TV</span>
+      <h3>The season finale that finally paid off three seasons of setup</h3>
+      <div class="post-meta">Example post — swap with your real review</div>
+      <div class="post-body"><p>I've been cautiously optimistic about this show for two seasons and this finale earned every bit of that patience. No spoilers here, just: watch it, then come discuss it below.</p></div>
+      <span class="example-flag">📝 example post</span>
+    </article>
+  </div>
+</div>
+
+<!-- ============ MANGA & COMICS ============ -->
+<div class="page" id="page-manga">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">📖 Manga &amp; Comics</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">The stack on my nightstand that never gets shorter.</p>
+    <article class="post-card">
+      <span class="post-tag" style="background:#c99a4b">Manga</span>
+      <h3>A series that made me cry on public transit, again</h3>
+      <div class="post-meta">Example post — swap with your real review</div>
+      <div class="post-body"><p>Reading this on the train was a mistake. A wonderful, tear-stained mistake.</p></div>
+      <span class="example-flag">📝 example post</span>
+    </article>
+  </div>
+</div>
+
+<!-- ============ VIDEO GAMES ============ -->
+<div class="page" id="page-games">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">🎮 Video Games</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">Cozy games, epic RPGs, and everything in between.</p>
+    <article class="post-card">
+      <span class="post-tag" style="background:#6f8a6a">RPG</span>
+      <h3>50 hours in and I still haven't finished the main quest</h3>
+      <div class="post-meta">Example post — swap with your real review</div>
+      <div class="post-body"><p>Every side quest in this game feels handwritten. I keep meaning to progress the main story and instead I'm three hours deep in a fetch quest for a fictional bakery. No regrets.</p></div>
+      <span class="example-flag">📝 example post</span>
+    </article>
+  </div>
+</div>
+
+<!-- ============ PODCAST ============ -->
+<div class="page" id="page-podcast">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">🎙️ The Podcast</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">Weekly fiction discussions, reviews, and lore deep-dives. Listen wherever you get your podcasts.</p>
+    <div class="link-list">
+      <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+        <span class="emoji">🎧</span>
+        <div><div class="name">Apple Podcasts</div><div class="desc">Link pending — using Linktree for now</div></div>
+      </a>
+      <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+        <span class="emoji">🟢</span>
+        <div><div class="name">Spotify</div><div class="desc">Link pending — using Linktree for now</div></div>
+      </a>
+      <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+        <span class="emoji">🎵</span>
+        <div><div class="name">Amazon Music</div><div class="desc">Link pending — using Linktree for now</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LINKS ============ -->
+<div class="page" id="page-links">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">🔗 Find Me Everywhere</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">All the other corners of the internet I live in.</p>
+    <div class="link-list">
+      <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener"><span class="emoji">🔗</span><div><div class="name">All My Links (Linktree)</div><div class="desc">Instagram, TikTok, Discord, Substack, and more</div></div></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showPage(name) {
+    document.getElementById('room').classList.add('hidden');
+    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+    var target = document.getElementById('page-' + name);
+    if (target) target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function showRoom() {
+    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+    document.getElementById('room').classList.remove('hidden');
+    window.scrollTo(0, 0);
+  }
+  document.getElementById('book-filters').addEventListener('click', function (e) {
+    var btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    document.querySelectorAll('#book-filters .filter-pill').forEach(function (p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    var genre = btn.dataset.genre;
+    document.querySelectorAll('#book-posts .post-card').forEach(function (card) {
+      card.style.display = (genre === 'all' || card.dataset.genre === genre) ? '' : 'none';
+    });
+  });
+</script>
