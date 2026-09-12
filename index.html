@@ -573,7 +573,7 @@
 <!-- ============ HOME: THE ROOM ============ -->
 <div id="room">
   <div class="floor-strip"></div>
-  <button class="hotspot newsletter-sign" onclick="showPage('newsletter')">
+  <button class="hotspot newsletter-sign" onclick="window.open('https://myfictionaladventure.substack.com/subscribe', '_blank', 'noopener')">
     <div class="sign-inner">Sign up for<br>my newsletter!</div>
   </button>
   <a class="hotspot newsletter-sign links-sign" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
@@ -999,26 +999,6 @@
   </div>
 </div>
 
-<!-- ============ NEWSLETTER ============ -->
-<div class="page" id="page-newsletter">
-  <div class="page-top">
-    <button class="back-link" onclick="showRoom()">← Back to the room</button>
-    <span class="page-title">💌 Sign Up for My Newsletter</span>
-    <span></span>
-  </div>
-  <div class="page-inner">
-    <p class="page-lede">First look at reviews, podcast episodes, and updates on my own writing — straight to your inbox.</p>
-    <form class="signup-form" onsubmit="return handleNewsletterSubmit(event)">
-      <label for="nl-name">Name</label>
-      <input type="text" id="nl-name" name="name" placeholder="Your name" required>
-      <label for="nl-email">Email</label>
-      <input type="email" id="nl-email" name="email" placeholder="you@example.com" required>
-      <button type="submit" class="signup-submit">Sign me up →</button>
-    </form>
-    <p id="nl-note" class="page-lede" style="margin-top:18px; font-size:0.9rem;">You'll be taken to my Linktree to finish signing up on Substack.</p>
-  </div>
-</div>
-
 <!-- ============ MY LIBRARY ============ -->
 <div class="page" id="page-library">
   <div class="page-top">
@@ -1108,14 +1088,6 @@
 </div>
 
 <script>
-  function handleNewsletterSubmit(event) {
-    event.preventDefault();
-    var name = document.getElementById('nl-name').value.trim();
-    var note = document.getElementById('nl-note');
-    note.textContent = (name ? 'Thanks, ' + name + '! ' : 'Thanks! ') + 'Opening my Linktree so you can finish signing up on Substack…';
-    window.open('https://linktr.ee/myfictionaladventure', '_blank', 'noopener');
-    return false;
-  }
   function showPage(name) {
     document.getElementById('room').classList.add('hidden');
     document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
