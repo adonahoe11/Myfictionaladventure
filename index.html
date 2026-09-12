@@ -109,9 +109,12 @@
   .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
 
   /* --- Sofa + floor lamp (About) --- */
-  .chair-scene { display: flex; flex-direction: column; align-items: center; }
-  .room-corner { display: flex; align-items: flex-end; gap: 4px; }
-  .floor-lamp { display: flex; flex-direction: column; align-items: center; }
+  .chair-scene { display: flex; flex-direction: column; align-items: center; justify-self: center; }
+  .room-corner { position: relative; width: 320px; height: 234px; margin: 0 auto; }
+  .floor-lamp {
+    position: absolute; bottom: 0; right: 4px; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+  }
   .lamp-glow {
     width: 190px; height: 190px; border-radius: 50%; margin: 0 auto -80px;
     background: radial-gradient(circle, rgba(255,207,138,0.6), rgba(255,207,138,0.15) 55%, transparent 72%);
@@ -122,54 +125,55 @@
     background: linear-gradient(180deg, var(--gold), var(--gold-dim));
     box-shadow: 0 0 38px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
   }
-  .lamp-pole { width: 7px; height: 92px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
+  .lamp-pole { width: 7px; height: 122px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
   .lamp-base { width: 40px; height: 10px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
 
-  .sofa { position: relative; width: 250px; height: 168px; }
+  .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 286px; height: 192px; }
   .sofa-back {
-    position: absolute; bottom: 40px; left: 12px; right: 12px; height: 92px;
+    position: absolute; bottom: 46px; left: 14px; right: 14px; height: 105px;
     background: linear-gradient(165deg, var(--rose), #98545e 60%, #86434c);
-    border-radius: 34px 34px 10px 10px;
-    box-shadow: inset 0 14px 18px rgba(255,255,255,0.18), inset 0 -12px 16px rgba(0,0,0,0.18), 0 12px 20px rgba(0,0,0,0.25);
+    border-radius: 38px 38px 10px 10px;
+    box-shadow: inset 0 16px 20px rgba(255,255,255,0.18), inset 0 -14px 18px rgba(0,0,0,0.18), 0 14px 22px rgba(0,0,0,0.25);
   }
   .sofa-back::before, .sofa-back::after {
-    content: ""; position: absolute; top: 22px; bottom: 14px; width: 2px; background: rgba(0,0,0,0.14);
+    content: ""; position: absolute; top: 25px; bottom: 16px; width: 2px; background: rgba(0,0,0,0.14);
   }
   .sofa-back::before { left: 33%; } .sofa-back::after { left: 66%; }
   .sofa-arm {
-    position: absolute; bottom: 16px; width: 48px; height: 82px;
+    position: absolute; bottom: 18px; width: 55px; height: 94px;
     background: linear-gradient(165deg, var(--rose), #98545e 70%, #86434c);
-    border-radius: 26px 26px 18px 18px;
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.15), inset -6px 0 10px rgba(0,0,0,0.18), 0 10px 16px rgba(0,0,0,0.25);
+    border-radius: 30px 30px 20px 20px;
+    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.15), inset -6px 0 10px rgba(0,0,0,0.18), 0 12px 18px rgba(0,0,0,0.25);
   }
   .sofa-arm.left { left: 0; } .sofa-arm.right { right: 0; }
   .sofa-seat {
-    position: absolute; bottom: 16px; left: 42px; right: 42px; height: 50px;
+    position: absolute; bottom: 18px; left: 48px; right: 48px; height: 58px;
     background: linear-gradient(180deg, #c9838c, var(--rose) 55%, #a85e68);
-    border-radius: 16px 16px 8px 8px;
-    box-shadow: inset 0 8px 12px rgba(255,255,255,0.22), inset 0 -10px 12px rgba(0,0,0,0.2), 0 10px 16px rgba(0,0,0,0.2);
+    border-radius: 18px 18px 8px 8px;
+    box-shadow: inset 0 9px 14px rgba(255,255,255,0.22), inset 0 -11px 14px rgba(0,0,0,0.2), 0 12px 18px rgba(0,0,0,0.2);
   }
   .sofa-seat::before, .sofa-seat::after {
-    content: ""; position: absolute; top: 6px; bottom: 6px; width: 2px; background: rgba(0,0,0,0.16);
+    content: ""; position: absolute; top: 7px; bottom: 7px; width: 2px; background: rgba(0,0,0,0.16);
   }
   .sofa-seat::before { left: 33%; } .sofa-seat::after { left: 66%; }
   .sofa-pillow {
-    position: absolute; bottom: 58px; left: 26px; width: 44px; height: 44px;
-    background: linear-gradient(155deg, var(--sage), #6f8a6a); border-radius: 8px; transform: rotate(-10deg);
-    box-shadow: 0 8px 14px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18);
+    position: absolute; bottom: 66px; left: 30px; width: 50px; height: 50px;
+    background: linear-gradient(155deg, var(--sage), #6f8a6a); border-radius: 9px; transform: rotate(-10deg);
+    box-shadow: 0 9px 16px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18);
   }
-  .sofa-leg { position: absolute; bottom: -6px; width: 9px; height: 16px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
-  .sofa-leg.left { left: 26px; } .sofa-leg.right { right: 26px; }
+  .sofa-leg { position: absolute; bottom: -7px; width: 10px; height: 18px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
+  .sofa-leg.left { left: 30px; } .sofa-leg.right { right: 30px; }
   .chair-book {
-    position: absolute; bottom: 66px; left: 50%; transform: translateX(-50%) rotate(-6deg);
-    width: 58px; height: 40px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 3px 8px 8px 3px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5); z-index: 2;
+    position: absolute; bottom: 76px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+    width: 62px; height: 44px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 3px 8px 8px 3px;
+    box-shadow: 0 9px 18px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5); z-index: 2;
   }
   .chair-book::before {
     content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--ink-soft);
   }
 
   /* --- Old-fashioned TV (Shows & Movies) --- */
+  .console-column { justify-self: center; }
   .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
   .tv-antenna { display: flex; justify-content: center; gap: 26px; height: 26px; margin-bottom: -4px; }
   .tv-antenna span { width: 2px; height: 26px; background: #8a8478; transform-origin: bottom center; }
@@ -402,21 +406,21 @@
         </div>
         <div class="shelf-row">
           <div class="bookend"></div>
-          <div class="spine" style="width:34px;height:96%;background:#a85e68">ROMANTASY</div>
+          <div class="spine" style="width:32px;height:96%;background:#a85e68">ROMANTASY</div>
           <div class="spine" style="width:26px;height:88%;background:#5b6b96">DYSTOPIAN</div>
-          <div class="spine lean" style="width:30px;height:80%;background:#6f8a6a">FANTASY</div>
+          <div class="spine lean" style="width:28px;height:80%;background:#6f8a6a">FANTASY</div>
           <div class="spine" style="width:22px;height:100%;background:#c99a4b">SCI-FI</div>
-          <div class="spine" style="width:28px;height:90%;background:#8a5a7a">MYSTERY</div>
+          <div class="spine" style="width:26px;height:90%;background:#8a5a7a">MYSTERY</div>
+          <div class="spine" style="width:24px;height:92%;background:#b2703f">LITRPG</div>
           <div class="bookend"></div>
         </div>
         <div class="shelf-row">
           <div class="bookend"></div>
-          <div class="spine" style="width:24px;height:92%;background:#b2703f">LITRPG</div>
-          <div class="spine lean" style="width:32px;height:82%;background:#a85e68">ROMANTASY</div>
-          <div class="spine" style="width:20px;height:98%;background:#5b6b96">SCI-FI</div>
-          <div class="spine" style="width:30px;height:88%;background:#6f8a6a">FANTASY</div>
-          <div class="spine" style="width:26px;height:94%;background:#8a5a7a">MYSTERY</div>
-          <div class="spine" style="width:24px;height:84%;background:#b2703f">LITRPG</div>
+          <div class="spine" style="width:26px;height:94%;background:#a35c6b">THRILLER</div>
+          <div class="spine lean" style="width:30px;height:82%;background:#c97b84">ROMANCE</div>
+          <div class="spine" style="width:22px;height:98%;background:#8a6a4a">HISTORICAL FICTION</div>
+          <div class="spine" style="width:24px;height:88%;background:#6c7ea3">YA</div>
+          <div class="spine" style="width:22px;height:84%;background:#7a9b76">MIDDLE GRADE</div>
           <div class="bookend"></div>
         </div>
       </div>
@@ -447,7 +451,7 @@
     </button>
 
     <!-- Media console -> Podcast + Shows & Movies -->
-    <div>
+    <div class="console-column">
       <div class="console-row">
         <button class="hotspot" onclick="showPage('shows')" aria-label="Shows and Movies">
           <div class="tv-antenna"><span></span><span></span></div>
@@ -478,9 +482,12 @@
             <div class="comic" style="background:linear-gradient(135deg,#5b6b96,#3d4a6b)">
               <span class="comic-title-block"></span>
               <svg class="comic-art" viewBox="0 0 60 50" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M40 10a15 15 0 1 0 0 30 15 15 0 0 0 9-3 12 12 0 0 1 0-24 15 15 0 0 0-9-3Z" fill="#f4e9d8"/>
-                <path d="M16 28l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#f4e9d8"/>
-                <circle cx="10" cy="14" r="1.8" fill="#f4e9d8"/>
+                <path d="M20 44 Q6 33 11 15 Q15 25 23 29 Z" fill="#f4e9d8" opacity="0.9"/>
+                <path d="M40 44 Q54 33 49 15 Q45 25 37 29 Z" fill="#f4e9d8" opacity="0.9"/>
+                <rect x="24" y="21" width="12" height="21" rx="5" fill="#f4e9d8"/>
+                <circle cx="30" cy="13" r="7" fill="#f4e9d8"/>
+                <rect x="29" y="2" width="6" height="15" rx="3" fill="#f4e9d8" transform="rotate(-18 29 2)"/>
+                <circle cx="34" cy="4" r="4.5" fill="#f4e9d8"/>
               </svg>
             </div>
           </div>
@@ -551,6 +558,11 @@
       <button class="filter-pill" data-genre="scifi">Sci-Fi</button>
       <button class="filter-pill" data-genre="mystery">Mystery</button>
       <button class="filter-pill" data-genre="litrpg">LitRPG</button>
+      <button class="filter-pill" data-genre="thriller">Thriller</button>
+      <button class="filter-pill" data-genre="romance">Romance</button>
+      <button class="filter-pill" data-genre="historical">Historical Fiction</button>
+      <button class="filter-pill" data-genre="ya">YA</button>
+      <button class="filter-pill" data-genre="middlegrade">Middle Grade</button>
     </div>
     <div id="book-posts">
       <article class="post-card" data-genre="romantasy">
