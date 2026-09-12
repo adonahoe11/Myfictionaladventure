@@ -451,6 +451,10 @@
     transition: background 0.2s ease, border-color 0.2s ease;
   }
   .quick-nav button:hover { background: rgba(220,174,92,0.18); border-color: var(--gold); }
+  .claude-credit {
+    position: relative; z-index: 5; text-align: left; padding: 0 24px 24px;
+    font-size: 0.72rem; color: var(--text-light-dim); opacity: 0.6;
+  }
 
   /* ============ SECTION PAGES ============ */
   .page { display: none; min-height: 100vh; background: var(--parchment); color: var(--ink); }
@@ -740,6 +744,8 @@
     <button onclick="showPage('discussions')">💬 Discussions</button>
     <button onclick="showPage('bookclub')">🍵 Book Club</button>
   </div>
+
+  <div class="claude-credit">Made with the help of Claude</div>
 
 </div>
 
