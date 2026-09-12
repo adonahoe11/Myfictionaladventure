@@ -53,7 +53,7 @@
       repeating-linear-gradient(90deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 2px, transparent 3px, transparent 138px),
       repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 44px, transparent 45px, transparent 88px);
   }
-  .room-head { position: relative; z-index: 5; text-align: center; padding: 40px 24px 10px; }
+  .room-head { position: relative; z-index: 5; pointer-events: none; text-align: center; padding: 40px 24px 10px; }
   .brand-mark { display: flex; justify-content: center; margin-bottom: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35)); }
   .room-head .kicker { font-family: var(--font-hand); font-size: 1.6rem; color: var(--gold); }
   .room-head h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; color: var(--text-light); }
@@ -101,7 +101,7 @@
     box-shadow: 0 12px 26px rgba(0,0,0,0.4);
     opacity: 0.92;
   }
-  .bookshelf { padding-bottom: 46px; }
+  .bookshelf { padding-bottom: 14px; position: relative; top: 10px; }
   .shelf-unit {
     width: 440px; max-width: 100%;
     background:
@@ -185,33 +185,33 @@
   .lamp-pole { width: 8px; height: 250px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
   .lamp-base { width: 44px; height: 11px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
 
-  .recliner { position: relative; width: 140px; height: 138px; }
+  .recliner { position: relative; width: 182px; height: 180px; }
   .recliner-back {
-    position: absolute; bottom: 46px; left: 10px; right: 10px; height: 92px;
+    position: absolute; bottom: 60px; left: 13px; right: 13px; height: 120px;
     background: linear-gradient(165deg, var(--dusk), #4d5f80 60%, #3c4a66);
-    border-radius: 30px 30px 10px 10px;
-    box-shadow: inset 0 14px 18px rgba(255,255,255,0.16), inset 0 -12px 16px rgba(0,0,0,0.18), 0 14px 22px rgba(0,0,0,0.28);
+    border-radius: 38px 38px 12px 12px;
+    box-shadow: inset 0 18px 22px rgba(255,255,255,0.16), inset 0 -16px 20px rgba(0,0,0,0.18), 0 18px 26px rgba(0,0,0,0.28);
   }
   .recliner-arm {
-    position: absolute; bottom: 14px; width: 26px; height: 62px;
+    position: absolute; bottom: 18px; width: 34px; height: 81px;
     background: linear-gradient(165deg, var(--dusk), #4d5f80 70%, #3c4a66);
-    border-radius: 16px 16px 12px 12px;
-    box-shadow: inset 3px 3px 6px rgba(255,255,255,0.14), inset -4px 0 8px rgba(0,0,0,0.16), 0 8px 14px rgba(0,0,0,0.25);
+    border-radius: 20px 20px 15px 15px;
+    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.14), inset -5px 0 10px rgba(0,0,0,0.16), 0 10px 18px rgba(0,0,0,0.25);
   }
   .recliner-arm.left { left: 0; } .recliner-arm.right { right: 0; }
   .recliner-seat {
-    position: absolute; bottom: 14px; left: 30px; right: 30px; height: 44px;
+    position: absolute; bottom: 18px; left: 39px; right: 39px; height: 57px;
     background: linear-gradient(180deg, #5d6f90, var(--dusk));
-    border-radius: 12px 12px 6px 6px;
-    box-shadow: inset 0 6px 10px rgba(255,255,255,0.18), inset 0 -8px 10px rgba(0,0,0,0.18), 0 8px 14px rgba(0,0,0,0.2);
+    border-radius: 15px 15px 8px 8px;
+    box-shadow: inset 0 8px 13px rgba(255,255,255,0.18), inset 0 -10px 13px rgba(0,0,0,0.18), 0 10px 18px rgba(0,0,0,0.2);
   }
   .recliner-footrest {
-    position: absolute; bottom: 0; left: 24px; right: 24px; height: 20px;
+    position: absolute; bottom: 0; left: 31px; right: 31px; height: 26px;
     background: linear-gradient(180deg, #5d6f90, var(--dusk));
-    border-radius: 8px; box-shadow: 0 6px 12px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+    border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
   }
-  .recliner-leg { position: absolute; bottom: -8px; width: 8px; height: 14px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
-  .recliner-leg.left { left: 18px; } .recliner-leg.right { right: 18px; }
+  .recliner-leg { position: absolute; bottom: -10px; width: 10px; height: 18px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
+  .recliner-leg.left { left: 24px; } .recliner-leg.right { right: 24px; }
 
   .newsletter-sign {
     position: absolute; top: 90px; left: 30px; z-index: 5;
@@ -222,12 +222,14 @@
     transform: rotate(-3deg); transition: transform 0.2s ease;
   }
   .newsletter-sign:hover { transform: rotate(-1deg) scale(1.03); }
+  .links-sign { left: auto; right: 30px; transform: rotate(3deg); }
+  .links-sign:hover { transform: rotate(1deg) scale(1.03); }
   .sign-inner {
     font-family: var(--font-hand); font-weight: 700; font-size: 1.25rem; line-height: 1.25;
     color: var(--ink); text-align: center;
   }
   .wall-photo {
-    position: absolute; bottom: 280px; left: 95px; width: 96px; height: 72px;
+    position: absolute; bottom: 280px; left: 200px; width: 96px; height: 72px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 6px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(-2deg); z-index: 0;
@@ -264,9 +266,6 @@
   .sofa-pillow {
     position: absolute; width: 78px; height: 78px; border-radius: 14px;
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
-  }
-  .sofa-pillow::before {
-    content: ""; position: absolute; inset: 18px; border: 1px dashed rgba(0,0,0,0.14); border-radius: 8px;
   }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
   .sofa-dog {
@@ -517,6 +516,9 @@
   <button class="hotspot newsletter-sign" onclick="showPage('newsletter')">
     <div class="sign-inner">Sign up for<br>my newsletter!</div>
   </button>
+  <a class="hotspot newsletter-sign links-sign" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+    <div class="sign-inner">My<br>Links!</div>
+  </a>
   <div class="lights">
     <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
       <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
@@ -631,7 +633,7 @@
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
-          <span class="sofa-dog">🐶</span>
+          <span class="sofa-dog">🐕</span>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
           <div class="sofa-leg right"></div>
@@ -701,7 +703,6 @@
   </div>
 
   <div class="quick-nav">
-    <button onclick="showPage('links')">🔗 Find My Links</button>
     <button onclick="showPage('library')">🗄️ My Library</button>
     <button onclick="showPage('writing')">✍️ My Writing</button>
     <button onclick="showPage('about')">💛 About Me</button>
