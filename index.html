@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --wall: #4a0e14; --wall-2: #2e080c; --floor: #2e2622; --floor-2: #1c1714;
@@ -12,10 +12,10 @@
     --rose: #7a1f2b; --sage: #4a4a4d; --dusk: #363b46; --amber-glow: #b08a52;
     --ink: #241012; --ink-soft: #5a4448;
     --text-light: #ded5c8; --text-light-dim: #9a8f86;
-    --font-display: "Fraunces", Georgia, serif;
-    --font-display-italic: "Fraunces", Georgia, serif;
+    --font-display: "Cinzel", Georgia, serif;
+    --font-display-italic: "Cinzel", Georgia, serif;
     --font-body: "Literata", Georgia, serif;
-    --font-hand: "Caveat", cursive;
+    --font-hand: "Tangerine", cursive;
   }
   * { box-sizing: border-box; }
   body {
@@ -66,9 +66,9 @@
   }
   .room-head { position: relative; z-index: 5; pointer-events: none; text-align: center; padding: 40px 24px 10px; }
   .brand-mark { display: flex; justify-content: center; margin-bottom: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35)); }
-  .room-head .kicker { font-family: var(--font-hand); font-size: 1.6rem; color: var(--gold); }
-  .room-head h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; color: var(--text-light); }
-  .room-head .signature { font-family: var(--font-hand); font-size: 1.4rem; color: var(--amber-glow); margin-top: 2px; }
+  .room-head .kicker { font-family: var(--font-hand); font-size: 2.4rem; color: var(--gold); letter-spacing: 0.02em; }
+  .room-head h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; color: var(--text-light); letter-spacing: 0.03em; }
+  .room-head .signature { font-family: var(--font-hand); font-size: 2.1rem; color: var(--amber-glow); margin-top: -4px; }
   .room-head p { margin-top: 10px; color: var(--text-light-dim); max-width: 52ch; margin-left: auto; margin-right: auto; font-size: 1.02rem; }
 
   .room-scene {
@@ -86,7 +86,7 @@
   .hotspot:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 8px; }
   .hotspot-label {
     position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
-    font-family: var(--font-hand); font-size: 1.3rem; color: var(--amber-glow);
+    font-family: var(--font-hand); font-size: 2rem; color: var(--amber-glow);
     white-space: nowrap; opacity: 0; transition: opacity 0.2s ease;
   }
   .hotspot:hover .hotspot-label, .hotspot:focus-visible .hotspot-label { opacity: 1; }
@@ -135,7 +135,10 @@
   }
   .spine.lean { transform: rotate(-4deg) translateY(2px); transform-origin: bottom center; }
   .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,#4a3a2a,#5a3d2e); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
-  .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
+  .recliner-raven {
+    position: absolute; top: -30px; left: 50%; transform: translateX(-50%) scaleX(-1);
+    font-size: 3.6rem; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.5));
+  }
 
   /* --- Sofa + floor lamp (About) --- */
   .center-group { position: relative; display: flex; align-items: flex-end; gap: 28px; justify-self: center; min-width: 0; margin-left: 46px; }
@@ -217,22 +220,22 @@
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
 
   .mini-shelf {
-    position: relative; top: -18px;
-    width: 96px; padding: 8px 8px 0;
+    position: relative; top: -24px;
+    width: 130px; padding: 10px 10px 0;
     background:
       repeating-linear-gradient(100deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 3px, transparent 14px),
       linear-gradient(180deg, var(--wood-light), var(--wood) 55%, var(--wood-dark));
     border: 3px solid var(--wood-dark); border-radius: 6px 6px 2px 2px;
     box-shadow: 0 16px 28px rgba(0,0,0,0.4), inset 0 0 14px rgba(0,0,0,0.2);
   }
-  .mini-shelf-topper { display: flex; justify-content: center; gap: 4px; margin-bottom: 6px; height: 14px; align-items: flex-end; }
+  .mini-shelf-topper { display: flex; justify-content: center; gap: 5px; margin-bottom: 8px; height: 19px; align-items: flex-end; }
   .mini-shelf-row {
-    display: flex; align-items: flex-end; gap: 2px; height: 58px;
+    display: flex; align-items: flex-end; gap: 3px; height: 78px;
     background: linear-gradient(180deg, rgba(0,0,0,0.25), transparent 30%);
-    border-bottom: 6px solid var(--wood-dark); padding-bottom: 4px;
+    border-bottom: 8px solid var(--wood-dark); padding-bottom: 5px;
     box-shadow: inset 0 6px 10px -6px rgba(0,0,0,0.5);
   }
-  .mini-shelf .bookend { width: 6px; }
+  .mini-shelf .bookend { width: 8px; }
 
   .library-shelf { position: absolute; bottom: 232px; left: 920px; width: 110px; z-index: 1; }
   .library-shelf-books { display: flex; justify-content: center; gap: 4px; margin-bottom: 5px; height: 34px; align-items: flex-end; }
@@ -254,7 +257,7 @@
   .links-sign { left: auto; right: 30px; transform: rotate(3deg); }
   .links-sign:hover { transform: rotate(1deg) scale(1.03); }
   .sign-inner {
-    font-family: var(--font-hand); font-weight: 700; font-size: 1.25rem; line-height: 1.25;
+    font-family: var(--font-hand); font-weight: 700; font-size: 1.9rem; line-height: 1.1;
     color: var(--ink); text-align: center;
   }
   .wall-photo {
@@ -269,40 +272,46 @@
     display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
   /* --- little fireplace, far right of the room --- */
-  .fireplace { position: absolute; right: 14px; bottom: 0; width: 108px; z-index: 2; text-align: center; }
+  .fireplace { position: absolute; right: 4px; bottom: 0; width: 152px; z-index: 2; text-align: center; }
   .fireplace-mantel {
-    width: 100%; height: 14px; border-radius: 3px;
+    position: relative; width: 100%; height: 20px; border-radius: 3px;
     background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
-    box-shadow: 0 6px 10px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.45);
   }
+  .fireplace-mantel::before, .fireplace-mantel::after {
+    content: ""; position: absolute; top: -9px; width: 0; height: 0;
+    border-left: 6px solid transparent; border-right: 6px solid transparent;
+    border-bottom: 10px solid var(--wood-dark);
+  }
+  .fireplace-mantel::before { left: 8px; } .fireplace-mantel::after { right: 8px; }
   .fireplace-opening {
-    position: relative; margin: 0 auto; width: 80px; height: 90px; overflow: hidden;
-    background: linear-gradient(180deg, #241611, #120a07);
-    border: 6px solid var(--wood-dark); border-top: none; border-radius: 0 0 6px 6px;
-    box-shadow: inset 0 12px 18px rgba(0,0,0,0.6);
+    position: relative; margin: 0 auto; width: 112px; height: 126px; overflow: hidden;
+    background: linear-gradient(180deg, #1c1210, #0a0605);
+    border: 8px solid var(--wood-dark); border-top: none; border-radius: 0 0 8px 8px;
+    box-shadow: inset 0 16px 24px rgba(0,0,0,0.7);
   }
   .fireplace-glow {
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 50% 100%, rgba(255,150,60,0.65), transparent 70%);
+    background: radial-gradient(circle at 50% 100%, rgba(200,50,25,0.75), transparent 70%);
     animation: fireflicker 2.6s ease-in-out infinite;
   }
   .fireplace-log {
-    position: absolute; bottom: 6px; left: 12px; right: 12px; height: 8px; border-radius: 4px;
-    background: linear-gradient(90deg, #5a3d2e, #7a5540, #5a3d2e);
+    position: absolute; bottom: 8px; left: 17px; right: 17px; height: 11px; border-radius: 5px;
+    background: linear-gradient(90deg, #2e1d14, #4a3324, #2e1d14);
   }
   .flame {
-    position: absolute; bottom: 12px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    background: linear-gradient(180deg, #ffd166, #ff7043 60%, #d84315);
+    position: absolute; bottom: 17px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: linear-gradient(180deg, #ff6a3a, #c0392b 55%, #4a0e08);
     animation: fireflicker 1.8s ease-in-out infinite;
   }
-  .flame.f1 { left: 18px; width: 16px; height: 24px; animation-delay: 0.1s; }
-  .flame.f2 { left: 34px; width: 20px; height: 32px; animation-delay: 0.4s; }
-  .flame.f3 { left: 52px; width: 14px; height: 20px; animation-delay: 0.7s; }
+  .flame.f1 { left: 25px; width: 22px; height: 34px; animation-delay: 0.1s; }
+  .flame.f2 { left: 48px; width: 28px; height: 45px; animation-delay: 0.4s; }
+  .flame.f3 { left: 73px; width: 20px; height: 28px; animation-delay: 0.7s; }
   @keyframes fireflicker { 0%, 100% { opacity: 0.85; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.08); } }
   .fireplace-hearth {
-    width: 98px; margin: 0 auto; height: 10px; border-radius: 3px;
+    width: 136px; margin: 0 auto; height: 14px; border-radius: 3px;
     background: linear-gradient(180deg, var(--wood-light), var(--wood));
-    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.4);
   }
 
   .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 460px; height: 308px; }
@@ -443,6 +452,7 @@
     color: #c9b8a0; letter-spacing: 0.01em; text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   }
   .comic-hero { position: absolute; left: 8px; right: 8px; bottom: 12px; height: 62%; }
+  .comic-hero-solo { left: 4px; right: 4px; top: 10px; bottom: 10px; height: auto; }
   .comic-issue {
     position: absolute; bottom: 6px; right: 8px; font-family: var(--font-body); font-weight: 700; font-size: 0.62rem;
     color: #c9b8a0; background: rgba(0,0,0,0.4); padding: 1px 7px; border-radius: 3px;
@@ -603,11 +613,9 @@
                 <svg class="comic-burst-bg" viewBox="0 0 100 100" fill="none">
                   <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#2a0d08"/>
                 </svg>
-                <div class="comic-masthead">ADVENTURE<br>TALES</div>
-                <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
+                <svg class="comic-hero comic-hero-solo" viewBox="0 0 100 90" fill="none">
                   <polygon points="60,2 24,48 44,48 34,88 78,38 56,38" fill="#0a0604" stroke="#7a1f2b" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
-                <div class="comic-issue">No. 1</div>
               </div>
             </div>
             <span class="hotspot-label">📖 manga &amp; comics</span>
@@ -657,7 +665,6 @@
             <div class="bookend"></div>
           </div>
         </div>
-        <div class="shelf-plant" aria-hidden="true">🐦‍⬛</div>
         <span class="hotspot-label" style="left: 30%; z-index: 6;">📚 book reviews</span>
       </button>
     </div>
@@ -710,21 +717,22 @@
         <div class="recliner-footrest"></div>
         <div class="recliner-leg left"></div>
         <div class="recliner-leg right"></div>
+        <div class="recliner-raven" aria-hidden="true">🐦‍⬛</div>
       </div>
       <span class="hotspot-label">💛 about me</span>
     </button>
     <button class="hotspot" onclick="showPage('bookclub')" aria-label="Book Club">
       <div class="mini-shelf">
         <div class="mini-shelf-topper">
-          <div class="flat-book" style="width:22px;height:6px;background:#7a1f2b;transform:rotate(-2deg)"></div>
-          <div class="flat-book" style="width:26px;height:7px;background:#8a6a3a;"></div>
+          <div class="flat-book" style="width:30px;height:8px;background:#7a1f2b;transform:rotate(-2deg)"></div>
+          <div class="flat-book" style="width:35px;height:9px;background:#8a6a3a;"></div>
         </div>
         <div class="mini-shelf-row">
           <div class="bookend"></div>
-          <div class="spine" style="width:14px;height:90%;background:#7a1f2b"></div>
-          <div class="spine" style="width:12px;height:100%;background:#8a6a3a"></div>
-          <div class="spine" style="width:16px;height:80%;background:#3a4a5a"></div>
-          <div class="spine" style="width:12px;height:94%;background:#2a4a32"></div>
+          <div class="spine" style="width:19px;height:90%;background:#7a1f2b"></div>
+          <div class="spine" style="width:16px;height:100%;background:#8a6a3a"></div>
+          <div class="spine" style="width:22px;height:80%;background:#3a4a5a"></div>
+          <div class="spine" style="width:16px;height:94%;background:#2a4a32"></div>
           <div class="bookend"></div>
         </div>
       </div>
@@ -780,7 +788,7 @@
         <div class="fireplace-log"></div>
       </div>
       <div class="fireplace-hearth"></div>
-      <span class="hotspot-label" style="white-space: normal; width: 90px; text-align: center; line-height: 1.05; bottom: -40px;">✉️ contact<br>me</span>
+      <span class="hotspot-label" style="white-space: normal; width: 100px; text-align: center; line-height: 1.05; bottom: -86px;">✉️ contact<br>me</span>
     </button>
   </div>
 
