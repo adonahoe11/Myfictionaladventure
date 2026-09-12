@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 340px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 250px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -82,7 +82,7 @@
   .hotspot:hover, .hotspot:focus-visible { transform: translateY(-4px); }
   .hotspot:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 8px; }
   .hotspot-label {
-    position: absolute; left: 50%; bottom: -30px; transform: translateX(-50%);
+    position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
     font-family: var(--font-hand); font-size: 1.3rem; color: var(--amber-glow);
     white-space: nowrap; opacity: 0; transition: opacity 0.2s ease;
   }
@@ -97,7 +97,7 @@
   .rug {
     position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
     width: 470px; height: 110px; border-radius: 50%; z-index: 0;
-    background: radial-gradient(ellipse at center, #dcae5c 0%, #dcae5c 50%, #b8904a 53%, #b8904a 63%, #8a6a3a 66%, #8a6a3a 74%, #6b4f2a 77%);
+    background: radial-gradient(ellipse at center, #2a2826 0%, #2a2826 50%, #1c1a19 53%, #1c1a19 63%, #100f0e 66%, #100f0e 74%, #060606 77%);
     box-shadow: 0 12px 26px rgba(0,0,0,0.4);
     opacity: 0.92;
   }
@@ -137,9 +137,9 @@
   /* --- Sofa + floor lamp (About) --- */
   .center-group { display: flex; align-items: flex-end; gap: 28px; justify-self: center; min-width: 0; }
   .chair-scene { display: flex; flex-direction: column; align-items: center; position: relative; }
-  .side-table { position: relative; width: 96px; height: 92px; }
+  .side-table { position: relative; width: 150px; height: 92px; }
   .table-top {
-    position: absolute; bottom: 62px; left: 0; right: 0; height: 15px; border-radius: 7px;
+    position: absolute; bottom: 62px; left: 0; right: 0; height: 16px; border-radius: 8px;
     background: linear-gradient(180deg, var(--wood-light), var(--wood));
     box-shadow: 0 8px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
   }
@@ -150,7 +150,7 @@
   }
   .table-base {
     position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
-    width: 50px; height: 9px; background: var(--wood-dark); border-radius: 50%;
+    width: 76px; height: 9px; background: var(--wood-dark); border-radius: 50%;
   }
   .notebook {
     position: absolute; bottom: 77px; left: 50%; transform: translateX(-50%) rotate(-5deg);
@@ -167,7 +167,7 @@
     background: linear-gradient(180deg, var(--gold), var(--gold-dim));
     transform: rotate(18deg);
   }
-  .room-corner { position: relative; width: 480px; height: 320px; margin: 0 auto; }
+  .room-corner { position: relative; width: 480px; height: 370px; margin: 0 auto; }
   .floor-lamp {
     position: absolute; bottom: 0; right: 2px; z-index: 1;
     display: flex; flex-direction: column; align-items: center;
@@ -182,9 +182,29 @@
     background: linear-gradient(180deg, var(--gold), var(--gold-dim));
     box-shadow: 0 0 40px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
   }
-  .lamp-pole { width: 8px; height: 200px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
+  .lamp-pole { width: 8px; height: 250px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
   .lamp-base { width: 44px; height: 11px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
 
+  .newsletter-sign {
+    position: absolute; top: 90px; left: 30px; z-index: 5;
+    width: 130px; padding: 14px 12px; text-decoration: none; display: block;
+    background: linear-gradient(155deg, var(--parchment), var(--parchment-2));
+    border: 6px solid var(--gold-dim); border-radius: 4px;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.1);
+    transform: rotate(-3deg); transition: transform 0.2s ease;
+  }
+  .newsletter-sign:hover { transform: rotate(-1deg) scale(1.03); }
+  .sign-inner {
+    font-family: var(--font-hand); font-weight: 700; font-size: 1.25rem; line-height: 1.25;
+    color: var(--ink); text-align: center;
+  }
+  .wall-photo {
+    position: absolute; bottom: 280px; left: 30px; width: 96px; height: 72px;
+    background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 6px; border-radius: 3px;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
+    transform: rotate(-2deg); z-index: 0;
+  }
+  .wall-photo svg { width: 100%; height: 100%; display: block; border-radius: 2px; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3); }
   .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 460px; height: 308px; }
   .sofa-back {
     position: absolute; bottom: 74px; left: 22px; right: 22px; height: 169px;
@@ -222,20 +242,17 @@
   }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
   .sofa-dog {
-    position: absolute; bottom: 112px; right: 78px; width: 118px; z-index: 1;
+    position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 118px; z-index: 1;
     filter: drop-shadow(0 8px 8px rgba(0,0,0,0.3));
   }
   .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 40px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
   .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
 .chair-book {
-    position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%) rotate(4deg);
+    position: absolute; bottom: 104px; right: 44px; transform: rotate(9deg);
     width: 78px; height: 78px; border-radius: 14px;
     background: linear-gradient(155deg, var(--sage), #6f8a6a);
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
     z-index: 2;
-  }
-  .chair-book::before {
-    content: ""; position: absolute; inset: 18px; border: 2px solid #000; border-radius: 8px;
   }
 
   /* --- Old-fashioned TV (Shows & Movies) --- */
@@ -379,7 +396,7 @@
   /* quick-nav pills for accessibility / "easy to use" */
   .quick-nav {
     position: relative; z-index: 5; display: flex; flex-wrap: nowrap; justify-content: center;
-    gap: 8px; max-width: 1180px; margin: 30px auto 0; padding: 0 24px 4px;
+    gap: 8px; max-width: 1180px; margin: 80px auto 0; padding: 0 24px 4px;
     overflow-x: auto; -webkit-overflow-scrolling: touch;
   }
   .quick-nav button {
@@ -455,6 +472,9 @@
 <!-- ============ HOME: THE ROOM ============ -->
 <div id="room">
   <div class="floor-strip"></div>
+  <a class="newsletter-sign" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+    <div class="sign-inner">Sign up for<br>my newsletter!</div>
+  </a>
   <div class="lights">
     <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
       <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
@@ -556,6 +576,13 @@
     <button class="hotspot chair-scene" onclick="showPage('about')" aria-label="About Allie">
       <div class="rug"></div>
       <div class="room-corner">
+        <div class="wall-photo">
+          <svg viewBox="0 0 60 44" fill="none">
+            <rect width="60" height="44" fill="#8fa8c4"/>
+            <polygon points="0,44 18,20 30,32 42,14 60,44" fill="#5a6f52"/>
+            <circle cx="47" cy="10" r="6" fill="#f4d78a"/>
+          </svg>
+        </div>
         <div class="sofa">
           <div class="sofa-back"></div>
           <div class="sofa-arm left"></div>
@@ -563,17 +590,17 @@
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
           <svg class="sofa-dog" viewBox="0 0 60 60" fill="none">
-            <path d="M46 40 Q58 34 54 22 Q50 30 44 34 Z" fill="#b98457"/>
-            <ellipse cx="30" cy="42" rx="18" ry="16" fill="#b98457"/>
-            <rect x="14" y="26" width="16" height="26" rx="8" fill="#b98457"/>
-            <rect x="16" y="44" width="6" height="14" rx="3" fill="#a06f45"/>
-            <rect x="26" y="44" width="6" height="14" rx="3" fill="#96633f"/>
-            <circle cx="18" cy="18" r="12" fill="#b98457"/>
-            <path d="M8 10 L4 -2 L14 6 Z" fill="#96633f"/>
-            <path d="M24 8 L30 -4 L18 4 Z" fill="#96633f"/>
-            <ellipse cx="9" cy="21" rx="6" ry="4.5" fill="#d4a878"/>
-            <ellipse cx="4" cy="21" rx="2" ry="1.6" fill="#3a2a1a"/>
-            <circle cx="14" cy="14" r="1.6" fill="#3a2a1a"/>
+            <path d="M44 38 Q56 32 52 20 Q48 28 42 32 Z" fill="#b98457"/>
+            <ellipse cx="31" cy="45" rx="15" ry="12" fill="#b98457"/>
+            <rect x="16" y="21" width="15" height="30" rx="5" fill="#b98457"/>
+            <rect x="17" y="49" width="5" height="11" rx="2" fill="#a06f45"/>
+            <rect x="28" y="49" width="5" height="11" rx="2" fill="#96633f"/>
+            <ellipse cx="18" cy="15" rx="11" ry="10" fill="#b98457"/>
+            <path d="M9 7 L6 -3 L15 4 Z" fill="#96633f"/>
+            <path d="M23 5 L28 -5 L18 2 Z" fill="#96633f"/>
+            <ellipse cx="8" cy="17" rx="5.5" ry="4" fill="#d4a878"/>
+            <ellipse cx="3.2" cy="17" rx="1.8" ry="1.4" fill="#3a2a1a"/>
+            <circle cx="13" cy="11" r="1.4" fill="#3a2a1a"/>
           </svg>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
@@ -654,7 +681,7 @@
     <p class="page-lede">Writer. Reviewer. Podcaster. Permanently geeking out about fictional worlds — currently deep in writing an epic romantasy-dystopian series of my own, and podcasting weekly about everything I'm reading, watching, and playing.</p>
     <div class="post-card">
       <p class="post-body">I started My Fictional Adventure because I could never talk about books, shows, manga, and games in just one place — my brain doesn't separate them, so why should the shelf? This room is that: one cozy spot for all of it, organized the way I actually think about it.</p>
-      <p class="post-body" style="margin-top:14px;">No last names, no personal details here — just Allie, and everything I'm currently obsessed with. Come sit by the lamp for a while.</p>
+      <p class="post-body" style="margin-top:14px;">Come sit by the lamp for a while.</p>
     </div>
   </div>
 </div>
