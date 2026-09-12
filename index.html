@@ -5,13 +5,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wall: #3e5b6b; --wall-2: #2f4652; --floor: #7a5738; --floor-2: #5f4429;
-    --wood: #6b4a34; --wood-dark: #43301f; --wood-light: #8a6448;
-    --parchment: #f4e9d8; --parchment-2: #ece0cb;
-    --gold: #dcae5c; --gold-dim: #b8904a;
-    --rose: #cf8891; --sage: #93ab8e; --dusk: #6c7ea3; --amber-glow: #ffcf8a;
-    --ink: #3a2a33; --ink-soft: #6b5762;
-    --text-light: #f4e9d8; --text-light-dim: #cdb9ab;
+    --wall: #1a1614; --wall-2: #100d0c; --floor: #2e2622; --floor-2: #1c1714;
+    --wood: #3a2e28; --wood-dark: #1c1512; --wood-light: #55453a;
+    --parchment: #d8cfc0; --parchment-2: #c7bcab;
+    --gold: #8a6a3a; --gold-dim: #6b5028;
+    --rose: #7a1f2b; --sage: #4a4a4d; --dusk: #363b46; --amber-glow: #b08a52;
+    --ink: #241012; --ink-soft: #5a4448;
+    --text-light: #ded5c8; --text-light-dim: #9a8f86;
     --font-display: "Fraunces", Georgia, serif;
     --font-display-italic: "Fraunces", Georgia, serif;
     --font-body: "Literata", Georgia, serif;
@@ -142,7 +142,7 @@
     background: rgba(255,255,255,0.35); border-radius: 1px;
   }
   .spine.lean { transform: rotate(-4deg) translateY(2px); transform-origin: bottom center; }
-  .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,#8a6a4a,#5a3d2e); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+  .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,#4a3a2a,#5a3d2e); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
   .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
 
   /* --- Sofa + floor lamp (About) --- */
@@ -199,26 +199,26 @@
   .recliner { position: relative; width: 215px; height: 213px; }
   .recliner-back {
     position: absolute; bottom: 71px; left: 15px; right: 15px; height: 142px;
-    background: linear-gradient(165deg, var(--dusk), #4d5f80 60%, #3c4a66);
+    background: linear-gradient(165deg, var(--dusk), #2a2e38 60%, #1e2128);
     border-radius: 45px 45px 14px 14px;
     box-shadow: inset 0 22px 26px rgba(255,255,255,0.16), inset 0 -19px 24px rgba(0,0,0,0.18), 0 22px 30px rgba(0,0,0,0.28);
   }
   .recliner-arm {
     position: absolute; bottom: 21px; width: 40px; height: 96px;
-    background: linear-gradient(165deg, var(--dusk), #4d5f80 70%, #3c4a66);
+    background: linear-gradient(165deg, var(--dusk), #2a2e38 70%, #1e2128);
     border-radius: 24px 24px 18px 18px;
     box-shadow: inset 5px 5px 10px rgba(255,255,255,0.14), inset -6px 0 12px rgba(0,0,0,0.16), 0 12px 20px rgba(0,0,0,0.25);
   }
   .recliner-arm.left { left: 0; } .recliner-arm.right { right: 0; }
   .recliner-seat {
     position: absolute; bottom: 21px; left: 46px; right: 46px; height: 67px;
-    background: linear-gradient(180deg, #5d6f90, var(--dusk));
+    background: linear-gradient(180deg, #454b58, var(--dusk));
     border-radius: 18px 18px 10px 10px;
     box-shadow: inset 0 10px 15px rgba(255,255,255,0.18), inset 0 -12px 15px rgba(0,0,0,0.18), 0 12px 20px rgba(0,0,0,0.2);
   }
   .recliner-footrest {
     position: absolute; bottom: 0; left: 37px; right: 37px; height: 31px;
-    background: linear-gradient(180deg, #5d6f90, var(--dusk));
+    background: linear-gradient(180deg, #454b58, var(--dusk));
     border-radius: 12px; box-shadow: 0 10px 18px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
   }
   .recliner-leg { position: absolute; bottom: -12px; width: 12px; height: 21px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
@@ -272,7 +272,7 @@
     transform: rotate(-2deg); z-index: 3;
   }
   .wall-photo-inner {
-    width: 100%; height: 100%; border-radius: 2px; background: #e8b0c1;
+    width: 100%; height: 100%; border-radius: 2px; background: #5a2e38;
     box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
     display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
@@ -316,7 +316,7 @@
   .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 460px; height: 308px; }
   .sofa-back {
     position: absolute; bottom: 74px; left: 22px; right: 22px; height: 169px;
-    background: linear-gradient(165deg, var(--rose), #98545e 60%, #86434c);
+    background: linear-gradient(165deg, var(--rose), #5c1620 60%, #3f0f16);
     border-radius: 62px 62px 16px 16px;
     box-shadow: inset 0 24px 28px rgba(255,255,255,0.18), inset 0 -22px 26px rgba(0,0,0,0.18), 0 20px 30px rgba(0,0,0,0.25);
   }
@@ -326,14 +326,14 @@
   .sofa-back::before { left: 33%; } .sofa-back::after { left: 66%; }
   .sofa-arm {
     position: absolute; bottom: 29px; width: 88px; height: 151px;
-    background: linear-gradient(165deg, var(--rose), #98545e 70%, #86434c);
+    background: linear-gradient(165deg, var(--rose), #5c1620 70%, #3f0f16);
     border-radius: 48px 48px 30px 30px;
     box-shadow: inset 5px 5px 10px rgba(255,255,255,0.15), inset -8px 0 14px rgba(0,0,0,0.18), 0 18px 26px rgba(0,0,0,0.25);
   }
   .sofa-arm.left { left: 0; } .sofa-arm.right { right: 0; }
   .sofa-seat {
     position: absolute; bottom: 29px; left: 77px; right: 77px; height: 94px;
-    background: linear-gradient(180deg, #c9838c, var(--rose) 55%, #a85e68);
+    background: linear-gradient(180deg, #9a3540, var(--rose) 55%, #5c1620);
     border-radius: 28px 28px 10px 10px;
     box-shadow: inset 0 13px 20px rgba(255,255,255,0.22), inset 0 -16px 20px rgba(0,0,0,0.2), 0 18px 26px rgba(0,0,0,0.2);
   }
@@ -345,7 +345,7 @@
     position: absolute; width: 78px; height: 78px; border-radius: 14px;
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
   }
-  .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
+  .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #303032); transform: rotate(-9deg); }
   .sofa-dog {
     position: absolute; bottom: 82px; left: 50%; transform: translateX(-50%);
     width: 118px; height: 94px; z-index: 1;
@@ -358,7 +358,7 @@
 .chair-book {
     position: absolute; bottom: 104px; right: 44px; transform: rotate(9deg);
     width: 78px; height: 78px; border-radius: 14px;
-    background: linear-gradient(155deg, var(--sage), #6f8a6a);
+    background: linear-gradient(155deg, var(--sage), #303032);
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
     z-index: 2;
   }
@@ -372,7 +372,7 @@
   .tv-antenna span:last-child { transform: rotate(24deg); }
   .tv-set {
     width: 190px; display: flex; gap: 10px; align-items: center;
-    background: linear-gradient(155deg, #8a5a3f, #6b4530 55%, #4d3120);
+    background: linear-gradient(155deg, #4a3a2a, #362a1e 55%, #221a12);
     border: 3px solid var(--wood-dark); border-radius: 14px; padding: 12px;
     box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 2px 3px rgba(255,255,255,0.12);
   }
@@ -387,7 +387,7 @@
     box-shadow: inset 0 0 18px rgba(0,0,0,0.65), inset 0 0 0 2px rgba(255,255,255,0.06);
   }
   .tv-panel { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .tv-knob { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #8a6a4a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); position: relative; }
+  .tv-knob { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #4a3a2a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); position: relative; }
   .tv-knob::after { content: ""; position: absolute; top: 2px; left: 50%; width: 2px; height: 7px; background: #4d3120; transform: translateX(-50%); }
   .tv-knob.small { width: 13px; height: 13px; }
   .tv-speaker {
@@ -419,7 +419,7 @@
   .radio-set { position: relative; }
   .radio-needle { position: absolute; top: 50%; left: 50%; width: 2px; height: 11px; background: #a8342e; transform-origin: bottom center; transform: translate(-50%,-100%) rotate(25deg); }
   .radio-knobs { display: flex; gap: 14px; }
-  .radio-knob { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #8a6a4a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+  .radio-knob { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #4a3a2a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
 
 /* --- Comics stack (Manga & Comics) --- */
   .table-row { display: flex; gap: 34px; justify-content: center; align-items: flex-end; }
@@ -448,7 +448,7 @@
   .comic-art { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 60px; }
   .comic-cover {
     position: relative; width: 90px; height: 120px; border-radius: 4px; overflow: hidden;
-    background: linear-gradient(160deg, #c0503a, #8a3527);
+    background: linear-gradient(160deg, #8a2e22, #4a180f);
     box-shadow: 0 8px 18px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.25), inset 0 0 0 2px rgba(0,0,0,0.3);
   }
   .comic-burst-bg { position: absolute; inset: -12%; opacity: 0.85; }
@@ -467,7 +467,7 @@
   .console-scene { display: flex; align-items: flex-end; gap: 12px; }
   .game-console {
     width: 118px; height: 66px;
-    background: linear-gradient(155deg, var(--sage), #6f8a6a 70%, #587455);
+    background: linear-gradient(155deg, var(--sage), #303032 70%, #202022);
     border-radius: 10px; position: relative; box-shadow: 0 20px 38px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.18);
   }
   .console-slot {
@@ -535,8 +535,8 @@
   .filter-pill.active, .filter-pill:hover { background: var(--ink); border-color: var(--ink); color: var(--parchment); }
 
   .post-card {
-    background: #fff; border: 1px solid var(--parchment-2); border-radius: 16px;
-    padding: 26px 28px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(58,42,51,0.06);
+    background: #e2d8c8; border: 1px solid var(--parchment-2); border-radius: 16px;
+    padding: 26px 28px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.18);
   }
   .post-tag {
     display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
@@ -544,15 +544,15 @@
   }
   .post-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
   .post-meta { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 14px; font-style: italic; }
-  .post-body { color: #4a3a44; }
+  .post-body { color: #3a2426; }
   .post-body p + p { margin-top: 12px; }
   .example-flag {
     display: inline-block; margin-top: 16px; font-size: 0.76rem; color: var(--gold-dim);
-    background: #fbf3e3; border: 1px dashed var(--gold-dim); padding: 4px 10px; border-radius: 8px;
+    background: #d8c9b0; border: 1px dashed var(--gold-dim); padding: 4px 10px; border-radius: 8px;
   }
   .preview-banner {
     display: flex; gap: 12px; align-items: flex-start;
-    background: #fbf3e3; border: 1.5px dashed var(--gold-dim); border-radius: 14px;
+    background: #d8c9b0; border: 1.5px dashed var(--gold-dim); border-radius: 14px;
     padding: 16px 20px; margin-bottom: 28px;
   }
   .preview-banner .emoji { font-size: 1.4rem; line-height: 1; }
@@ -566,7 +566,7 @@
 
   .link-list { display: flex; flex-direction: column; gap: 14px; }
   .link-item {
-    display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--parchment-2);
+    display: flex; align-items: center; gap: 14px; background: #e2d8c8; border: 1px solid var(--parchment-2);
     border-radius: 14px; padding: 16px 20px; text-decoration: none; color: var(--ink);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -579,7 +579,7 @@
   .signup-form label { font-weight: 700; font-size: 0.85rem; color: var(--ink-soft); margin-top: 10px; }
   .signup-form input {
     font-family: var(--font-body); font-size: 1rem; padding: 12px 14px; border-radius: 10px;
-    border: 1.5px solid var(--parchment-2); background: #fff; color: var(--ink);
+    border: 1.5px solid var(--parchment-2); background: #e2d8c8; color: var(--ink);
   }
   .signup-form input:focus { outline: none; border-color: var(--gold-dim); }
   .signup-submit {
@@ -604,18 +604,18 @@
     <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
       <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
       <g>
-        <circle class="bulb" cx="60" cy="18" r="6" fill="#ffcf8a"/>
-        <circle class="bulb" cx="160" cy="34" r="6" fill="#cf8891"/>
-        <circle class="bulb" cx="260" cy="44" r="6" fill="#93ab8e"/>
-        <circle class="bulb" cx="360" cy="40" r="6" fill="#dcae5c"/>
-        <circle class="bulb" cx="460" cy="24" r="6" fill="#ffcf8a"/>
-        <circle class="bulb" cx="560" cy="12" r="6" fill="#cf8891"/>
-        <circle class="bulb" cx="660" cy="14" r="6" fill="#93ab8e"/>
-        <circle class="bulb" cx="760" cy="26" r="6" fill="#dcae5c"/>
-        <circle class="bulb" cx="860" cy="42" r="6" fill="#ffcf8a"/>
-        <circle class="bulb" cx="960" cy="40" r="6" fill="#cf8891"/>
-        <circle class="bulb" cx="1060" cy="24" r="6" fill="#93ab8e"/>
-        <circle class="bulb" cx="1140" cy="12" r="6" fill="#dcae5c"/>
+        <circle class="bulb" cx="60" cy="18" r="6" fill="#8a6a3a"/>
+        <circle class="bulb" cx="160" cy="34" r="6" fill="#7a1f2b"/>
+        <circle class="bulb" cx="260" cy="44" r="6" fill="#4a4a4d"/>
+        <circle class="bulb" cx="360" cy="40" r="6" fill="#6b4a2a"/>
+        <circle class="bulb" cx="460" cy="24" r="6" fill="#8a6a3a"/>
+        <circle class="bulb" cx="560" cy="12" r="6" fill="#7a1f2b"/>
+        <circle class="bulb" cx="660" cy="14" r="6" fill="#4a4a4d"/>
+        <circle class="bulb" cx="760" cy="26" r="6" fill="#6b4a2a"/>
+        <circle class="bulb" cx="860" cy="42" r="6" fill="#8a6a3a"/>
+        <circle class="bulb" cx="960" cy="40" r="6" fill="#7a1f2b"/>
+        <circle class="bulb" cx="1060" cy="24" r="6" fill="#4a4a4d"/>
+        <circle class="bulb" cx="1140" cy="12" r="6" fill="#6b4a2a"/>
       </g>
     </svg>
   </div>
@@ -636,7 +636,7 @@
             <div class="comic-stack">
               <div class="comic-cover">
                 <svg class="comic-burst-bg" viewBox="0 0 100 100" fill="none">
-                  <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#dcae5c"/>
+                  <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#6b4a2a"/>
                 </svg>
                 <div class="comic-masthead">ADVENTURE<br>TALES</div>
                 <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
@@ -669,26 +669,26 @@
       <button class="hotspot bookshelf" onclick="showPage('books')" aria-label="Browse Books">
         <div class="shelf-unit">
           <div class="shelf-topper">
-            <div class="flat-book" style="width:54px;height:10px;background:#a85e68;transform:rotate(-2deg)"></div>
-            <div class="flat-book" style="width:60px;height:12px;background:#c99a4b;"></div>
+            <div class="flat-book" style="width:54px;height:10px;background:#7a1f2b;transform:rotate(-2deg)"></div>
+            <div class="flat-book" style="width:60px;height:12px;background:#8a6a3a;"></div>
           </div>
           <div class="shelf-row">
             <div class="bookend"></div>
-            <div class="spine" style="width:32px;height:96%;background:#a85e68">ROMANTASY</div>
-            <div class="spine" style="width:26px;height:88%;background:#5b6b96">DYSTOPIAN</div>
-            <div class="spine lean" style="width:28px;height:80%;background:#6f8a6a">FANTASY</div>
-            <div class="spine" style="width:22px;height:100%;background:#c99a4b">SCI-FI</div>
-            <div class="spine" style="width:26px;height:90%;background:#8a5a7a">MYSTERY</div>
-            <div class="spine" style="width:24px;height:92%;background:#b2703f">LITRPG</div>
+            <div class="spine" style="width:32px;height:96%;background:#7a1f2b">ROMANTASY</div>
+            <div class="spine" style="width:26px;height:88%;background:#363b46">DYSTOPIAN</div>
+            <div class="spine lean" style="width:28px;height:80%;background:#4a4a2a">FANTASY</div>
+            <div class="spine" style="width:22px;height:100%;background:#8a6a3a">SCI-FI</div>
+            <div class="spine" style="width:26px;height:90%;background:#4a2a3a">MYSTERY</div>
+            <div class="spine" style="width:24px;height:92%;background:#6b4a2a">LITRPG</div>
             <div class="bookend"></div>
           </div>
           <div class="shelf-row">
             <div class="bookend"></div>
-            <div class="spine" style="width:26px;height:94%;background:#a35c6b">THRILLER</div>
-            <div class="spine lean" style="width:30px;height:82%;background:#c97b84">ROMANCE</div>
-            <div class="spine" style="width:22px;height:98%;background:#8a6a4a;font-size:0.48rem;letter-spacing:-0.02em">HISTORICAL FICTION</div>
-            <div class="spine" style="width:24px;height:88%;background:#6c7ea3">YA</div>
-            <div class="spine" style="width:22px;height:84%;background:#7a9b76;font-size:0.5rem;letter-spacing:-0.02em">MIDDLE GRADE</div>
+            <div class="spine" style="width:26px;height:94%;background:#6b1a22">THRILLER</div>
+            <div class="spine lean" style="width:30px;height:82%;background:#8a3a42">ROMANCE</div>
+            <div class="spine" style="width:22px;height:98%;background:#4a3a2a;font-size:0.48rem;letter-spacing:-0.02em">HISTORICAL FICTION</div>
+            <div class="spine" style="width:24px;height:88%;background:#3a4a5a">YA</div>
+            <div class="spine" style="width:22px;height:84%;background:#2a4a32;font-size:0.5rem;letter-spacing:-0.02em">MIDDLE GRADE</div>
             <div class="bookend"></div>
           </div>
         </div>
@@ -770,15 +770,15 @@
     <button class="hotspot" onclick="showPage('bookclub')" aria-label="Book Club">
       <div class="mini-shelf">
         <div class="mini-shelf-topper">
-          <div class="flat-book" style="width:22px;height:6px;background:#a85e68;transform:rotate(-2deg)"></div>
-          <div class="flat-book" style="width:26px;height:7px;background:#c99a4b;"></div>
+          <div class="flat-book" style="width:22px;height:6px;background:#7a1f2b;transform:rotate(-2deg)"></div>
+          <div class="flat-book" style="width:26px;height:7px;background:#8a6a3a;"></div>
         </div>
         <div class="mini-shelf-row">
           <div class="bookend"></div>
-          <div class="spine" style="width:14px;height:90%;background:#a85e68"></div>
-          <div class="spine" style="width:12px;height:100%;background:#c99a4b"></div>
-          <div class="spine" style="width:16px;height:80%;background:#6c7ea3"></div>
-          <div class="spine" style="width:12px;height:94%;background:#7a9b76"></div>
+          <div class="spine" style="width:14px;height:90%;background:#7a1f2b"></div>
+          <div class="spine" style="width:12px;height:100%;background:#8a6a3a"></div>
+          <div class="spine" style="width:16px;height:80%;background:#3a4a5a"></div>
+          <div class="spine" style="width:12px;height:94%;background:#2a4a32"></div>
           <div class="bookend"></div>
         </div>
       </div>
@@ -786,10 +786,10 @@
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
-        <div class="spine" style="width:8px;height:22px;background:#a85e68"></div>
-        <div class="spine" style="width:9px;height:25px;background:#c99a4b"></div>
-        <div class="spine" style="width:7px;height:20px;background:#6c7ea3"></div>
-        <div class="spine" style="width:8px;height:23px;background:#7a9b76"></div>
+        <div class="spine" style="width:8px;height:22px;background:#7a1f2b"></div>
+        <div class="spine" style="width:9px;height:25px;background:#8a6a3a"></div>
+        <div class="spine" style="width:7px;height:20px;background:#3a4a5a"></div>
+        <div class="spine" style="width:8px;height:23px;background:#2a4a32"></div>
       </div>
       <div class="library-shelf-plank"></div>
       <span class="hotspot-label">🗄️ my library</span>
@@ -891,7 +891,7 @@
     </div>
     <div id="book-posts">
       <article class="post-card" data-genre="romantasy">
-        <span class="post-tag" style="background:#a85e68">Romantasy</span>
+        <span class="post-tag" style="background:#7a1f2b">Romantasy</span>
         <h3>A Court of Thorns and… okay, one more chapter</h3>
         <div class="post-meta">Example post — swap with your real review</div>
         <div class="post-body">
@@ -901,7 +901,7 @@
         <span class="example-flag">📝 example post</span>
       </article>
       <article class="post-card" data-genre="dystopian">
-        <span class="post-tag" style="background:#5b6b96">Dystopian</span>
+        <span class="post-tag" style="background:#363b46">Dystopian</span>
         <h3>The dystopia that actually earns its ending</h3>
         <div class="post-meta">Example post — swap with your real review</div>
         <div class="post-body">
@@ -910,7 +910,7 @@
         <span class="example-flag">📝 example post</span>
       </article>
       <article class="post-card" data-genre="litrpg">
-        <span class="post-tag" style="background:#b2703f">LitRPG</span>
+        <span class="post-tag" style="background:#6b4a2a">LitRPG</span>
         <h3>Leveling up: a LitRPG that respects the numbers AND the story</h3>
         <div class="post-meta">Example post — swap with your real review</div>
         <div class="post-body">
@@ -932,7 +932,7 @@
   <div class="page-inner">
     <p class="page-lede">What's on the screen when I'm not buried in a book.</p>
     <article class="post-card">
-      <span class="post-tag" style="background:#5b6b96">TV</span>
+      <span class="post-tag" style="background:#363b46">TV</span>
       <h3>The season finale that finally paid off three seasons of setup</h3>
       <div class="post-meta">Example post — swap with your real review</div>
       <div class="post-body"><p>I've been cautiously optimistic about this show for two seasons and this finale earned every bit of that patience. No spoilers here, just: watch it, then come discuss it below.</p></div>
@@ -951,7 +951,7 @@
   <div class="page-inner">
     <p class="page-lede">The stack on my nightstand that never gets shorter.</p>
     <article class="post-card">
-      <span class="post-tag" style="background:#c99a4b">Manga</span>
+      <span class="post-tag" style="background:#8a6a3a">Manga</span>
       <h3>A series that made me cry on public transit, again</h3>
       <div class="post-meta">Example post — swap with your real review</div>
       <div class="post-body"><p>Reading this on the train was a mistake. A wonderful, tear-stained mistake.</p></div>
@@ -970,7 +970,7 @@
   <div class="page-inner">
     <p class="page-lede">Cozy games, epic RPGs, and everything in between.</p>
     <article class="post-card">
-      <span class="post-tag" style="background:#6f8a6a">RPG</span>
+      <span class="post-tag" style="background:#4a4a2a">RPG</span>
       <h3>50 hours in and I still haven't finished the main quest</h3>
       <div class="post-meta">Example post — swap with your real review</div>
       <div class="post-body"><p>Every side quest in this game feels handwritten. I keep meaning to progress the main story and instead I'm three hours deep in a fetch quest for a fictional bakery. No regrets.</p></div>
@@ -1030,7 +1030,7 @@
   <div class="page-inner">
     <p class="page-lede">A little space for the other love of my life: dogs. If you're able, consider donating to or fostering through your local animal shelter or rescue.</p>
     <div class="post-card">
-      <span class="post-tag" style="background:#7a9b76">Get Involved</span>
+      <span class="post-tag" style="background:#2a4a32">Get Involved</span>
       <h3>Adopt, foster, or donate</h3>
       <div class="post-body"><p>Rescues are always in need of fosters, supplies, and donations. Search "animal rescue near me" to find one local to you, or ask me — I'm always happy to talk about dogs.</p></div>
       <span class="example-flag">📝 example post — swap in your favorite rescue's link</span>
@@ -1082,7 +1082,7 @@
   <div class="page-inner">
     <p class="page-lede">When I'm not reading everyone else's fiction, I'm writing my own — an epic romantasy-dystopian series, in progress.</p>
     <div class="post-card">
-      <span class="post-tag" style="background:#a85e68">In Progress</span>
+      <span class="post-tag" style="background:#7a1f2b">In Progress</span>
       <h3>More coming soon</h3>
       <div class="post-body"><p>Details on the series, sneak peeks, and where to read along will land here as it gets closer to ready. Follow the Discord or Substack to be first to know.</p></div>
       <span class="example-flag">📝 example post</span>
@@ -1133,7 +1133,7 @@
   <div class="page-inner">
     <p class="page-lede">One book, one month, one group of people yelling about plot twists together. Details on the current pick below.</p>
     <div class="post-card">
-      <span class="post-tag" style="background:#a85e68">This Month's Pick</span>
+      <span class="post-tag" style="background:#7a1f2b">This Month's Pick</span>
       <h3>Coming soon</h3>
       <div class="post-body"><p>Announcing the first Book Club pick soon — join the Discord to get notified the moment it's live.</p></div>
       <span class="example-flag">📝 example post</span>
