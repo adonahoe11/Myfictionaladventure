@@ -75,9 +75,9 @@
   .hotspot:hover .hotspot-label, .hotspot:focus-visible .hotspot-label { opacity: 1; }
 
   /* --- Bookshelf (Books) --- */
-  .bookshelf { padding-bottom: 46px; }
+  .bookshelf { padding-bottom: 46px; justify-self: start; }
   .shelf-unit {
-    width: 360px; max-width: 100%;
+    width: 440px; max-width: 100%;
     background:
       repeating-linear-gradient(100deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 3px, transparent 14px),
       linear-gradient(180deg, var(--wood-light), var(--wood) 55%, var(--wood-dark));
@@ -108,9 +108,10 @@
   .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,#8a6a4a,#5a3d2e); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
   .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
 
-  /* --- Armchair + lamp (About) --- */
+  /* --- Sofa + floor lamp (About) --- */
   .chair-scene { display: flex; flex-direction: column; align-items: center; }
-  .lamp { width: 90px; margin-bottom: -8px; }
+  .room-corner { display: flex; align-items: flex-end; gap: 4px; }
+  .floor-lamp { display: flex; flex-direction: column; align-items: center; }
   .lamp-glow {
     width: 190px; height: 190px; border-radius: 50%; margin: 0 auto -80px;
     background: radial-gradient(circle, rgba(255,207,138,0.6), rgba(255,207,138,0.15) 55%, transparent 72%);
@@ -121,24 +122,48 @@
     background: linear-gradient(180deg, var(--gold), var(--gold-dim));
     box-shadow: 0 0 38px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
   }
-  .lamp-pole { width: 7px; height: 54px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
-  .lamp-base { width: 40px; height: 10px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
-  .chair {
-    width: 240px; height: 165px; position: relative;
-    background: linear-gradient(165deg, var(--rose) 0%, #b5717a 45%, #98545e 100%);
-    border-radius: 64px 64px 16px 16px / 96px 96px 16px 16px;
-    box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 -18px 26px rgba(0,0,0,0.18), inset 0 10px 16px rgba(255,255,255,0.12);
+  .lamp-pole { width: 7px; height: 92px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
+  .lamp-base { width: 40px; height: 10px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
+
+  .sofa { position: relative; width: 250px; height: 168px; }
+  .sofa-back {
+    position: absolute; bottom: 40px; left: 12px; right: 12px; height: 92px;
+    background: linear-gradient(165deg, var(--rose), #98545e 60%, #86434c);
+    border-radius: 34px 34px 10px 10px;
+    box-shadow: inset 0 14px 18px rgba(255,255,255,0.18), inset 0 -12px 16px rgba(0,0,0,0.18), 0 12px 20px rgba(0,0,0,0.25);
   }
-  .chair::before, .chair::after {
-    content: ""; position: absolute; bottom: 10px; width: 50px; height: 76px;
-    background: linear-gradient(165deg, var(--rose), #98545e); border-radius: 32px;
-    box-shadow: inset 0 -12px 18px rgba(0,0,0,0.18), inset 4px 4px 8px rgba(255,255,255,0.1);
+  .sofa-back::before, .sofa-back::after {
+    content: ""; position: absolute; top: 22px; bottom: 14px; width: 2px; background: rgba(0,0,0,0.14);
   }
-  .chair::before { left: -24px; } .chair::after { right: -24px; }
+  .sofa-back::before { left: 33%; } .sofa-back::after { left: 66%; }
+  .sofa-arm {
+    position: absolute; bottom: 16px; width: 48px; height: 82px;
+    background: linear-gradient(165deg, var(--rose), #98545e 70%, #86434c);
+    border-radius: 26px 26px 18px 18px;
+    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.15), inset -6px 0 10px rgba(0,0,0,0.18), 0 10px 16px rgba(0,0,0,0.25);
+  }
+  .sofa-arm.left { left: 0; } .sofa-arm.right { right: 0; }
+  .sofa-seat {
+    position: absolute; bottom: 16px; left: 42px; right: 42px; height: 50px;
+    background: linear-gradient(180deg, #c9838c, var(--rose) 55%, #a85e68);
+    border-radius: 16px 16px 8px 8px;
+    box-shadow: inset 0 8px 12px rgba(255,255,255,0.22), inset 0 -10px 12px rgba(0,0,0,0.2), 0 10px 16px rgba(0,0,0,0.2);
+  }
+  .sofa-seat::before, .sofa-seat::after {
+    content: ""; position: absolute; top: 6px; bottom: 6px; width: 2px; background: rgba(0,0,0,0.16);
+  }
+  .sofa-seat::before { left: 33%; } .sofa-seat::after { left: 66%; }
+  .sofa-pillow {
+    position: absolute; bottom: 58px; left: 26px; width: 44px; height: 44px;
+    background: linear-gradient(155deg, var(--sage), #6f8a6a); border-radius: 8px; transform: rotate(-10deg);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18);
+  }
+  .sofa-leg { position: absolute; bottom: -6px; width: 9px; height: 16px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
+  .sofa-leg.left { left: 26px; } .sofa-leg.right { right: 26px; }
   .chair-book {
-    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+    position: absolute; bottom: 66px; left: 50%; transform: translateX(-50%) rotate(-6deg);
     width: 58px; height: 40px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 3px 8px 8px 3px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5); z-index: 2;
   }
   .chair-book::before {
     content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--ink-soft);
@@ -225,6 +250,7 @@
     content: ""; position: absolute; top: 20px; left: 0; right: 30%; height: 6px; border-radius: 2px;
     background: rgba(244,233,216,0.5);
   }
+  .comic-art { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 60px; }
 
   /* --- Game console + controller (Video Games) --- */
   .console-scene { display: flex; align-items: flex-end; gap: 12px; }
@@ -263,11 +289,12 @@
 
   /* quick-nav pills for accessibility / "easy to use" */
   .quick-nav {
-    position: relative; z-index: 5; display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 10px; max-width: 720px; margin: 30px auto 0; padding: 0 24px;
+    position: relative; z-index: 5; display: flex; flex-wrap: nowrap; justify-content: flex-start;
+    gap: 8px; max-width: 1180px; margin: 30px auto 0; padding: 0 24px 4px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
   }
   .quick-nav button {
-    all: unset; cursor: pointer; padding: 9px 18px; border-radius: 999px;
+    all: unset; cursor: pointer; padding: 9px 16px; border-radius: 999px; flex-shrink: 0;
     background: rgba(244,233,216,0.08); border: 1px solid rgba(244,233,216,0.25);
     font-family: var(--font-body); font-size: 0.86rem; color: var(--text-light);
     transition: background 0.2s ease, border-color 0.2s ease;
@@ -359,20 +386,10 @@
   </div>
 
   <div class="room-head">
-    <div class="brand-mark">
-      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true">
-        <rect x="3" y="34" width="52" height="7" rx="2" fill="#3c2a20"/>
-        <rect x="7" y="12" width="8" height="24" rx="1.5" fill="#cf8891"/>
-        <rect x="16" y="7" width="8" height="29" rx="1.5" fill="#dcae5c"/>
-        <rect x="25" y="14" width="8" height="22" rx="1.5" fill="#93ab8e"/>
-        <rect x="34" y="9" width="8" height="27" rx="1.5" fill="#6c7ea3"/>
-        <rect x="43" y="16" width="9" height="20" rx="1.5" fill="#a85e68"/>
-      </svg>
-    </div>
     <div class="kicker">welcome to</div>
     <h1>My Fictional Adventure</h1>
     <p class="signature">— Allie</p>
-    <p>Writer, reviewer, and podcaster, permanently lost in fictional worlds. Pull up a chair. Everything in this room is something to dig into.</p>
+    <p>Writer, reviewer, and podcaster, permanently lost in fictional worlds. Everything in this room is something to dig into — pull up a chair.</p>
   </div>
 
   <div class="room-scene">
@@ -382,7 +399,6 @@
         <div class="shelf-topper">
           <div class="flat-book" style="width:54px;height:10px;background:#a85e68;transform:rotate(-2deg)"></div>
           <div class="flat-book" style="width:60px;height:12px;background:#c99a4b;"></div>
-          <span class="shelf-plant">🪴</span>
         </div>
         <div class="shelf-row">
           <div class="bookend"></div>
@@ -409,11 +425,24 @@
 
     <!-- Armchair -> About -->
     <button class="hotspot chair-scene" onclick="showPage('about')" aria-label="About Allie">
-      <div class="lamp-glow"></div>
-      <div class="lamp-shade"></div>
-      <div class="lamp-pole"></div>
-      <div class="lamp-base"></div>
-      <div class="chair"><div class="chair-book"></div></div>
+      <div class="room-corner">
+        <div class="sofa">
+          <div class="sofa-back"></div>
+          <div class="sofa-arm left"></div>
+          <div class="sofa-arm right"></div>
+          <div class="sofa-seat"></div>
+          <div class="sofa-pillow"></div>
+          <div class="chair-book"></div>
+          <div class="sofa-leg left"></div>
+          <div class="sofa-leg right"></div>
+        </div>
+        <div class="floor-lamp">
+          <div class="lamp-glow"></div>
+          <div class="lamp-shade"></div>
+          <div class="lamp-pole"></div>
+          <div class="lamp-base"></div>
+        </div>
+      </div>
       <span class="hotspot-label">🕯️ sit with me</span>
     </button>
 
@@ -442,12 +471,18 @@
           <span class="hotspot-label">🎙️ the podcast</span>
         </button>
       </div>
+      <div class="table-surface"></div>
       <div class="table-row" style="margin-top:20px;">
         <button class="hotspot" onclick="showPage('manga')" aria-label="Manga and Comics">
           <div class="comic-stack">
-            <div class="comic lean-left" style="background:linear-gradient(135deg,#c99a4b,#a97a2f)"><span class="comic-burst">POW!</span></div>
-            <div class="comic" style="background:linear-gradient(135deg,#a85e68,#8a4650)"><span class="comic-title-block"></span></div>
-            <div class="comic lean-right" style="background:linear-gradient(135deg,#5b6b96,#425073)"><span class="comic-title-block"></span></div>
+            <div class="comic" style="background:linear-gradient(135deg,#5b6b96,#3d4a6b)">
+              <span class="comic-title-block"></span>
+              <svg class="comic-art" viewBox="0 0 60 50" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M40 10a15 15 0 1 0 0 30 15 15 0 0 0 9-3 12 12 0 0 1 0-24 15 15 0 0 0-9-3Z" fill="#f4e9d8"/>
+                <path d="M16 28l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#f4e9d8"/>
+                <circle cx="10" cy="14" r="1.8" fill="#f4e9d8"/>
+              </svg>
+            </div>
           </div>
           <span class="hotspot-label">📖 manga &amp; comics</span>
         </button>
