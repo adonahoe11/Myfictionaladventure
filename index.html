@@ -1,4 +1,4 @@
-<title>My Fictional Adventure</title>
+<title>Myfictionaladventure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -101,7 +101,7 @@
     box-shadow: 0 12px 26px rgba(0,0,0,0.4);
     opacity: 0.92;
   }
-  .bookshelf { padding-bottom: 14px; position: relative; top: 10px; }
+  .bookshelf { padding-bottom: 14px; position: relative; top: 32px; }
   .shelf-unit {
     width: 440px; max-width: 100%;
     background:
@@ -230,6 +230,14 @@
   }
   .mini-shelf .bookend { width: 6px; }
 
+  .library-shelf { position: absolute; bottom: 98px; left: 933px; width: 84px; z-index: 1; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 3px; margin-bottom: 4px; height: 22px; align-items: flex-end; }
+  .library-shelf-plank {
+    width: 100%; height: 10px; border-radius: 3px;
+    background: repeating-linear-gradient(90deg, var(--wood-dark) 0px, var(--wood-dark) 14px, #4a3323 15px, #4a3323 16px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  }
+
   .newsletter-sign {
     position: absolute; top: 90px; left: 30px; z-index: 5;
     width: 130px; padding: 14px 12px; text-decoration: none; display: block;
@@ -254,10 +262,10 @@
   .wall-photo-inner {
     width: 100%; height: 100%; border-radius: 2px; background: #e8b0c1;
     box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
-    display: flex; align-items: center; justify-content: center; font-size: 2.4rem;
+    display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
   /* --- little fireplace, far right of the room --- */
-  .fireplace { position: absolute; right: -6px; bottom: 0; width: 108px; z-index: 2; pointer-events: none; }
+  .fireplace { position: absolute; right: -6px; bottom: 0; width: 108px; z-index: 2; text-align: center; }
   .fireplace-mantel {
     width: 100%; height: 14px; border-radius: 3px;
     background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
@@ -481,19 +489,6 @@
   }
   .find-me-link:hover { color: var(--gold); }
 
-  /* quick-nav pills for accessibility / "easy to use" */
-  .quick-nav {
-    position: relative; z-index: 5; display: flex; flex-wrap: nowrap; justify-content: center;
-    gap: 8px; max-width: 1180px; margin: 80px auto 0; padding: 0 24px 4px;
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
-  }
-  .quick-nav button {
-    all: unset; cursor: pointer; padding: 9px 16px; border-radius: 999px; flex-shrink: 0;
-    background: rgba(244,233,216,0.08); border: 1px solid rgba(244,233,216,0.25);
-    font-family: var(--font-body); font-size: 0.86rem; color: var(--text-light);
-    transition: background 0.2s ease, border-color 0.2s ease;
-  }
-  .quick-nav button:hover { background: rgba(220,174,92,0.18); border-color: var(--gold); }
   .claude-credit {
     position: relative; z-index: 5; text-align: left; padding: 0 24px 24px;
     font-size: 0.72rem; color: var(--text-light-dim); opacity: 0.6;
@@ -606,7 +601,7 @@
 
   <div class="room-head">
     <div class="kicker">welcome to</div>
-    <h1>My Fictional Adventure</h1>
+    <h1>Myfictionaladventure</h1>
     <p class="signature">— Allie</p>
     <p>Writer, Reviewer, &amp; Podcaster<br>Permanently lost in fictional worlds.<br>Pull up a chair!</p>
   </div>
@@ -676,13 +671,13 @@
             <div class="bookend"></div>
           </div>
         </div>
-        <span class="hotspot-label">📚 the bookshelf</span>
+        <span class="hotspot-label" style="left: 30%; z-index: 6;">📚 book reviews</span>
       </button>
     </div>
 
     <!-- CENTER: sofa + lamp (left), small writing table (right) -->
     <div class="center-group">
-    <button class="hotspot chair-scene" onclick="showPage('about')" aria-label="About Allie">
+    <button class="hotspot chair-scene" onclick="showPage('discussions')" aria-label="Discussions">
       <div class="rug"></div>
       <div class="room-corner">
         <div class="sofa">
@@ -693,8 +688,8 @@
           <div class="sofa-pillow p1"></div>
           <div class="sofa-dog">
             <svg class="dog-body" viewBox="0 0 70 56" fill="none">
-              <ellipse cx="33" cy="36" rx="28" ry="18" fill="#e3ac67"/>
-              <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q46 8 46 14 Q58 16 60 28 Q61 38 52 42 Q54 45 56 44 Z" fill="#cf9457"/>
+              <ellipse cx="33" cy="36" rx="28" ry="18" fill="#f7f2ea"/>
+              <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q46 8 46 14 Q58 16 60 28 Q61 38 52 42 Q54 45 56 44 Z" fill="#efe8db"/>
               <ellipse cx="20" cy="28" rx="7" ry="5.5" fill="#8b5e3c"/>
               <ellipse cx="38" cy="42" rx="6" ry="4.5" fill="#8b5e3c"/>
               <ellipse cx="46" cy="27" rx="5" ry="4" fill="#8b5e3c"/>
@@ -759,6 +754,15 @@
       </div>
       <span class="hotspot-label">🍵 book club</span>
     </button>
+    <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
+      <div class="library-shelf-books">
+        <div class="flat-book" style="width:16px;height:14px;background:#a85e68;transform:rotate(-3deg)"></div>
+        <div class="flat-book" style="width:18px;height:18px;background:#c99a4b;"></div>
+        <div class="flat-book" style="width:16px;height:12px;background:#6c7ea3;transform:rotate(2deg)"></div>
+      </div>
+      <div class="library-shelf-plank"></div>
+      <span class="hotspot-label">🗄️ my library</span>
+    </button>
     </div>
 
     <!-- RIGHT: Comics + Games shelf, same level as the bookshelf -->
@@ -789,7 +793,7 @@
       <div class="shelf-spacer"></div>
     </div>
 
-    <div class="fireplace" aria-hidden="true">
+    <button class="hotspot fireplace" onclick="showPage('contact')" aria-label="Contact Me">
       <div class="fireplace-mantel"></div>
       <div class="fireplace-opening">
         <div class="fireplace-glow"></div>
@@ -799,14 +803,8 @@
         <div class="fireplace-log"></div>
       </div>
       <div class="fireplace-hearth"></div>
-    </div>
-  </div>
-
-  <div class="quick-nav">
-    <button onclick="showPage('library')">🗄️ My Library</button>
-    <button onclick="showPage('contact')">✉️ Contact Me</button>
-    <button onclick="showPage('discussions')">💬 Discussions</button>
-    <button onclick="showPage('bookclub')">🍵 Book Club</button>
+      <span class="hotspot-label">✉️ contact me</span>
+    </button>
   </div>
 
   <div class="claude-credit">Made with the help of Claude AI</div>
@@ -823,7 +821,7 @@
   <div class="page-inner">
     <p class="page-lede">Writer. Reviewer. Podcaster. Permanently geeking out about fictional worlds — currently deep in writing an epic romantasy-dystopian series of my own, and podcasting weekly about everything I'm reading, watching, and playing.</p>
     <div class="post-card">
-      <p class="post-body">I started My Fictional Adventure because I could never talk about books, shows, manga, and games in just one place — my brain doesn't separate them, so why should the shelf? This room is that: one cozy spot for all of it, organized the way I actually think about it.</p>
+      <p class="post-body">I started Myfictionaladventure because I could never talk about books, shows, manga, and games in just one place — my brain doesn't separate them, so why should the shelf? This room is that: one cozy spot for all of it, organized the way I actually think about it.</p>
       <p class="post-body" style="margin-top:14px;">Come sit by the lamp for a while.</p>
     </div>
   </div>
