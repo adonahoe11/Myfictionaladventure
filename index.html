@@ -29,9 +29,9 @@
 
   /* ============ ROOM (home view) ============ */
   #room {
-    position: relative; min-height: calc(100vh + 150px);
+    position: relative;
     background: var(--wall);
-    padding-bottom: 40px; overflow: hidden;
+    padding-bottom: 110px; overflow: hidden;
   }
   /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 350px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 133px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
