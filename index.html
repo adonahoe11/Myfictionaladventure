@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wall: #6d6a63; --wall-2: #58554e; --floor: #7a5738; --floor-2: #5f4429;
+    --wall: #3e5b6b; --wall-2: #2f4652; --floor: #7a5738; --floor-2: #5f4429;
     --wood: #6b4a34; --wood-dark: #43301f; --wood-light: #8a6448;
     --parchment: #f4e9d8; --parchment-2: #ece0cb;
     --gold: #dcae5c; --gold-dim: #b8904a;
@@ -33,19 +33,17 @@
     background: var(--wall);
     padding-bottom: 40px; overflow: hidden;
   }
-  /* stone wall: irregular flagstone pattern (SVG tile) */
+  /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 100%;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNGE0ODQ0Ii8+Cjxwb2x5Z29uIHBvaW50cz0iOCw4IDEyMCw0IDEzOCw4OCA1OCwxMTIgNCw3OCIgZmlsbD0iI2E4YTE5NiIvPgo8cG9seWdvbiBwb2ludHM9IjEyOCw2IDI1MCwxNCAyMzgsOTggMTQ0LDk0IiBmaWxsPSIjOGY4ODgwIi8+Cjxwb2x5Z29uIHBvaW50cz0iMjU0LDEwIDM3OCwxOCAzNjgsMTA4IDI1OCwxMDQiIGZpbGw9IiNiOGIwYTIiLz4KPHBvbHlnb24gcG9pbnRzPSIzODMsMTQgNDk0LDggNDkwLDExOCAzODgsMTE0IiBmaWxsPSIjNzk3NjZlIi8+Cjxwb2x5Z29uIHBvaW50cz0iNiw4NCA2NCwxMTQgNTQsMjE4IDIsMjI0IiBmaWxsPSIjOTY4NzdhIi8+Cjxwb2x5Z29uIHBvaW50cz0iNjgsMTE2IDE0OCw5OCAxNjQsMjA4IDc0LDIyNCIgZmlsbD0iIzZiNjg2MiIvPgo8cG9seWdvbiBwb2ludHM9IjE2OCw5NCAyNDQsMTA0IDI1OCwxOTggMTc0LDIxNCIgZmlsbD0iI2E4YTE5NiIvPgo8cG9seWdvbiBwb2ludHM9IjI2NCwxMDYgMzc0LDExMiAzNjQsMjE0IDI2OCwyMDQiIGZpbGw9IiM4Zjg4ODAiLz4KPHBvbHlnb24gcG9pbnRzPSIzNzgsMTEyIDQ5NCwxMjIgNDkwLDIyOCAzODQsMjE4IiBmaWxsPSIjYjhiMGEyIi8+Cjxwb2x5Z29uIHBvaW50cz0iMiwyMjggNzgsMjI2IDg4LDMzOCA0LDM0NCIgZmlsbD0iIzc5NzY2ZSIvPgo8cG9seWdvbiBwb2ludHM9Ijg0LDIyNCAxNzQsMjE2IDE4OCwzMjggOTQsMzQ0IiBmaWxsPSIjOTY4NzdhIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTk0LDIxMiAyNjQsMjA0IDI4NCwzMTggMTk4LDMzNCIgZmlsbD0iIzZiNjg2MiIvPgo8cG9seWdvbiBwb2ludHM9IjI2OCwyMDYgMzY0LDIxNiAzNzQsMzI4IDI3OCwzMjQiIGZpbGw9IiNhOGExOTYiLz4KPHBvbHlnb24gcG9pbnRzPSIzNjgsMjIwIDQ5NCwyMzAgNDk0LDM0NCAzNzgsMzM0IiBmaWxsPSIjOGY4ODgwIi8+Cjxwb2x5Z29uIHBvaW50cz0iMiwzNDggOTQsMzQ2IDEwOCw0OTQgNCw0OTQiIGZpbGw9IiNiOGIwYTIiLz4KPHBvbHlnb24gcG9pbnRzPSI5OCwzMzQgMTk4LDMzNiAyMTgsNDk0IDExNCw0OTQiIGZpbGw9IiM3OTc2NmUiLz4KPHBvbHlnb24gcG9pbnRzPSIyMDMsMzM4IDI4NCwzMTggMzE4LDQ5NCAyMjQsNDk0IiBmaWxsPSIjOTY4NzdhIi8+Cjxwb2x5Z29uIHBvaW50cz0iMjg4LDMyNiAzNzgsMzM2IDM5OCw0OTQgMzI4LDQ5NCIgZmlsbD0iIzZiNjg2MiIvPgo8cG9seWdvbiBwb2ludHM9IjM4NCwzMzQgNDk0LDM0OCA0OTQsNDk0IDQwNCw0OTQiIGZpbGw9IiNhOGExOTYiLz4KPC9zdmc+");
-    background-size: 340px 340px;
-    background-repeat: repeat;
-    opacity: 0.9;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.05), transparent 60%);
     pointer-events: none;
   }
-  /* wood floor strip, anchored to the furniture baseline (not viewport %) */
+  /* wood floor strip — child of #room, anchored to ITS bottom so it always
+     reaches the true bottom of the room, starting just above the furniture's
+     feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 100vw; height: 190px; z-index: -1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 340px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -63,8 +61,8 @@
   .room-head p { margin-top: 10px; color: var(--text-light-dim); max-width: 52ch; margin-left: auto; margin-right: auto; font-size: 1.02rem; }
 
   .room-scene {
-    position: relative; max-width: 1320px; margin: 20px auto 0; padding: 0 24px;
-    display: grid; grid-template-columns: 1fr 1.3fr 0.95fr; gap: 24px; align-items: end;
+    position: relative; max-width: 1450px; margin: 20px auto 0; padding: 0 24px;
+    display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr); gap: 20px; align-items: end;
     z-index: 3;
   }
 
@@ -91,10 +89,10 @@
   .hotspot:hover .hotspot-label, .hotspot:focus-visible .hotspot-label { opacity: 1; }
 
   /* --- Bookshelf (Books) --- */
-  .left-stack { justify-self: start; margin-left: -28px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .left-stack { justify-self: start; min-width: 0; margin-left: -12px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .wall-shelf { display: flex; flex-direction: column; align-items: center; }
   .shelf-bracket { display: none; }
-  .right-shelf { justify-self: center; display: flex; flex-direction: column; align-items: center; }
+  .right-shelf { justify-self: center; min-width: 0; display: flex; flex-direction: column; align-items: center; }
   .shelf-spacer { height: 330px; }
   .rug {
     position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
@@ -137,7 +135,7 @@
   .shelf-plant { position: absolute; bottom: 100%; right: 6px; font-size: 1.4rem; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
 
   /* --- Sofa + floor lamp (About) --- */
-  .center-group { display: flex; align-items: flex-end; gap: 28px; justify-self: center; }
+  .center-group { display: flex; align-items: flex-end; gap: 28px; justify-self: center; min-width: 0; }
   .chair-scene { display: flex; flex-direction: column; align-items: center; position: relative; }
   .side-table { position: relative; width: 96px; height: 92px; }
   .table-top {
@@ -456,6 +454,7 @@
 
 <!-- ============ HOME: THE ROOM ============ -->
 <div id="room">
+  <div class="floor-strip"></div>
   <div class="lights">
     <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
       <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
@@ -484,7 +483,6 @@
   </div>
 
   <div class="room-scene">
-    <div class="floor-strip"></div>
     <!-- LEFT: TV+Radio shelf, stacked above the bookshelf -->
     <div class="left-stack">
       <div class="wall-shelf">
@@ -497,12 +495,7 @@
                 </svg>
                 <div class="comic-masthead">ADVENTURE<br>TALES</div>
                 <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
-                  <path d="M30 80 Q8 62 16 30 Q22 46 36 52 Z" fill="#f4e9d8"/>
-                  <path d="M70 80 Q92 62 84 30 Q78 46 64 52 Z" fill="#f4e9d8"/>
-                  <rect x="38" y="40" width="24" height="38" rx="9" fill="#f4e9d8"/>
-                  <circle cx="50" cy="24" r="13" fill="#f4e9d8"/>
-                  <rect x="48" y="4" width="11" height="26" rx="5" fill="#f4e9d8" transform="rotate(-18 48 4)"/>
-                  <circle cx="58" cy="8" r="8" fill="#f4e9d8"/>
+                  <polygon points="60,2 24,48 44,48 34,88 78,38 56,38" fill="#f4e9d8" stroke="#2a1810" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
                 <div class="comic-issue">No. 1</div>
               </div>
