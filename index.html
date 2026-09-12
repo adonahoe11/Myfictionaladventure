@@ -37,10 +37,11 @@
   #room::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 62%;
     background-image:
-      repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 2px, transparent 3px, transparent 58px),
-      repeating-linear-gradient(90deg, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 2px, transparent 3px, transparent 84px),
-      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05) 0, transparent 60px),
-      radial-gradient(circle at 70% 55%, rgba(0,0,0,0.08) 0, transparent 70px);
+      radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.09) 32%, rgba(0,0,0,0.20) 34%, rgba(0,0,0,0.20) 42%, transparent 44%),
+      radial-gradient(circle, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.07) 28%, rgba(0,0,0,0.17) 30%, rgba(0,0,0,0.17) 38%, transparent 40%),
+      radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.06) 24%, rgba(0,0,0,0.15) 26%, rgba(0,0,0,0.15) 33%, transparent 35%);
+    background-size: 96px 96px, 118px 118px, 78px 78px;
+    background-position: 10px 6px, 58px 44px, 30px 74px;
     pointer-events: none;
   }
   /* dirt floor: scattered speckles/pebbles */
@@ -95,6 +96,7 @@
   .wall-shelf { display: flex; flex-direction: column; align-items: center; }
   .shelf-bracket { display: none; }
   .right-shelf { justify-self: center; display: flex; flex-direction: column; align-items: center; }
+  .shelf-spacer { height: 330px; }
   .rug {
     position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
     width: 470px; height: 110px; border-radius: 50%; z-index: 0;
@@ -195,7 +197,7 @@
     position: absolute; bottom: 112px; right: 78px; width: 118px; z-index: 1;
     filter: drop-shadow(0 8px 8px rgba(0,0,0,0.3));
   }
-  .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 29px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
+  .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 40px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
   .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
 .chair-book {
     position: absolute; bottom: 106px; left: 50%; transform: translateX(-50%) rotate(-6deg);
@@ -585,12 +587,14 @@
         </button>
       </div>
       <div class="table-surface"></div>
+      <div class="shelf-spacer"></div>
     </div>
   </div>
 
   <div class="quick-nav">
     <button onclick="showPage('links')">🔗 Find My Links</button>
-    <button onclick="showPage('books')">📚 My Books</button>
+    <button onclick="showPage('library')">🗄️ My Library</button>
+    <button onclick="showPage('writing')">✍️ My Writing</button>
     <button onclick="showPage('about')">💛 About Me</button>
     <button onclick="showPage('contact')">✉️ Contact Me</button>
     <button onclick="showPage('discussions')">💬 Discussions</button>
@@ -765,6 +769,46 @@
     <p class="page-lede">All the other corners of the internet I live in.</p>
     <div class="link-list">
       <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener"><span class="emoji">🔗</span><div><div class="name">All My Links (Linktree)</div><div class="desc">Instagram, TikTok, Discord, Substack, and more</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MY LIBRARY ============ -->
+<div class="page" id="page-library">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">🗄️ My Library</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">Everything I'm tracking, in one place — jump into whichever shelf you're in the mood for.</p>
+    <div class="link-list">
+      <a class="link-item" href="#" onclick="showPage('books');return false;"><span class="emoji">📚</span><div><div class="name">Books</div><div class="desc">Reviews by genre — Romantasy, Dystopian, Fantasy, Sci-Fi, Mystery, LitRPG</div></div></a>
+      <a class="link-item" href="#" onclick="showPage('shows');return false;"><span class="emoji">📺</span><div><div class="name">Shows &amp; Movies</div><div class="desc">What's on screen when I'm not reading</div></div></a>
+      <a class="link-item" href="#" onclick="showPage('manga');return false;"><span class="emoji">📖</span><div><div class="name">Manga &amp; Comics</div><div class="desc">The stack that never gets shorter</div></div></a>
+      <a class="link-item" href="#" onclick="showPage('games');return false;"><span class="emoji">🎮</span><div><div class="name">Video Games</div><div class="desc">Cozy games, epic RPGs, everything in between</div></div></a>
+      <a class="link-item" href="#" onclick="showPage('podcast');return false;"><span class="emoji">🎙️</span><div><div class="name">Podcast</div><div class="desc">Weekly fiction discussions and lore deep-dives</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MY WRITING ============ -->
+<div class="page" id="page-writing">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">✍️ My Writing</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">When I'm not reading everyone else's fiction, I'm writing my own — an epic romantasy-dystopian series, in progress.</p>
+    <div class="post-card">
+      <span class="post-tag" style="background:#a85e68">In Progress</span>
+      <h3>More coming soon</h3>
+      <div class="post-body"><p>Details on the series, sneak peeks, and where to read along will land here as it gets closer to ready. Follow the Discord or Substack to be first to know.</p></div>
+      <span class="example-flag">📝 example post</span>
+    </div>
+    <div class="link-list" style="margin-top:20px;">
+      <a class="link-item" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener"><span class="emoji">✒️</span><div><div class="name">Read along on Substack</div><div class="desc">Link via my Linktree for now</div></div></a>
     </div>
   </div>
 </div>
