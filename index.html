@@ -31,7 +31,7 @@
   #room {
     position: relative; min-height: 100vh;
     background: var(--wall);
-    padding-bottom: 60px; overflow: hidden;
+    padding-bottom: 40px; overflow: hidden;
   }
   /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: -60px; left: 0; right: 0; height: 260px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 230px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -214,7 +214,7 @@
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
 
   .mini-shelf {
-    position: relative; top: -34px;
+    position: relative; top: -18px;
     width: 96px; padding: 8px 8px 0;
     background:
       repeating-linear-gradient(100deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 3px, transparent 14px),
@@ -491,7 +491,7 @@
   .find-me-link:hover { color: var(--gold); }
 
   .claude-credit {
-    position: absolute; left: 16px; bottom: 10px; z-index: 5;
+    position: absolute; left: 16px; bottom: 6px; z-index: 5;
     font-size: 0.72rem; color: var(--text-light-dim); opacity: 0.6;
   }
 
@@ -539,6 +539,14 @@
     display: inline-block; margin-top: 16px; font-size: 0.76rem; color: var(--gold-dim);
     background: #fbf3e3; border: 1px dashed var(--gold-dim); padding: 4px 10px; border-radius: 8px;
   }
+  .preview-banner {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: #fbf3e3; border: 1.5px dashed var(--gold-dim); border-radius: 14px;
+    padding: 16px 20px; margin-bottom: 28px;
+  }
+  .preview-banner .emoji { font-size: 1.4rem; line-height: 1; }
+  .preview-banner strong { display: block; color: var(--ink); margin-bottom: 2px; }
+  .preview-banner p { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
 
   .comments-box {
     margin-top: 40px; padding: 20px; border: 1.5px dashed var(--parchment-2); border-radius: 14px; text-align: center;
@@ -689,8 +697,20 @@
           <div class="sofa-pillow p1"></div>
           <div class="sofa-dog">
             <svg class="dog-body" viewBox="0 0 70 56" fill="none">
+              <defs>
+                <clipPath id="dog-body-clip"><ellipse cx="33" cy="36" rx="28" ry="18"/></clipPath>
+                <clipPath id="dog-tail-clip"><path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q49 8 50 12 Q61 14 63 27 Q64 37 55 41 Q55 43 56 44 Z"/></clipPath>
+              </defs>
               <ellipse cx="33" cy="36" rx="28" ry="18" fill="#8b5e3c"/>
               <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q49 8 50 12 Q61 14 63 27 Q64 37 55 41 Q55 43 56 44 Z" fill="#8b5e3c"/>
+              <g clip-path="url(#dog-tail-clip)" fill="#f7f2ea">
+                <ellipse cx="59" cy="13" rx="7" ry="6"/>
+              </g>
+              <g clip-path="url(#dog-body-clip)" fill="#f7f2ea">
+                <path d="M12 27 Q19 22 25 27 Q29 32 23 37 Q15 40 11 34 Q9 30 12 27 Z"/>
+                <path d="M35 39 Q42 35 48 40 Q50 45 44 48 Q37 49 34 44 Q33 41 35 39 Z"/>
+                <path d="M44 22 Q50 20 53 25 Q53 29 48 30 Q43 29 44 22 Z"/>
+              </g>
             </svg>
             <span class="dog-face">🐶</span>
           </div>
@@ -750,7 +770,7 @@
           <div class="bookend"></div>
         </div>
       </div>
-      <span class="hotspot-label" style="bottom: 16px;">🍵 book club</span>
+      <span class="hotspot-label" style="bottom: 0px;">🍵 book club</span>
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
@@ -834,6 +854,13 @@
     <span></span>
   </div>
   <div class="page-inner">
+    <div class="preview-banner">
+      <span class="emoji">👀</span>
+      <div>
+        <strong>Sneak peek</strong>
+        <p>The rest of the room is still being decorated, but the bookshelf's ready early — here's a preview of what's coming.</p>
+      </div>
+    </div>
     <p class="page-lede">Reviews, reactions, and rambles — organized by genre so you can dig into exactly what you're in the mood for.</p>
     <div class="filter-row" id="book-filters">
       <button class="filter-pill active" data-genre="all">All</button>
@@ -998,6 +1025,21 @@
   </div>
 </div>
 
+<!-- ============ COMING SOON ============ -->
+<div class="page" id="page-comingsoon">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">🚧 Coming Soon</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">This corner of the room is still being decorated — check back soon!</p>
+    <div class="post-card">
+      <p class="post-body">In the meantime, sign up for the newsletter or find all my links using the signs on the wall — that's the fastest way to keep up with everything as it goes live.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ============ MY LIBRARY ============ -->
 <div class="page" id="page-library">
   <div class="page-top">
@@ -1087,7 +1129,11 @@
 </div>
 
 <script>
+  // Flip to false once the room's pages have real content ready to publish.
+  var SITE_UNDER_CONSTRUCTION = true;
+  var PAGES_READY_EARLY = ['books'];
   function showPage(name) {
+    if (SITE_UNDER_CONSTRUCTION && PAGES_READY_EARLY.indexOf(name) === -1) name = 'comingsoon';
     document.getElementById('room').classList.add('hidden');
     document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
     var target = document.getElementById('page-' + name);
