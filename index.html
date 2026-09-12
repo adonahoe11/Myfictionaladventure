@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 250px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -185,6 +185,34 @@
   .lamp-pole { width: 8px; height: 250px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
   .lamp-base { width: 44px; height: 11px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
 
+  .recliner { position: relative; width: 140px; height: 138px; }
+  .recliner-back {
+    position: absolute; bottom: 46px; left: 10px; right: 10px; height: 92px;
+    background: linear-gradient(165deg, var(--dusk), #4d5f80 60%, #3c4a66);
+    border-radius: 30px 30px 10px 10px;
+    box-shadow: inset 0 14px 18px rgba(255,255,255,0.16), inset 0 -12px 16px rgba(0,0,0,0.18), 0 14px 22px rgba(0,0,0,0.28);
+  }
+  .recliner-arm {
+    position: absolute; bottom: 14px; width: 26px; height: 62px;
+    background: linear-gradient(165deg, var(--dusk), #4d5f80 70%, #3c4a66);
+    border-radius: 16px 16px 12px 12px;
+    box-shadow: inset 3px 3px 6px rgba(255,255,255,0.14), inset -4px 0 8px rgba(0,0,0,0.16), 0 8px 14px rgba(0,0,0,0.25);
+  }
+  .recliner-arm.left { left: 0; } .recliner-arm.right { right: 0; }
+  .recliner-seat {
+    position: absolute; bottom: 14px; left: 30px; right: 30px; height: 44px;
+    background: linear-gradient(180deg, #5d6f90, var(--dusk));
+    border-radius: 12px 12px 6px 6px;
+    box-shadow: inset 0 6px 10px rgba(255,255,255,0.18), inset 0 -8px 10px rgba(0,0,0,0.18), 0 8px 14px rgba(0,0,0,0.2);
+  }
+  .recliner-footrest {
+    position: absolute; bottom: 0; left: 24px; right: 24px; height: 20px;
+    background: linear-gradient(180deg, #5d6f90, var(--dusk));
+    border-radius: 8px; box-shadow: 0 6px 12px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .recliner-leg { position: absolute; bottom: -8px; width: 8px; height: 14px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
+  .recliner-leg.left { left: 18px; } .recliner-leg.right { right: 18px; }
+
   .newsletter-sign {
     position: absolute; top: 90px; left: 30px; z-index: 5;
     width: 130px; padding: 14px 12px; text-decoration: none; display: block;
@@ -199,7 +227,7 @@
     color: var(--ink); text-align: center;
   }
   .wall-photo {
-    position: absolute; bottom: 280px; left: 30px; width: 96px; height: 72px;
+    position: absolute; bottom: 280px; left: 95px; width: 96px; height: 72px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 6px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(-2deg); z-index: 0;
@@ -242,7 +270,7 @@
   }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
   .sofa-dog {
-    position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 118px; z-index: 1;
+    position: absolute; bottom: 92px; left: 50%; transform: translateX(-50%) scaleX(-1); font-size: 4.4rem; line-height: 1; z-index: 1;
     filter: drop-shadow(0 8px 8px rgba(0,0,0,0.3));
   }
   .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 40px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
@@ -467,14 +495,28 @@
   .link-item .emoji { font-size: 1.4rem; }
   .link-item .name { font-weight: 700; font-family: var(--font-display); }
   .link-item .desc { font-size: 0.85rem; color: var(--ink-soft); }
+
+  .signup-form { display: flex; flex-direction: column; gap: 6px; max-width: 380px; }
+  .signup-form label { font-weight: 700; font-size: 0.85rem; color: var(--ink-soft); margin-top: 10px; }
+  .signup-form input {
+    font-family: var(--font-body); font-size: 1rem; padding: 12px 14px; border-radius: 10px;
+    border: 1.5px solid var(--parchment-2); background: #fff; color: var(--ink);
+  }
+  .signup-form input:focus { outline: none; border-color: var(--gold-dim); }
+  .signup-submit {
+    all: unset; cursor: pointer; margin-top: 20px; text-align: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: #fff;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dim)); padding: 14px; border-radius: 12px;
+  }
+  .signup-submit:hover { filter: brightness(1.06); }
 </style>
 
 <!-- ============ HOME: THE ROOM ============ -->
 <div id="room">
   <div class="floor-strip"></div>
-  <a class="newsletter-sign" href="https://linktr.ee/myfictionaladventure" target="_blank" rel="noopener">
+  <button class="hotspot newsletter-sign" onclick="showPage('newsletter')">
     <div class="sign-inner">Sign up for<br>my newsletter!</div>
-  </a>
+  </button>
   <div class="lights">
     <svg viewBox="0 0 1180 60" preserveAspectRatio="none">
       <path d="M0,6 Q 295,55 590,10 Q 885,55 1180,6" fill="none" stroke="#2e2230" stroke-width="2"/>
@@ -499,7 +541,7 @@
     <div class="kicker">welcome to</div>
     <h1>My Fictional Adventure</h1>
     <p class="signature">— Allie</p>
-    <p>Writer, reviewer, and podcaster, permanently lost in fictional worlds. Pull up a chair!</p>
+    <p>Writer, Reviewer, &amp; Podcaster<br>Permanently lost in fictional worlds.<br>Pull up a chair!</p>
   </div>
 
   <div class="room-scene">
@@ -589,19 +631,7 @@
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
-          <svg class="sofa-dog" viewBox="0 0 60 60" fill="none">
-            <path d="M44 38 Q56 32 52 20 Q48 28 42 32 Z" fill="#b98457"/>
-            <ellipse cx="31" cy="45" rx="15" ry="12" fill="#b98457"/>
-            <rect x="16" y="21" width="15" height="30" rx="5" fill="#b98457"/>
-            <rect x="17" y="49" width="5" height="11" rx="2" fill="#a06f45"/>
-            <rect x="28" y="49" width="5" height="11" rx="2" fill="#96633f"/>
-            <ellipse cx="18" cy="15" rx="11" ry="10" fill="#b98457"/>
-            <path d="M9 7 L6 -3 L15 4 Z" fill="#96633f"/>
-            <path d="M23 5 L28 -5 L18 2 Z" fill="#96633f"/>
-            <ellipse cx="8" cy="17" rx="5.5" ry="4" fill="#d4a878"/>
-            <ellipse cx="3.2" cy="17" rx="1.8" ry="1.4" fill="#3a2a1a"/>
-            <circle cx="13" cy="11" r="1.4" fill="#3a2a1a"/>
-          </svg>
+          <span class="sofa-dog">🐶</span>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
           <div class="sofa-leg right"></div>
@@ -626,6 +656,18 @@
         <div class="table-base"></div>
       </div>
       <span class="hotspot-label">✍️ my writing</span>
+    </button>
+    <button class="hotspot" onclick="showPage('about')" aria-label="About Allie">
+      <div class="recliner">
+        <div class="recliner-back"></div>
+        <div class="recliner-arm left"></div>
+        <div class="recliner-arm right"></div>
+        <div class="recliner-seat"></div>
+        <div class="recliner-footrest"></div>
+        <div class="recliner-leg left"></div>
+        <div class="recliner-leg right"></div>
+      </div>
+      <span class="hotspot-label">💛 about me</span>
     </button>
     </div>
 
@@ -840,6 +882,26 @@
   </div>
 </div>
 
+<!-- ============ NEWSLETTER ============ -->
+<div class="page" id="page-newsletter">
+  <div class="page-top">
+    <button class="back-link" onclick="showRoom()">← Back to the room</button>
+    <span class="page-title">💌 Sign Up for My Newsletter</span>
+    <span></span>
+  </div>
+  <div class="page-inner">
+    <p class="page-lede">First look at reviews, podcast episodes, and updates on my own writing — straight to your inbox.</p>
+    <form class="signup-form" onsubmit="return handleNewsletterSubmit(event)">
+      <label for="nl-name">Name</label>
+      <input type="text" id="nl-name" name="name" placeholder="Your name" required>
+      <label for="nl-email">Email</label>
+      <input type="email" id="nl-email" name="email" placeholder="you@example.com" required>
+      <button type="submit" class="signup-submit">Sign me up →</button>
+    </form>
+    <p id="nl-note" class="page-lede" style="margin-top:18px; font-size:0.9rem;">You'll be taken to my Linktree to finish signing up on Substack.</p>
+  </div>
+</div>
+
 <!-- ============ MY LIBRARY ============ -->
 <div class="page" id="page-library">
   <div class="page-top">
@@ -929,6 +991,14 @@
 </div>
 
 <script>
+  function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    var name = document.getElementById('nl-name').value.trim();
+    var note = document.getElementById('nl-note');
+    note.textContent = (name ? 'Thanks, ' + name + '! ' : 'Thanks! ') + 'Opening my Linktree so you can finish signing up on Substack…';
+    window.open('https://linktr.ee/myfictionaladventure', '_blank', 'noopener');
+    return false;
+  }
   function showPage(name) {
     document.getElementById('room').classList.add('hidden');
     document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
