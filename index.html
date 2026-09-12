@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,500..700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wall: #2c4438; --wall-2: #21362c; --floor: #6b4a3a; --floor-2: #563a2c;
+    --wall: #6d6a63; --wall-2: #58554e; --floor: #5c4936; --floor-2: #493a2a;
     --wood: #6b4a34; --wood-dark: #43301f; --wood-light: #8a6448;
     --parchment: #f4e9d8; --parchment-2: #ece0cb;
     --gold: #dcae5c; --gold-dim: #b8904a;
@@ -33,11 +33,27 @@
     background: linear-gradient(180deg, var(--wall) 0%, var(--wall) 62%, var(--floor) 62%, var(--floor-2) 100%);
     padding-bottom: 40px; overflow: hidden;
   }
-  /* wallpaper texture: faint damask dots */
+  /* stone wall: mortar-line block grid, offset every other row */
   #room::before {
-    content: ""; position: absolute; inset: 0; height: 62%;
-    background-image: radial-gradient(circle, rgba(220,174,92,0.07) 2px, transparent 2.5px);
-    background-size: 46px 46px; pointer-events: none;
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 62%;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 2px, transparent 3px, transparent 58px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 2px, transparent 3px, transparent 84px),
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05) 0, transparent 60px),
+      radial-gradient(circle at 70% 55%, rgba(0,0,0,0.08) 0, transparent 70px);
+    pointer-events: none;
+  }
+  /* dirt floor: scattered speckles/pebbles */
+  #room::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 62%; bottom: 0;
+    background-image:
+      radial-gradient(circle at 22% 35%, rgba(0,0,0,0.22) 0, rgba(0,0,0,0.22) 3px, transparent 4px),
+      radial-gradient(circle at 58% 68%, rgba(0,0,0,0.18) 0, rgba(0,0,0,0.18) 4px, transparent 5px),
+      radial-gradient(circle at 82% 22%, rgba(255,255,255,0.07) 0, rgba(255,255,255,0.07) 3px, transparent 4px),
+      radial-gradient(circle at 12% 78%, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 3px, transparent 4px),
+      radial-gradient(circle at 40% 90%, rgba(0,0,0,0.15) 0, rgba(0,0,0,0.15) 3px, transparent 4px);
+    background-size: 160px 160px, 190px 190px, 150px 150px, 170px 170px, 140px 140px;
+    pointer-events: none;
   }
   .room-head { position: relative; z-index: 5; text-align: center; padding: 40px 24px 10px; }
   .brand-mark { display: flex; justify-content: center; margin-bottom: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35)); }
@@ -47,8 +63,8 @@
   .room-head p { margin-top: 10px; color: var(--text-light-dim); max-width: 52ch; margin-left: auto; margin-right: auto; font-size: 1.02rem; }
 
   .room-scene {
-    position: relative; max-width: 1180px; margin: 20px auto 0; padding: 0 24px;
-    display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; gap: 28px; align-items: end;
+    position: relative; max-width: 1320px; margin: 20px auto 0; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1.3fr 0.95fr; gap: 24px; align-items: end;
     z-index: 3;
   }
 
@@ -80,11 +96,11 @@
   .shelf-bracket { display: none; }
   .right-shelf { justify-self: center; display: flex; flex-direction: column; align-items: center; }
   .rug {
-    position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
-    width: 380px; height: 90px; border-radius: 50%; z-index: 0;
-    background: radial-gradient(ellipse at center, #c9838c 0%, #c9838c 52%, #a85e68 55%, #a85e68 64%, #8a4650 67%, #8a4650 74%, #6b3540 77%);
-    box-shadow: 0 10px 22px rgba(0,0,0,0.35);
-    opacity: 0.9;
+    position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+    width: 470px; height: 110px; border-radius: 50%; z-index: 0;
+    background: radial-gradient(ellipse at center, #dcae5c 0%, #dcae5c 50%, #b8904a 53%, #b8904a 63%, #8a6a3a 66%, #8a6a3a 74%, #6b4f2a 77%);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.4);
+    opacity: 0.92;
   }
   .bookshelf { padding-bottom: 46px; }
   .shelf-unit {
@@ -121,71 +137,70 @@
 
   /* --- Sofa + floor lamp (About) --- */
   .chair-scene { display: flex; flex-direction: column; align-items: center; justify-self: center; position: relative; }
-  .room-corner { position: relative; width: 320px; height: 234px; margin: 0 auto; }
+  .room-corner { position: relative; width: 480px; height: 320px; margin: 0 auto; }
   .floor-lamp {
-    position: absolute; bottom: 0; right: 4px; z-index: 1;
+    position: absolute; bottom: 0; right: 2px; z-index: 1;
     display: flex; flex-direction: column; align-items: center;
   }
   .lamp-glow {
-    width: 190px; height: 190px; border-radius: 50%; margin: 0 auto -80px;
+    width: 210px; height: 210px; border-radius: 50%; margin: 0 auto -88px;
     background: radial-gradient(circle, rgba(255,207,138,0.6), rgba(255,207,138,0.15) 55%, transparent 72%);
     filter: blur(2px);
   }
   .lamp-shade {
-    width: 82px; height: 54px; margin: 0 auto; border-radius: 8px 8px 46px 46px / 8px 8px 70px 70px;
+    width: 90px; height: 58px; margin: 0 auto; border-radius: 8px 8px 50px 50px / 8px 8px 76px 76px;
     background: linear-gradient(180deg, var(--gold), var(--gold-dim));
-    box-shadow: 0 0 38px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
+    box-shadow: 0 0 40px 8px rgba(255,207,138,0.55), inset -8px -6px 14px rgba(0,0,0,0.2), inset 6px 6px 10px rgba(255,255,255,0.25);
   }
-  .lamp-pole { width: 7px; height: 122px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
-  .lamp-base { width: 40px; height: 10px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
+  .lamp-pole { width: 8px; height: 200px; background: linear-gradient(90deg, var(--wood-dark), #5a3d2e, var(--wood-dark)); margin: 0 auto; }
+  .lamp-base { width: 44px; height: 11px; background: linear-gradient(180deg,#5a3d2e,var(--wood-dark)); border-radius: 4px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0,0,0,0.4);}
 
-  .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 330px; height: 220px; }
+  .sofa { position: absolute; bottom: 0; left: 0; z-index: 2; width: 460px; height: 308px; }
   .sofa-back {
-    position: absolute; bottom: 53px; left: 16px; right: 16px; height: 121px;
+    position: absolute; bottom: 74px; left: 22px; right: 22px; height: 169px;
     background: linear-gradient(165deg, var(--rose), #98545e 60%, #86434c);
-    border-radius: 44px 44px 12px 12px;
-    box-shadow: inset 0 18px 22px rgba(255,255,255,0.18), inset 0 -16px 20px rgba(0,0,0,0.18), 0 16px 24px rgba(0,0,0,0.25);
+    border-radius: 62px 62px 16px 16px;
+    box-shadow: inset 0 24px 28px rgba(255,255,255,0.18), inset 0 -22px 26px rgba(0,0,0,0.18), 0 20px 30px rgba(0,0,0,0.25);
   }
   .sofa-back::before, .sofa-back::after {
-    content: ""; position: absolute; top: 28px; bottom: 18px; width: 2px; background: rgba(0,0,0,0.14);
+    content: ""; position: absolute; top: 38px; bottom: 24px; width: 2px; background: rgba(0,0,0,0.14);
   }
   .sofa-back::before { left: 33%; } .sofa-back::after { left: 66%; }
   .sofa-arm {
-    position: absolute; bottom: 21px; width: 63px; height: 108px;
+    position: absolute; bottom: 29px; width: 88px; height: 151px;
     background: linear-gradient(165deg, var(--rose), #98545e 70%, #86434c);
-    border-radius: 34px 34px 22px 22px;
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.15), inset -6px 0 10px rgba(0,0,0,0.18), 0 14px 20px rgba(0,0,0,0.25);
+    border-radius: 48px 48px 30px 30px;
+    box-shadow: inset 5px 5px 10px rgba(255,255,255,0.15), inset -8px 0 14px rgba(0,0,0,0.18), 0 18px 26px rgba(0,0,0,0.25);
   }
   .sofa-arm.left { left: 0; } .sofa-arm.right { right: 0; }
   .sofa-seat {
-    position: absolute; bottom: 21px; left: 55px; right: 55px; height: 67px;
+    position: absolute; bottom: 29px; left: 77px; right: 77px; height: 94px;
     background: linear-gradient(180deg, #c9838c, var(--rose) 55%, #a85e68);
-    border-radius: 20px 20px 8px 8px;
-    box-shadow: inset 0 10px 16px rgba(255,255,255,0.22), inset 0 -12px 16px rgba(0,0,0,0.2), 0 14px 20px rgba(0,0,0,0.2);
+    border-radius: 28px 28px 10px 10px;
+    box-shadow: inset 0 13px 20px rgba(255,255,255,0.22), inset 0 -16px 20px rgba(0,0,0,0.2), 0 18px 26px rgba(0,0,0,0.2);
   }
   .sofa-seat::before, .sofa-seat::after {
-    content: ""; position: absolute; top: 8px; bottom: 8px; width: 2px; background: rgba(0,0,0,0.16);
+    content: ""; position: absolute; top: 10px; bottom: 10px; width: 2px; background: rgba(0,0,0,0.16);
   }
   .sofa-seat::before { left: 33%; } .sofa-seat::after { left: 66%; }
   .sofa-pillow {
-    position: absolute; width: 56px; height: 56px; border-radius: 10px;
-    box-shadow: 0 10px 18px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 10px 10px 16px rgba(255,255,255,0.14), inset -10px -10px 16px rgba(0,0,0,0.16);
+    position: absolute; width: 78px; height: 78px; border-radius: 14px;
+    box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
   }
   .sofa-pillow::before {
-    content: ""; position: absolute; inset: 14px; border: 1px dashed rgba(0,0,0,0.14); border-radius: 6px;
+    content: ""; position: absolute; inset: 18px; border: 1px dashed rgba(0,0,0,0.14); border-radius: 8px;
   }
-  .sofa-pillow.p1 { bottom: 74px; left: 32px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
-  .sofa-pillow.p2 { bottom: 70px; right: 34px; width: 50px; height: 50px; background: linear-gradient(155deg, var(--gold), var(--gold-dim)); transform: rotate(8deg); z-index: 1; }
+  .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #6f8a6a); transform: rotate(-9deg); }
   .sofa-dog {
-    position: absolute; bottom: 24px; right: 40px; width: 100px; z-index: 1;
+    position: absolute; bottom: 112px; right: 78px; width: 118px; z-index: 1;
     filter: drop-shadow(0 8px 8px rgba(0,0,0,0.3));
   }
-  .sofa-leg { position: absolute; bottom: -8px; width: 11px; height: 21px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
-  .sofa-leg.left { left: 35px; } .sofa-leg.right { right: 35px; }
+  .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 29px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
+  .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
 .chair-book {
-    position: absolute; bottom: 76px; left: 50%; transform: translateX(-50%) rotate(-6deg);
-    width: 62px; height: 44px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 3px 8px 8px 3px;
-    box-shadow: 0 9px 18px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5); z-index: 2;
+    position: absolute; bottom: 106px; left: 50%; transform: translateX(-50%) rotate(-6deg);
+    width: 87px; height: 62px; background: linear-gradient(155deg,var(--parchment),var(--parchment-2)); border-radius: 4px 11px 11px 4px;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5); z-index: 2;
   }
   .chair-book::before {
     content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--ink-soft);
@@ -438,30 +453,43 @@
     <!-- LEFT: TV+Radio shelf, stacked above the bookshelf -->
     <div class="left-stack">
       <div class="wall-shelf">
-        <div class="console-row">
-          <button class="hotspot" onclick="showPage('shows')" aria-label="Shows and Movies">
-            <div class="tv-antenna"><span></span><span></span></div>
-            <div class="tv-set">
-              <div class="tv-tube"><div class="tv-screen">🎬</div></div>
-              <div class="tv-panel"><div class="tv-knob"></div><div class="tv-knob small"></div><div class="tv-speaker"></div></div>
-            </div>
-            <span class="hotspot-label">📺 shows &amp; movies</span>
-          </button>
-          <button class="hotspot" onclick="showPage('podcast')" aria-label="Podcast">
-            <div class="radio-antenna"></div>
-            <div class="radio-set">
-              <div class="radio-grille">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
+        <div class="table-row">
+          <button class="hotspot" onclick="showPage('manga')" aria-label="Manga and Comics">
+            <div class="comic-stack">
+              <div class="comic-cover">
+                <svg class="comic-burst-bg" viewBox="0 0 100 100" fill="none">
+                  <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#dcae5c"/>
+                </svg>
+                <div class="comic-masthead">ADVENTURE<br>TALES</div>
+                <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
+                  <path d="M30 80 Q8 62 16 30 Q22 46 36 52 Z" fill="#f4e9d8"/>
+                  <path d="M70 80 Q92 62 84 30 Q78 46 64 52 Z" fill="#f4e9d8"/>
+                  <rect x="38" y="40" width="24" height="38" rx="9" fill="#f4e9d8"/>
+                  <circle cx="50" cy="24" r="13" fill="#f4e9d8"/>
+                  <rect x="48" y="4" width="11" height="26" rx="5" fill="#f4e9d8" transform="rotate(-18 48 4)"/>
+                  <circle cx="58" cy="8" r="8" fill="#f4e9d8"/>
+                </svg>
+                <div class="comic-issue">No. 1</div>
               </div>
-              <div class="radio-dial"><div class="radio-needle"></div></div>
-              <div class="radio-knobs"><div class="radio-knob"></div><div class="radio-knob"></div></div>
             </div>
-            <span class="hotspot-label">🎙️ the podcast</span>
+            <span class="hotspot-label">📖 manga &amp; comics</span>
+          </button>
+          <button class="hotspot" onclick="showPage('games')" aria-label="Video Games">
+            <div class="console-scene">
+              <div class="game-console">
+                <div class="console-slot"></div>
+                <div class="console-buttons"><span></span><span></span></div>
+                <div class="console-vent"></div>
+              </div>
+              <div class="game-controller">
+                <div class="dpad"></div><div class="dpad-v"></div>
+                <div class="controller-btn a"></div><div class="controller-btn b"></div>
+              </div>
+            </div>
+            <span class="hotspot-label">🎮 video games</span>
           </button>
         </div>
         <div class="table-surface"></div>
-        <div class="shelf-bracket"></div>
       </div>
 
       <!-- Bookshelf -> Books -->
@@ -505,14 +533,18 @@
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
-          <div class="sofa-pillow p2"></div>
-          <svg class="sofa-dog" viewBox="0 0 80 50" fill="none">
-            <ellipse cx="40" cy="34" rx="34" ry="16" fill="#b98457"/>
-            <circle cx="14" cy="24" r="13" fill="#b98457"/>
-            <path d="M6 14 Q2 4 10 8 Q10 14 6 14Z" fill="#b98457"/>
-            <path d="M62 26 Q76 16 74 30 Q66 30 62 26Z" fill="#b98457"/>
-            <circle cx="10" cy="22" r="1.6" fill="#3a2a1a"/>
-            <ellipse cx="4" cy="27" rx="2.4" ry="1.8" fill="#3a2a1a"/>
+          <svg class="sofa-dog" viewBox="0 0 60 60" fill="none">
+            <path d="M46 40 Q58 34 54 22 Q50 30 44 34 Z" fill="#b98457"/>
+            <ellipse cx="30" cy="42" rx="18" ry="16" fill="#b98457"/>
+            <rect x="14" y="26" width="16" height="26" rx="8" fill="#b98457"/>
+            <rect x="16" y="44" width="6" height="14" rx="3" fill="#a06f45"/>
+            <rect x="26" y="44" width="6" height="14" rx="3" fill="#96633f"/>
+            <circle cx="18" cy="18" r="12" fill="#b98457"/>
+            <path d="M8 10 L4 -2 L14 6 Z" fill="#96633f"/>
+            <path d="M24 8 L30 -4 L18 4 Z" fill="#96633f"/>
+            <ellipse cx="9" cy="21" rx="6" ry="4.5" fill="#d4a878"/>
+            <ellipse cx="4" cy="21" rx="2" ry="1.6" fill="#3a2a1a"/>
+            <circle cx="14" cy="14" r="1.6" fill="#3a2a1a"/>
           </svg>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
@@ -530,40 +562,26 @@
 
     <!-- RIGHT: Comics + Games shelf, same level as the bookshelf -->
     <div class="right-shelf">
-      <div class="table-row">
-        <button class="hotspot" onclick="showPage('manga')" aria-label="Manga and Comics">
-          <div class="comic-stack">
-            <div class="comic-cover">
-              <svg class="comic-burst-bg" viewBox="0 0 100 100" fill="none">
-                <polygon points="50,2 61,34 92,22 68,48 94,72 60,64 50,98 40,64 6,72 32,48 8,22 39,34" fill="#dcae5c"/>
-              </svg>
-              <div class="comic-masthead">ADVENTURE<br>TALES</div>
-              <svg class="comic-hero" viewBox="0 0 100 90" fill="none">
-                <path d="M30 80 Q8 62 16 30 Q22 46 36 52 Z" fill="#f4e9d8"/>
-                <path d="M70 80 Q92 62 84 30 Q78 46 64 52 Z" fill="#f4e9d8"/>
-                <rect x="38" y="40" width="24" height="38" rx="9" fill="#f4e9d8"/>
-                <circle cx="50" cy="24" r="13" fill="#f4e9d8"/>
-                <rect x="48" y="4" width="11" height="26" rx="5" fill="#f4e9d8" transform="rotate(-18 48 4)"/>
-                <circle cx="58" cy="8" r="8" fill="#f4e9d8"/>
-              </svg>
-              <div class="comic-issue">No. 1</div>
-            </div>
+      <div class="console-row">
+        <button class="hotspot" onclick="showPage('shows')" aria-label="Shows and Movies">
+          <div class="tv-antenna"><span></span><span></span></div>
+          <div class="tv-set">
+            <div class="tv-tube"><div class="tv-screen">🎬</div></div>
+            <div class="tv-panel"><div class="tv-knob"></div><div class="tv-knob small"></div><div class="tv-speaker"></div></div>
           </div>
-          <span class="hotspot-label">📖 manga &amp; comics</span>
+          <span class="hotspot-label">📺 shows &amp; movies</span>
         </button>
-        <button class="hotspot" onclick="showPage('games')" aria-label="Video Games">
-          <div class="console-scene">
-            <div class="game-console">
-              <div class="console-slot"></div>
-              <div class="console-buttons"><span></span><span></span></div>
-              <div class="console-vent"></div>
+        <button class="hotspot" onclick="showPage('podcast')" aria-label="Podcast">
+          <div class="radio-antenna"></div>
+          <div class="radio-set">
+            <div class="radio-grille">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
             </div>
-            <div class="game-controller">
-              <div class="dpad"></div><div class="dpad-v"></div>
-              <div class="controller-btn a"></div><div class="controller-btn b"></div>
-            </div>
+            <div class="radio-dial"><div class="radio-needle"></div></div>
+            <div class="radio-knobs"><div class="radio-knob"></div><div class="radio-knob"></div></div>
           </div>
-          <span class="hotspot-label">🎮 video games</span>
+          <span class="hotspot-label">🎙️ the podcast</span>
         </button>
       </div>
       <div class="table-surface"></div>
