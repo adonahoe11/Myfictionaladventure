@@ -33,16 +33,16 @@
   #room {
     position: relative;
     background: var(--wall);
-    overflow: hidden;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     min-height: 950px;
   }
   /* the whole illustrated scene lives at one fixed "design" width and is
      scaled down as a single unit on narrow screens (via JS, see fitRoomCanvas)
      rather than trying to reflow individually-positioned furniture pieces */
   .room-canvas {
-    position: absolute; top: 0; left: 50%; margin-left: -750px;
-    width: 1500px; max-width: none; padding-bottom: 110px;
-    transform-origin: top center;
+    position: relative; width: 1500px; max-width: none;
+    margin: 0 auto; padding-bottom: 110px;
   }
   /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
@@ -1166,9 +1166,21 @@
     var room = document.getElementById('room');
     var canvas = document.querySelector('.room-canvas');
     if (!room || !canvas) return;
+    canvas.style.zoom = 1;
+    var naturalWidth = canvas.offsetWidth;
     var naturalHeight = canvas.offsetHeight;
-    var scale = Math.min(1, room.clientWidth / canvas.offsetWidth);
-    canvas.style.transform = scale < 1 ? 'scale(' + scale + ')' : 'none';
+    var fitWidthScale = room.clientWidth / naturalWidth;
+    var scale;
+    if (fitWidthScale >= 1) {
+      scale = 1;
+    } else {
+      // On narrow screens, prefer filling most of the screen's height
+      // (letting the room scroll sideways) over shrinking to fit the full
+      // width, which left the room tiny with lots of blank space below.
+      var fitHeightScale = (window.innerHeight * 0.82) / naturalHeight;
+      scale = Math.min(1, Math.max(fitWidthScale, fitHeightScale));
+    }
+    canvas.style.zoom = scale;
     room.style.minHeight = '0';
     room.style.height = Math.ceil(naturalHeight * scale) + 'px';
   }
