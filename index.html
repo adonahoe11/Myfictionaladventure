@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 250px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 235px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -231,12 +231,12 @@
   }
   .mini-shelf .bookend { width: 6px; }
 
-  .library-shelf { position: absolute; bottom: 232px; left: 933px; width: 84px; z-index: 1; }
-  .library-shelf-books { display: flex; justify-content: center; gap: 3px; margin-bottom: 4px; height: 26px; align-items: flex-end; }
+  .library-shelf { position: absolute; bottom: 232px; left: 920px; width: 110px; z-index: 1; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 4px; margin-bottom: 5px; height: 34px; align-items: flex-end; }
   .library-shelf-plank {
-    width: 100%; height: 10px; border-radius: 3px;
+    width: 100%; height: 13px; border-radius: 3px;
     background: repeating-linear-gradient(90deg, var(--wood-dark) 0px, var(--wood-dark) 14px, #4a3323 15px, #4a3323 16px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.3);
   }
 
   .newsletter-sign {
@@ -705,7 +705,7 @@
           <div class="lamp-base"></div>
         </div>
       </div>
-      <span class="hotspot-label">🕯️ sit with me</span>
+      <span class="hotspot-label">💬 discussions</span>
     </button>
     <div class="hotspot wall-photo" onclick="event.stopPropagation(); showPage('helpdogs')" role="button" tabindex="0" aria-label="Help Dogs">
       <div class="wall-photo-inner">🐶</div>
@@ -802,7 +802,7 @@
         <div class="fireplace-log"></div>
       </div>
       <div class="fireplace-hearth"></div>
-      <span class="hotspot-label">✉️ contact me</span>
+      <span class="hotspot-label" style="white-space: normal; width: 90px; text-align: center;">✉️ contact<br>me</span>
     </button>
   </div>
 
