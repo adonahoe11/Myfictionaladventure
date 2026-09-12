@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 1;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 250px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -101,7 +101,7 @@
     box-shadow: 0 12px 26px rgba(0,0,0,0.4);
     opacity: 0.92;
   }
-  .bookshelf { padding-bottom: 14px; position: relative; top: 32px; }
+  .bookshelf { padding-bottom: 14px; position: relative; top: 10px; }
   .shelf-unit {
     width: 440px; max-width: 100%;
     background:
@@ -214,6 +214,7 @@
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
 
   .mini-shelf {
+    position: relative; top: -34px;
     width: 96px; padding: 8px 8px 0;
     background:
       repeating-linear-gradient(100deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 2px, transparent 3px, transparent 14px),
@@ -230,8 +231,8 @@
   }
   .mini-shelf .bookend { width: 6px; }
 
-  .library-shelf { position: absolute; bottom: 98px; left: 933px; width: 84px; z-index: 1; }
-  .library-shelf-books { display: flex; justify-content: center; gap: 3px; margin-bottom: 4px; height: 22px; align-items: flex-end; }
+  .library-shelf { position: absolute; bottom: 232px; left: 933px; width: 84px; z-index: 1; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 3px; margin-bottom: 4px; height: 26px; align-items: flex-end; }
   .library-shelf-plank {
     width: 100%; height: 10px; border-radius: 3px;
     background: repeating-linear-gradient(90deg, var(--wood-dark) 0px, var(--wood-dark) 14px, #4a3323 15px, #4a3323 16px);
@@ -490,7 +491,7 @@
   .find-me-link:hover { color: var(--gold); }
 
   .claude-credit {
-    position: relative; z-index: 5; text-align: left; padding: 0 24px 24px;
+    position: absolute; left: 16px; bottom: 10px; z-index: 5;
     font-size: 0.72rem; color: var(--text-light-dim); opacity: 0.6;
   }
 
@@ -688,11 +689,8 @@
           <div class="sofa-pillow p1"></div>
           <div class="sofa-dog">
             <svg class="dog-body" viewBox="0 0 70 56" fill="none">
-              <ellipse cx="33" cy="36" rx="28" ry="18" fill="#f7f2ea"/>
-              <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q46 8 46 14 Q58 16 60 28 Q61 38 52 42 Q54 45 56 44 Z" fill="#efe8db"/>
-              <ellipse cx="20" cy="28" rx="7" ry="5.5" fill="#8b5e3c"/>
-              <ellipse cx="38" cy="42" rx="6" ry="4.5" fill="#8b5e3c"/>
-              <ellipse cx="46" cy="27" rx="5" ry="4" fill="#8b5e3c"/>
+              <ellipse cx="33" cy="36" rx="28" ry="18" fill="#8b5e3c"/>
+              <path d="M56 44 Q72 42 70 22 Q68 8 52 6 Q49 8 50 12 Q61 14 63 27 Q64 37 55 41 Q55 43 56 44 Z" fill="#8b5e3c"/>
             </svg>
             <span class="dog-face">🐶</span>
           </div>
@@ -756,9 +754,10 @@
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
-        <div class="flat-book" style="width:16px;height:14px;background:#a85e68;transform:rotate(-3deg)"></div>
-        <div class="flat-book" style="width:18px;height:18px;background:#c99a4b;"></div>
-        <div class="flat-book" style="width:16px;height:12px;background:#6c7ea3;transform:rotate(2deg)"></div>
+        <div class="spine" style="width:8px;height:22px;background:#a85e68"></div>
+        <div class="spine" style="width:9px;height:25px;background:#c99a4b"></div>
+        <div class="spine" style="width:7px;height:20px;background:#6c7ea3"></div>
+        <div class="spine" style="width:8px;height:23px;background:#7a9b76"></div>
       </div>
       <div class="library-shelf-plank"></div>
       <span class="hotspot-label">🗄️ my library</span>
