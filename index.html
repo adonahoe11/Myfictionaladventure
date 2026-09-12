@@ -31,7 +31,7 @@
   #room {
     position: relative; min-height: 100vh;
     background: var(--wall);
-    padding-bottom: 40px; overflow: hidden;
+    padding-bottom: 60px; overflow: hidden;
   }
   /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
@@ -43,7 +43,7 @@
      reaches the true bottom of the room, starting just above the furniture's
      feet rather than at a fixed % of viewport height */
   .floor-strip {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 235px; z-index: 1;
+    position: absolute; bottom: -60px; left: 0; right: 0; height: 260px; z-index: 1;
     background: linear-gradient(180deg, var(--floor), var(--floor-2));
     box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
   }
@@ -266,7 +266,7 @@
     display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
   /* --- little fireplace, far right of the room --- */
-  .fireplace { position: absolute; right: -6px; bottom: 0; width: 108px; z-index: 2; text-align: center; }
+  .fireplace { position: absolute; right: 14px; bottom: 0; width: 108px; z-index: 2; text-align: center; }
   .fireplace-mantel {
     width: 100%; height: 14px; border-radius: 3px;
     background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
@@ -750,7 +750,7 @@
           <div class="bookend"></div>
         </div>
       </div>
-      <span class="hotspot-label">🍵 book club</span>
+      <span class="hotspot-label" style="bottom: 16px;">🍵 book club</span>
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
@@ -802,7 +802,7 @@
         <div class="fireplace-log"></div>
       </div>
       <div class="fireplace-hearth"></div>
-      <span class="hotspot-label" style="white-space: normal; width: 90px; text-align: center;">✉️ contact<br>me</span>
+      <span class="hotspot-label" style="white-space: normal; width: 90px; text-align: center; line-height: 1.05; bottom: -40px;">✉️ contact<br>me</span>
     </button>
   </div>
 
