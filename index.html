@@ -118,7 +118,7 @@
   .shelf-topper { display: flex; justify-content: center; gap: 6px; margin-bottom: 10px; height: 26px; align-items: flex-end; }
   .flat-book { border-radius: 2px 2px 0 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 -2px 4px rgba(0,0,0,0.15); }
   .shelf-row {
-    display: flex; align-items: flex-end; gap: 2px; height: 172px;
+    display: flex; align-items: flex-end; gap: 2px; height: 196px;
     background: linear-gradient(180deg, rgba(0,0,0,0.3), transparent 30%);
     border-bottom: 10px solid var(--metal-dark); padding: 0 2px 6px; margin-bottom: 8px;
     box-shadow: inset 0 10px 14px -8px rgba(0,0,0,0.6);
@@ -222,7 +222,7 @@
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
 
   .mini-shelf {
-    position: relative; top: -24px;
+    position: relative; top: -12px;
     width: 166px; padding: 10px 10px 0;
     background:
       linear-gradient(100deg, transparent 42%, rgba(255,255,255,0.14) 49%, rgba(255,255,255,0.04) 53%, transparent 60%),
@@ -240,8 +240,8 @@
   }
   .mini-shelf .bookend { width: 8px; }
 
-  .library-shelf { position: absolute; bottom: 232px; left: 900px; width: 155px; z-index: 1; }
-  .library-shelf-books { display: flex; justify-content: center; gap: 6px; margin-bottom: -3px; height: 48px; align-items: flex-end; }
+  .library-shelf { position: absolute; bottom: 232px; left: 890px; width: 175px; z-index: 1; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 7px; margin-bottom: -3px; height: 65px; align-items: flex-end; }
   .library-shelf-plank {
     width: 100%; height: 18px; border-radius: 3px;
     background: linear-gradient(180deg, var(--metal-light), var(--metal) 55%, var(--metal-dark));
@@ -275,7 +275,7 @@
     display: flex; align-items: center; justify-content: center; font-size: 5.9rem;
   }
   .wall-painting {
-    position: absolute; bottom: 380px; left: 296px; width: 132px; height: 92px;
+    position: absolute; bottom: 410px; left: 296px; width: 132px; height: 92px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 7px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(1deg); z-index: 3;
@@ -489,7 +489,7 @@
   /* --- Game console + controller (Video Games) --- */
   .console-scene { display: flex; align-items: flex-end; gap: 12px; }
   .game-console {
-    width: 158px; height: 90px;
+    width: 158px; height: 104px;
     background: linear-gradient(155deg, var(--sage), #303032 70%, #202022);
     border-radius: 10px; position: relative; box-shadow: 0 20px 38px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.18);
   }
@@ -780,7 +780,7 @@
       </div>
       <span class="hotspot-label">✍️ my writing</span>
     </button>
-    <button class="hotspot" onclick="showPage('about')" aria-label="About Allie">
+    <button class="hotspot" onclick="showPage('about')" aria-label="About Allie" style="margin-left: -24px;">
       <div class="recliner">
         <div class="recliner-back"></div>
         <div class="recliner-arm left"></div>
@@ -808,14 +808,14 @@
           <div class="bookend"></div>
         </div>
       </div>
-      <span class="hotspot-label" style="bottom: 0px;">🍵 book club</span>
+      <span class="hotspot-label" style="bottom: -12px;">🍵 book club</span>
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
-        <div class="spine" style="width:11px;height:31px;background:#7a1f2b"></div>
-        <div class="spine" style="width:13px;height:35px;background:#8a6a3a"></div>
-        <div class="spine" style="width:10px;height:28px;background:#3a4a5a"></div>
-        <div class="spine" style="width:11px;height:32px;background:#2a4a32"></div>
+        <div class="spine" style="width:15px;height:42px;background:#7a1f2b"></div>
+        <div class="spine" style="width:18px;height:47px;background:#8a6a3a"></div>
+        <div class="spine" style="width:14px;height:38px;background:#3a4a5a"></div>
+        <div class="spine" style="width:15px;height:43px;background:#2a4a32"></div>
       </div>
       <div class="library-shelf-plank"></div>
       <span class="hotspot-label">🗄️ my library</span>
