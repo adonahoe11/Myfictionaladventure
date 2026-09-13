@@ -138,7 +138,7 @@
   .spine.lean { transform: rotate(-4deg) translateY(2px); transform-origin: bottom center; }
   .bookend { width: 10px; align-self: stretch; background: linear-gradient(180deg,var(--metal-light),var(--metal-dark)); border-radius: 2px; flex-shrink: 0; box-shadow: 0 3px 6px rgba(0,0,0,0.4); }
   .recliner-raven {
-    position: absolute; top: -30px; left: 50%; transform: translateX(-50%) scaleX(-1);
+    position: absolute; top: -54px; left: 50%; transform: translateX(-50%) scaleX(-1);
     font-size: 3.6rem; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.5));
   }
 
@@ -148,21 +148,21 @@
   .side-table { position: relative; width: 150px; height: 92px; }
   .table-top {
     position: absolute; bottom: 62px; left: 0; right: 0; height: 16px; border-radius: 8px;
-    background: linear-gradient(180deg, var(--wood-light), var(--wood));
-    box-shadow: 0 8px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+    background: linear-gradient(180deg, var(--metal-light), var(--metal));
+    box-shadow: 0 8px 14px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
   }
   .table-leg {
     position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 12px; height: 64px; background: linear-gradient(90deg, var(--wood-dark), var(--wood), var(--wood-dark));
+    width: 12px; height: 64px; background: linear-gradient(90deg, var(--metal-dark), var(--metal-light), var(--metal-dark));
     border-radius: 2px;
   }
   .table-base {
     position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
-    width: 76px; height: 9px; background: var(--wood-dark); border-radius: 50%;
+    width: 76px; height: 9px; background: var(--metal-dark); border-radius: 50%;
   }
   .notebook {
     position: absolute; bottom: 77px; left: 50%; transform: translateX(-50%) rotate(-5deg);
-    width: 56px; height: 42px; border-radius: 3px;
+    width: 38px; height: 28px; border-radius: 3px;
     background: linear-gradient(155deg, #7a5540, #5a3d2e);
     box-shadow: 0 6px 12px rgba(0,0,0,0.35), inset 0 0 0 2px rgba(0,0,0,0.15);
   }
@@ -240,12 +240,12 @@
   }
   .mini-shelf .bookend { width: 8px; }
 
-  .library-shelf { position: absolute; bottom: 232px; left: 920px; width: 110px; z-index: 1; }
-  .library-shelf-books { display: flex; justify-content: center; gap: 4px; margin-bottom: 5px; height: 34px; align-items: flex-end; }
+  .library-shelf { position: absolute; bottom: 232px; left: 900px; width: 155px; z-index: 1; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 6px; margin-bottom: 7px; height: 48px; align-items: flex-end; }
   .library-shelf-plank {
-    width: 100%; height: 13px; border-radius: 3px;
+    width: 100%; height: 18px; border-radius: 3px;
     background: linear-gradient(180deg, var(--metal-light), var(--metal) 55%, var(--metal-dark));
-    box-shadow: 0 8px 12px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 16px rgba(0,0,0,0.45);
   }
 
   .newsletter-sign {
@@ -288,8 +288,8 @@
   }
   .fireplace-mantel::before { left: 8px; } .fireplace-mantel::after { right: 8px; }
   .fireplace-swords {
-    position: absolute; top: -46px; left: 50%; transform: translateX(-50%) rotate(0deg);
-    font-size: 2.2rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+    position: absolute; top: -74px; left: 50%; transform: translateX(-50%) rotate(0deg);
+    font-size: 4rem; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.65));
   }
   .fireplace-opening {
     position: relative; margin: 0 auto; width: 112px; height: 126px; overflow: hidden;
@@ -366,9 +366,13 @@
   }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, var(--sage), #303032); transform: rotate(-9deg); }
   .sofa-dragon {
-    position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%) scaleX(-1);
+    position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%);
     font-size: 4.6rem; line-height: 1; z-index: 1;
     filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
+  }
+  .dragon-zzz {
+    position: absolute; top: -18px; right: -14px; font-family: var(--font-hand);
+    font-size: 1.6rem; color: var(--text-light-dim); opacity: 0.85;
   }
   .sofa-leg { position: absolute; bottom: -11px; width: 15px; height: 40px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 4px 4px; }
   .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
@@ -384,7 +388,7 @@
   .console-column { justify-self: center; }
   .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
   .flatscreen {
-    width: 190px; height: 108px;
+    width: 224px; height: 128px;
     background: linear-gradient(155deg, #26282a, #0e0f10);
     border: 3px solid #0a0a0a; border-radius: 6px; padding: 6px;
     box-shadow: 0 26px 46px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
@@ -395,15 +399,15 @@
     display: flex; align-items: center; justify-content: center; font-size: 2rem;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.75), inset 0 0 0 1px rgba(255,255,255,0.06);
   }
-  .flatscreen-stand { width: 14px; height: 18px; margin: 0 auto; background: linear-gradient(180deg, var(--metal-light), var(--metal-dark)); }
-  .flatscreen-base { width: 74px; height: 8px; margin: 0 auto; background: linear-gradient(180deg, var(--metal), var(--metal-dark)); border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+  .flatscreen-stand { width: 16px; height: 20px; margin: 0 auto; background: linear-gradient(180deg, var(--metal-light), var(--metal-dark)); }
+  .flatscreen-base { width: 86px; height: 9px; margin: 0 auto; background: linear-gradient(180deg, var(--metal), var(--metal-dark)); border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
 
   /* --- Vintage radio (Podcast) --- */
   .radio-antenna { width: 2px; height: 30px; background: #c9a86a; margin: 0 auto -6px 60px; transform: rotate(-8deg); }
   .radio-set {
-    width: 168px; height: 118px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    width: 138px; height: 96px; display: flex; flex-direction: column; align-items: center; gap: 8px;
     background: linear-gradient(155deg, var(--wood-light), var(--wood) 55%, var(--wood-dark));
-    border: 3px solid var(--wood-dark); border-radius: 16px 16px 10px 10px; padding: 14px;
+    border: 3px solid var(--wood-dark); border-radius: 14px 14px 8px 8px; padding: 11px;
     box-shadow: 0 26px 46px rgba(0,0,0,0.45), inset 0 2px 3px rgba(255,255,255,0.1);
   }
   .radio-grille {
@@ -413,13 +417,13 @@
   }
   .radio-grille span { width: 100%; padding-top: 100%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #4a3a2c, #16110c); }
   .radio-dial {
-    position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%;
+    position: absolute; top: 11px; right: 11px; width: 25px; height: 25px; border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #f0e6d0, #c9a86a); box-shadow: 0 2px 5px rgba(0,0,0,0.4);
   }
   .radio-set { position: relative; }
-  .radio-needle { position: absolute; top: 50%; left: 50%; width: 2px; height: 11px; background: #a8342e; transform-origin: bottom center; transform: translate(-50%,-100%) rotate(25deg); }
-  .radio-knobs { display: flex; gap: 14px; }
-  .radio-knob { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #4a3a2a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+  .radio-needle { position: absolute; top: 50%; left: 50%; width: 2px; height: 9px; background: #a8342e; transform-origin: bottom center; transform: translate(-50%,-100%) rotate(25deg); }
+  .radio-knobs { display: flex; gap: 12px; }
+  .radio-knob { width: 15px; height: 15px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8c9a8, #4a3a2a); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
 
 /* --- Comics stack (Manga & Comics) --- */
   .table-row { display: flex; gap: 34px; justify-content: center; align-items: flex-end; }
@@ -447,7 +451,7 @@
   }
   .comic-art { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 60px; }
   .comic-cover {
-    position: relative; width: 90px; height: 120px; border-radius: 4px; overflow: hidden;
+    position: relative; width: 68px; height: 92px; border-radius: 4px; overflow: hidden;
     background: linear-gradient(160deg, #3a0f0a, #150604);
     box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.1), inset 0 0 0 2px rgba(0,0,0,0.4);
   }
@@ -467,33 +471,35 @@
   /* --- Game console + controller (Video Games) --- */
   .console-scene { display: flex; align-items: flex-end; gap: 12px; }
   .game-console {
-    width: 118px; height: 66px;
+    width: 140px; height: 80px;
     background: linear-gradient(155deg, var(--sage), #303032 70%, #202022);
     border-radius: 10px; position: relative; box-shadow: 0 20px 38px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.18);
   }
   .console-slot {
-    position: absolute; top: 8px; left: 12px; right: 12px; height: 10px; border-radius: 3px;
+    position: absolute; top: 9px; left: 14px; right: 14px; height: 12px; border-radius: 3px;
     background: #26301f; box-shadow: inset 0 2px 3px rgba(0,0,0,0.5);
   }
-  .console-buttons { position: absolute; bottom: 10px; left: 12px; display: flex; gap: 7px; }
-  .console-buttons span { width: 10px; height: 10px; border-radius: 50%; background: var(--parchment); box-shadow: inset 0 0 0 2px var(--wood-dark); }
-  .console-vent { position: absolute; bottom: 10px; right: 12px; width: 30px; height: 10px; background-image: repeating-linear-gradient(90deg, #26301f 0px, #26301f 2px, transparent 3px, transparent 6px); }
+  .console-buttons { position: absolute; bottom: 12px; left: 14px; display: flex; gap: 8px; }
+  .console-buttons span { width: 12px; height: 12px; border-radius: 50%; background: var(--parchment); box-shadow: inset 0 0 0 2px var(--wood-dark); }
+  .console-vent { position: absolute; bottom: 12px; right: 14px; width: 36px; height: 12px; background-image: repeating-linear-gradient(90deg, #26301f 0px, #26301f 2px, transparent 3px, transparent 6px); }
   .game-controller {
-    width: 64px; height: 40px; background: linear-gradient(155deg, #2e2438, #1c1622);
-    border-radius: 16px 16px 20px 20px / 16px 16px 26px 26px; position: relative;
+    width: 76px; height: 48px; background: linear-gradient(155deg, #2e2438, #1c1622);
+    border-radius: 18px 18px 24px 24px / 18px 18px 30px 30px; position: relative;
     box-shadow: 0 14px 26px rgba(0,0,0,0.4);
   }
   .dpad, .dpad-v { position: absolute; background: #4a3f56; }
-  .dpad { top: 15px; left: 9px; width: 16px; height: 6px; border-radius: 2px; }
-  .dpad-v { top: 12px; left: 14px; width: 6px; height: 16px; border-radius: 2px; }
-  .controller-btn { position: absolute; width: 8px; height: 8px; border-radius: 50%; }
-  .controller-btn.a { top: 12px; right: 10px; background: var(--rose); }
-  .controller-btn.b { top: 22px; right: 18px; background: var(--gold); }
+  .dpad { top: 18px; left: 11px; width: 19px; height: 7px; border-radius: 2px; }
+  .dpad-v { top: 14px; left: 17px; width: 7px; height: 19px; border-radius: 2px; }
+  .controller-btn { position: absolute; width: 9px; height: 9px; border-radius: 50%; }
+  .controller-btn.a { top: 14px; right: 12px; background: var(--rose); }
+  .controller-btn.b { top: 26px; right: 22px; background: var(--gold); }
 
   .table-surface {
     width: 100%; height: 20px;
-    background: repeating-linear-gradient(90deg, var(--wood-dark) 0px, var(--wood-dark) 30px, #4a3323 31px, #4a3323 32px);
-    border-radius: 4px; margin-top: 12px; box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    background:
+      linear-gradient(100deg, transparent 42%, rgba(255,255,255,0.14) 49%, rgba(255,255,255,0.04) 53%, transparent 60%),
+      linear-gradient(180deg, var(--metal-light), var(--metal-dark));
+    border-radius: 4px; margin-top: 12px; box-shadow: 0 6px 10px rgba(0,0,0,0.4);
   }
 
   .find-me-link {
@@ -605,7 +611,7 @@
     <div class="kicker">welcome to</div>
     <h1>Myfictionaladventure</h1>
     <p class="signature">— Allie</p>
-    <p>Writer, Reviewer, &amp; Podcaster<br>Permanently lost in fictional worlds.<br>Pull up a chair!</p>
+    <p>Writer, Reviewer, &amp; Podcaster<br>Permanently lost in fictional worlds.<br>Writing a romantasy-dystopian series.<br>Pull up a chair!</p>
   </div>
 
   <div class="room-scene">
@@ -686,7 +692,7 @@
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
           <div class="sofa-pillow p1"></div>
-          <div class="sofa-dragon" aria-hidden="true">🐉</div>
+          <div class="sofa-dragon" aria-hidden="true">🐲<span class="dragon-zzz">z z z</span></div>
           <div class="chair-book"></div>
           <div class="sofa-leg left"></div>
           <div class="sofa-leg right"></div>
@@ -747,10 +753,10 @@
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
-        <div class="spine" style="width:8px;height:22px;background:#7a1f2b"></div>
-        <div class="spine" style="width:9px;height:25px;background:#8a6a3a"></div>
-        <div class="spine" style="width:7px;height:20px;background:#3a4a5a"></div>
-        <div class="spine" style="width:8px;height:23px;background:#2a4a32"></div>
+        <div class="spine" style="width:11px;height:31px;background:#7a1f2b"></div>
+        <div class="spine" style="width:13px;height:35px;background:#8a6a3a"></div>
+        <div class="spine" style="width:10px;height:28px;background:#3a4a5a"></div>
+        <div class="spine" style="width:11px;height:32px;background:#2a4a32"></div>
       </div>
       <div class="library-shelf-plank"></div>
       <span class="hotspot-label">🗄️ my library</span>
