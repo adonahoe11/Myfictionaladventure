@@ -118,7 +118,7 @@
   .shelf-topper { display: flex; justify-content: center; gap: 6px; margin-bottom: 10px; height: 26px; align-items: flex-end; }
   .flat-book { border-radius: 2px 2px 0 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 -2px 4px rgba(0,0,0,0.15); }
   .shelf-row {
-    display: flex; align-items: flex-end; gap: 2px; height: 196px;
+    display: flex; align-items: flex-end; gap: 2px; height: 212px;
     background: linear-gradient(180deg, rgba(0,0,0,0.3), transparent 30%);
     border-bottom: 10px solid var(--metal-dark); padding: 0 2px 6px; margin-bottom: 8px;
     box-shadow: inset 0 10px 14px -8px rgba(0,0,0,0.6);
@@ -145,23 +145,38 @@
   /* --- Sofa + floor lamp (About) --- */
   .center-group { position: relative; display: flex; align-items: flex-end; gap: 28px; justify-self: center; min-width: 0; margin-left: 46px; }
   .chair-scene { display: flex; flex-direction: column; align-items: center; position: relative; }
-  .side-table { position: relative; width: 150px; height: 92px; }
+  .side-table { position: relative; width: 150px; height: 112px; }
   .table-top {
-    position: absolute; bottom: 62px; left: 0; right: 0; height: 16px; border-radius: 8px;
+    position: absolute; bottom: 78px; left: 0; right: 0; height: 16px; border-radius: 8px;
     background: linear-gradient(180deg, var(--metal-light), var(--metal));
     box-shadow: 0 8px 14px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
   }
   .table-leg {
     position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 12px; height: 64px; background: linear-gradient(90deg, var(--metal-dark), var(--metal-light), var(--metal-dark));
+    width: 12px; height: 80px; background: linear-gradient(90deg, var(--metal-dark), var(--metal-light), var(--metal-dark));
     border-radius: 2px;
+  }
+  .table-candle {
+    position: absolute; bottom: 94px; left: 50%; transform: translateX(18px);
+    width: 10px; height: 26px; background: linear-gradient(180deg, #e8ded0, #c9bda8);
+    border-radius: 2px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  .table-candle::before {
+    content: ""; position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    width: 7px; height: 12px; border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+    background: radial-gradient(circle at 50% 70%, #ffe29a, #ff9a3a 70%, #d84315);
+    box-shadow: 0 0 14px 4px rgba(255,170,60,0.55);
+    animation: fireflicker 2s ease-in-out infinite;
+  }
+  .table-candle::after {
+    content: ""; position: absolute; top: -2px; left: 3.5px; width: 3px; height: 6px; background: #2a2018;
   }
   .table-base {
     position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
     width: 76px; height: 9px; background: var(--metal-dark); border-radius: 50%;
   }
   .notebook {
-    position: absolute; bottom: 77px; left: 50%; transform: translateX(-50%) rotate(-5deg);
+    position: absolute; bottom: 93px; left: 50%; transform: translateX(-50%) rotate(-5deg);
     width: 38px; height: 28px; border-radius: 3px;
     background: linear-gradient(155deg, #7a5540, #5a3d2e);
     box-shadow: 0 6px 12px rgba(0,0,0,0.35), inset 0 0 0 2px rgba(0,0,0,0.15);
@@ -241,7 +256,7 @@
   .mini-shelf .bookend { width: 8px; }
 
   .library-shelf { position: absolute; bottom: 232px; left: 890px; width: 175px; z-index: 1; }
-  .library-shelf-books { display: flex; justify-content: center; gap: 7px; margin-bottom: -3px; height: 65px; align-items: flex-end; }
+  .library-shelf-books { display: flex; justify-content: center; gap: 7px; margin-bottom: -3px; height: 75px; align-items: flex-end; }
   .library-shelf-plank {
     width: 100%; height: 18px; border-radius: 3px;
     background: linear-gradient(180deg, var(--metal-light), var(--metal) 55%, var(--metal-dark));
@@ -264,7 +279,7 @@
     color: var(--ink); text-align: center;
   }
   .wall-photo {
-    position: absolute; bottom: 250px; left: 484px; width: 168px; height: 126px;
+    position: absolute; bottom: 250px; left: 470px; width: 196px; height: 148px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 6px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(-2deg); z-index: 3;
@@ -272,10 +287,10 @@
   .wall-photo-inner {
     width: 100%; height: 100%; border-radius: 2px; background: #5a2e38;
     box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
-    display: flex; align-items: center; justify-content: center; font-size: 5.9rem;
+    display: flex; align-items: center; justify-content: center; font-size: 6.9rem;
   }
   .wall-painting {
-    position: absolute; bottom: 410px; left: 296px; width: 132px; height: 92px;
+    position: absolute; bottom: 440px; left: 280px; width: 160px; height: 112px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 7px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(1deg); z-index: 3;
@@ -406,7 +421,7 @@
   .console-column { justify-self: center; }
   .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
   .flatscreen {
-    width: 300px; height: 172px;
+    width: 300px; height: 210px;
     background: linear-gradient(155deg, #26282a, #0e0f10);
     border: 3px solid #0a0a0a; border-radius: 6px; padding: 6px;
     box-shadow: 0 26px 46px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
@@ -489,14 +504,16 @@
   /* --- Game console + controller (Video Games) --- */
   .console-scene { display: flex; align-items: flex-end; gap: 12px; }
   .game-console {
-    width: 158px; height: 104px;
+    width: 158px; height: 122px;
     background: linear-gradient(155deg, var(--sage), #303032 70%, #202022);
     border-radius: 10px; position: relative; box-shadow: 0 20px 38px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.18);
   }
   .console-slot {
-    position: absolute; top: 9px; left: 14px; right: 14px; height: 12px; border-radius: 3px;
+    position: absolute; top: 9px; left: 14px; right: 14px; height: 30px; border-radius: 3px;
     background: #26301f; box-shadow: inset 0 2px 3px rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
+  .console-slot-icon { font-size: 1.1rem; filter: drop-shadow(0 0 4px rgba(120,255,140,0.6)); }
   .console-buttons { position: absolute; bottom: 12px; left: 14px; display: flex; gap: 8px; }
   .console-buttons span { width: 12px; height: 12px; border-radius: 50%; background: var(--parchment); box-shadow: inset 0 0 0 2px var(--wood-dark); }
   .console-vent { position: absolute; bottom: 12px; right: 14px; width: 36px; height: 12px; background-image: repeating-linear-gradient(90deg, #26301f 0px, #26301f 2px, transparent 3px, transparent 6px); }
@@ -653,7 +670,7 @@
           <button class="hotspot" onclick="showPage('games')" aria-label="Video Games">
             <div class="console-scene">
               <div class="game-console">
-                <div class="console-slot"></div>
+                <div class="console-slot"><span class="console-slot-icon">👾</span></div>
                 <div class="console-buttons"><span></span><span></span></div>
                 <div class="console-vent"></div>
               </div>
@@ -683,6 +700,10 @@
             <div class="spine" style="width:22px;height:100%;background:#8a6a3a">SCI-FI</div>
             <div class="spine" style="width:26px;height:90%;background:#4a2a3a">MYSTERY</div>
             <div class="spine" style="width:24px;height:92%;background:#6b4a2a">LITRPG</div>
+            <div class="spine" style="width:26px;height:94%;background:#3a0f14">DARK ROMANCE</div>
+            <div class="spine lean" style="width:26px;height:86%;background:#4a4a32;font-size:0.5rem;letter-spacing:-0.02em">MILITARY FANTASY</div>
+            <div class="spine" style="width:24px;height:98%;background:#2a2a4a">SPACE OPERA</div>
+            <div class="spine" style="width:26px;height:84%;background:#7a5a2a">COZY FANTASY</div>
             <div class="bookend"></div>
           </div>
           <div class="shelf-row">
@@ -715,9 +736,12 @@
               <path d="M85 55 Q100 50 98 35 Q96 22 82 20 Q78 22 80 27 Q90 29 91 38 Q92 48 80 52 Q80 55 85 55 Z" fill="#3a4a58"/>
               <ellipse cx="55" cy="52" rx="38" ry="24" fill="#4a6478"/>
               <ellipse cx="57" cy="61" rx="24" ry="12" fill="#7a94a4"/>
-              <path d="M33 22 Q53 13 70 23 Q79 29 72 38 Q61 33 50 38 Q56 45 46 51 Q33 38 33 22 Z" fill="#6a8498"/>
-              <path d="M44 22 Q60 19 70 26" stroke="#6b1a22" stroke-width="2.2" fill="none" opacity="0.5" stroke-linecap="round"/>
-              <path d="M42 33 Q56 30 65 37" stroke="#6b1a22" stroke-width="1.7" fill="none" opacity="0.4" stroke-linecap="round"/>
+              <path d="M46 40 Q42 22 53 10 Q57 20 58 30 Q62 16 72 13 Q70 24 66 33 Q74 22 83 24 Q76 32 68 38 Q58 46 46 40 Z" fill="#6a8498"/>
+              <path d="M53 12 Q54 26 58 38" stroke="#4a6478" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+              <path d="M71 15 Q68 26 65 36" stroke="#4a6478" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+              <path d="M81 25 Q75 30 69 37" stroke="#4a6478" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+              <path d="M50 15 Q52 27 56 37" stroke="#6b1a22" stroke-width="1.8" fill="none" opacity="0.45" stroke-linecap="round"/>
+              <path d="M69 15 Q66 26 63 35" stroke="#6b1a22" stroke-width="1.8" fill="none" opacity="0.45" stroke-linecap="round"/>
               <circle cx="24" cy="43" r="19" fill="#4a6478"/>
               <ellipse cx="20" cy="51" rx="11" ry="8" fill="#7a94a4"/>
               <path d="M14 27 Q10 17 16 13 Q18 21 20 28 Z" fill="#8a3a42"/>
@@ -768,12 +792,13 @@
     <div class="wall-photo" aria-hidden="true">
       <div class="wall-photo-inner">🥀</div>
     </div>
-    <button class="hotspot" onclick="showPage('writing')" aria-label="My Writing">
+    <button class="hotspot" onclick="showPage('writing')" aria-label="My Writing" style="margin-left: -12px;">
       <div class="side-table">
         <div class="notebook">
           <div class="notebook-pages"></div>
           <div class="notebook-pen"></div>
         </div>
+        <div class="table-candle"></div>
         <div class="table-top"></div>
         <div class="table-leg"></div>
         <div class="table-base"></div>
@@ -812,10 +837,10 @@
     </button>
     <button class="hotspot library-shelf" onclick="showPage('library')" aria-label="My Library">
       <div class="library-shelf-books">
-        <div class="spine" style="width:15px;height:42px;background:#7a1f2b"></div>
-        <div class="spine" style="width:18px;height:47px;background:#8a6a3a"></div>
-        <div class="spine" style="width:14px;height:38px;background:#3a4a5a"></div>
-        <div class="spine" style="width:15px;height:43px;background:#2a4a32"></div>
+        <div class="spine" style="width:15px;height:52px;background:#7a1f2b"></div>
+        <div class="spine" style="width:18px;height:58px;background:#8a6a3a"></div>
+        <div class="spine" style="width:14px;height:47px;background:#3a4a5a"></div>
+        <div class="spine" style="width:15px;height:53px;background:#2a4a32"></div>
       </div>
       <div class="library-shelf-plank"></div>
       <span class="hotspot-label">🗄️ my library</span>
