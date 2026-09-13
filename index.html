@@ -94,7 +94,7 @@
 
   /* --- Bookshelf (Books) --- */
   .left-stack { justify-self: start; min-width: 0; margin-left: -12px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-  .wall-shelf { display: flex; flex-direction: column; align-items: center; }
+  .wall-shelf { display: flex; flex-direction: column; align-items: center; position: relative; top: -18px; }
   .shelf-bracket { display: none; }
   .right-shelf { justify-self: center; min-width: 0; display: flex; flex-direction: column; align-items: center; }
   .shelf-spacer { height: 330px; }
@@ -275,7 +275,7 @@
     display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
   .wall-painting {
-    width: 132px; height: 92px; margin: 0 auto 6px;
+    width: 132px; height: 92px; margin: -14px auto 6px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 7px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(1deg);
@@ -301,9 +301,13 @@
   }
   .fireplace-mantel::before { left: 8px; } .fireplace-mantel::after { right: 8px; }
   .fireplace-swords {
-    position: absolute; top: -160px; left: 50%; transform: translateX(-50%) rotate(0deg);
-    font-size: 8.6rem; filter: drop-shadow(0 10px 12px rgba(0,0,0,0.75));
+    position: absolute; top: -152px; left: 50%; transform: translateX(-50%);
+    width: 130px; height: 148px;
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,0.75));
   }
+  .fireplace-swords .sword { position: absolute; top: 0; left: 50%; width: 36px; height: 148px; }
+  .fireplace-swords .sword-1 { transform: translateX(-50%) rotate(-32deg); }
+  .fireplace-swords .sword-2 { transform: translateX(-50%) rotate(32deg); }
   .fireplace-opening {
     position: relative; margin: 0 auto; width: 112px; height: 126px; overflow: hidden;
     background: linear-gradient(180deg, #1c1210, #0a0605);
@@ -400,7 +404,7 @@
 
   /* --- Old-fashioned TV (Shows & Movies) --- */
   .console-column { justify-self: center; }
-  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
+  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; position: relative; top: -18px; }
   .flatscreen {
     width: 300px; height: 172px;
     background: linear-gradient(155deg, #26282a, #0e0f10);
@@ -632,7 +636,23 @@
     <!-- LEFT: TV+Radio shelf, stacked above the bookshelf -->
     <div class="left-stack">
       <div class="wall-painting" aria-hidden="true">
-        <div class="wall-painting-inner">🏇</div>
+        <div class="wall-painting-inner">
+          <svg viewBox="0 0 100 70" fill="#c9a86a">
+            <rect x="26" y="50" width="5" height="18" rx="1"/>
+            <rect x="36" y="52" width="5" height="16" rx="1"/>
+            <rect x="52" y="52" width="5" height="16" rx="1"/>
+            <rect x="62" y="50" width="5" height="18" rx="1"/>
+            <ellipse cx="45" cy="45" rx="22" ry="12"/>
+            <path d="M20 40 Q13 46 15 58 Q19 51 24 44 Z"/>
+            <path d="M62 36 Q68 19 78 13 Q75 24 70 33 Q66 38 62 36 Z"/>
+            <path d="M78 12 Q87 8 91 14 Q88 18 82 20 Q78 17 78 12 Z"/>
+            <path d="M80 8 L83 2 L85 9 Z"/>
+            <ellipse cx="48" cy="26" rx="6" ry="9"/>
+            <circle cx="48" cy="15" r="5"/>
+            <path d="M52 20 L72 4" stroke="#c9a86a" stroke-width="3" stroke-linecap="round"/>
+            <path d="M72 4 L79 2 L76 9 Z"/>
+          </svg>
+        </div>
       </div>
       <div class="wall-shelf">
         <div class="table-row">
@@ -714,9 +734,9 @@
               <path d="M85 55 Q100 50 98 35 Q96 22 82 20 Q78 22 80 27 Q90 29 91 38 Q92 48 80 52 Q80 55 85 55 Z" fill="#3a4a58"/>
               <ellipse cx="55" cy="52" rx="38" ry="24" fill="#4a6478"/>
               <ellipse cx="57" cy="61" rx="24" ry="12" fill="#7a94a4"/>
-              <path d="M32 30 Q48 1 73 10 Q80 13 73 19 Q62 15 53 21 Q64 24 61 33 Q46 27 36 34 Q32 32 32 30 Z" fill="#6a8498"/>
-              <path d="M42 8 Q57 4 69 12" stroke="#6b1a22" stroke-width="2.2" fill="none" opacity="0.5" stroke-linecap="round"/>
-              <path d="M40 17 Q54 14 63 20" stroke="#6b1a22" stroke-width="1.6" fill="none" opacity="0.4" stroke-linecap="round"/>
+              <path d="M38 24 Q52 18 64 25 Q71 29 66 36 Q58 32 50 36 Q54 41 47 45 Q38 36 38 24 Z" fill="#6a8498"/>
+              <path d="M46 24 Q57 22 64 27" stroke="#6b1a22" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+              <path d="M44 32 Q54 30 61 35" stroke="#6b1a22" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round"/>
               <circle cx="24" cy="43" r="19" fill="#4a6478"/>
               <ellipse cx="20" cy="51" rx="11" ry="8" fill="#7a94a4"/>
               <path d="M14 27 Q10 17 16 13 Q18 21 20 28 Z" fill="#8a3a42"/>
@@ -830,7 +850,22 @@
 
     <button class="hotspot fireplace" onclick="showPage('contact')" aria-label="Contact Me">
       <div class="fireplace-ambient" aria-hidden="true"></div>
-      <div class="fireplace-swords" aria-hidden="true">⚔️</div>
+      <div class="fireplace-swords" aria-hidden="true">
+        <svg class="sword sword-1" viewBox="0 0 40 148" fill="none">
+          <path d="M20 0 L25 96 L15 96 Z" fill="#c9ced2"/>
+          <rect x="18" y="94" width="4" height="4" fill="#e8ecef"/>
+          <rect x="6" y="98" width="28" height="7" rx="2" fill="#8a6a3a"/>
+          <rect x="16" y="105" width="8" height="30" rx="2" fill="#4a3a24"/>
+          <circle cx="20" cy="140" r="7" fill="#8a6a3a"/>
+        </svg>
+        <svg class="sword sword-2" viewBox="0 0 40 148" fill="none">
+          <path d="M20 0 L25 96 L15 96 Z" fill="#c9ced2"/>
+          <rect x="18" y="94" width="4" height="4" fill="#e8ecef"/>
+          <rect x="6" y="98" width="28" height="7" rx="2" fill="#8a6a3a"/>
+          <rect x="16" y="105" width="8" height="30" rx="2" fill="#4a3a24"/>
+          <circle cx="20" cy="140" r="7" fill="#8a6a3a"/>
+        </svg>
+      </div>
       <div class="fireplace-mantel"></div>
       <div class="fireplace-opening">
         <div class="fireplace-glow"></div>
@@ -840,7 +875,7 @@
         <div class="fireplace-log"></div>
       </div>
       <div class="fireplace-hearth"></div>
-      <span class="hotspot-label" style="white-space: normal; width: 100px; text-align: center; line-height: 1.05; bottom: -86px;">✉️ contact<br>me</span>
+      <span class="hotspot-label" style="white-space: normal; width: 100px; text-align: center; line-height: 0.6; bottom: -86px;">✉️ contact<br>me</span>
     </button>
   </div>
 
