@@ -96,7 +96,7 @@
   .left-stack { justify-self: start; min-width: 0; margin-left: -12px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .wall-shelf { display: flex; flex-direction: column; align-items: center; position: relative; top: -60px; }
   .shelf-bracket { display: none; }
-  .right-shelf { justify-self: center; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+  .right-shelf { justify-self: center; min-width: 0; display: flex; flex-direction: column; align-items: center; position: relative; top: -60px; }
   .shelf-spacer { height: 330px; }
   .rug {
     position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
@@ -264,7 +264,7 @@
     color: var(--ink); text-align: center;
   }
   .wall-photo {
-    position: absolute; bottom: 250px; left: 498px; width: 96px; height: 72px;
+    position: absolute; bottom: 250px; left: 484px; width: 130px; height: 98px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 6px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(-2deg); z-index: 3;
@@ -272,10 +272,10 @@
   .wall-photo-inner {
     width: 100%; height: 100%; border-radius: 2px; background: #5a2e38;
     box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
-    display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
+    display: flex; align-items: center; justify-content: center; font-size: 4.6rem;
   }
   .wall-painting {
-    width: 132px; height: 92px; margin: -50px auto 76px;
+    width: 132px; height: 92px; margin: -70px auto 76px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 7px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(1deg);
@@ -404,7 +404,7 @@
 
   /* --- Old-fashioned TV (Shows & Movies) --- */
   .console-column { justify-self: center; }
-  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; position: relative; top: -60px; }
+  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; }
   .flatscreen {
     width: 300px; height: 172px;
     background: linear-gradient(155deg, #26282a, #0e0f10);
