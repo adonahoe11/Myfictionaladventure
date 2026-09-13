@@ -94,7 +94,7 @@
 
   /* --- Bookshelf (Books) --- */
   .left-stack { justify-self: start; min-width: 0; margin-left: -12px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-  .wall-shelf { display: flex; flex-direction: column; align-items: center; position: relative; top: -18px; }
+  .wall-shelf { display: flex; flex-direction: column; align-items: center; position: relative; top: -60px; }
   .shelf-bracket { display: none; }
   .right-shelf { justify-self: center; min-width: 0; display: flex; flex-direction: column; align-items: center; }
   .shelf-spacer { height: 330px; }
@@ -275,18 +275,18 @@
     display: flex; align-items: center; justify-content: center; font-size: 3.4rem;
   }
   .wall-painting {
-    width: 132px; height: 92px; margin: -14px auto 6px;
+    width: 132px; height: 92px; margin: -50px auto 76px;
     background: linear-gradient(155deg, var(--gold), var(--gold-dim)); padding: 7px; border-radius: 3px;
     box-shadow: 0 12px 22px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(0,0,0,0.15);
     transform: rotate(1deg);
   }
   .wall-painting-inner {
-    width: 100%; height: 100%; border-radius: 2px;
-    background: linear-gradient(180deg, #3a2418, #1c120a);
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2), inset 0 10px 16px rgba(0,0,0,0.4);
-    display: flex; align-items: center; justify-content: center; font-size: 3rem;
-    filter: sepia(0.3) saturate(0.7);
+    width: 100%; height: 100%; border-radius: 2px; overflow: hidden;
+    background: linear-gradient(180deg, #384450, #232d38 55%, #2a3a4a);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2), inset 0 10px 16px rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
   }
+  .wall-painting-inner svg { width: 100%; height: 100%; }
   /* --- little fireplace, far right of the room --- */
   .fireplace { position: absolute; right: 4px; bottom: 0; width: 152px; z-index: 2; text-align: center; }
   .fireplace-mantel {
@@ -404,7 +404,7 @@
 
   /* --- Old-fashioned TV (Shows & Movies) --- */
   .console-column { justify-self: center; }
-  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; position: relative; top: -18px; }
+  .console-row { display: flex; gap: 30px; align-items: flex-end; justify-content: center; position: relative; top: -60px; }
   .flatscreen {
     width: 300px; height: 172px;
     background: linear-gradient(155deg, #26282a, #0e0f10);
@@ -637,20 +637,20 @@
     <div class="left-stack">
       <div class="wall-painting" aria-hidden="true">
         <div class="wall-painting-inner">
-          <svg viewBox="0 0 100 70" fill="#c9a86a">
-            <rect x="26" y="50" width="5" height="18" rx="1"/>
-            <rect x="36" y="52" width="5" height="16" rx="1"/>
-            <rect x="52" y="52" width="5" height="16" rx="1"/>
-            <rect x="62" y="50" width="5" height="18" rx="1"/>
-            <ellipse cx="45" cy="45" rx="22" ry="12"/>
-            <path d="M20 40 Q13 46 15 58 Q19 51 24 44 Z"/>
-            <path d="M62 36 Q68 19 78 13 Q75 24 70 33 Q66 38 62 36 Z"/>
-            <path d="M78 12 Q87 8 91 14 Q88 18 82 20 Q78 17 78 12 Z"/>
-            <path d="M80 8 L83 2 L85 9 Z"/>
-            <ellipse cx="48" cy="26" rx="6" ry="9"/>
-            <circle cx="48" cy="15" r="5"/>
-            <path d="M52 20 L72 4" stroke="#c9a86a" stroke-width="3" stroke-linecap="round"/>
-            <path d="M72 4 L79 2 L76 9 Z"/>
+          <svg viewBox="0 0 100 70" fill="none">
+            <circle cx="76" cy="15" r="7" fill="#8a94a0" opacity="0.55"/>
+            <path d="M8 8 L14 2 M20 10 L26 2 M30 6 L36 0" stroke="#c9ced4" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+            <path d="M0 70 L0 48 L14 40 L24 46 L26 70 Z" fill="#100c0a"/>
+            <rect x="4" y="26" width="6" height="20" fill="#0a0806"/>
+            <rect x="2" y="22" width="10" height="5" fill="#0a0806"/>
+            <rect x="14" y="18" width="7" height="28" fill="#0a0806"/>
+            <rect x="12" y="14" width="11" height="5" fill="#0a0806"/>
+            <rect x="22" y="30" width="6" height="16" fill="#0a0806"/>
+            <path d="M15 46 Q17 40 19 46 Z" fill="#2a3a4a"/>
+            <path d="M0 60 Q9 55 18 60 Q27 65 36 60 Q45 55 54 60 Q63 65 72 60 Q81 55 90 60 Q95 62 100 60 L100 70 L0 70 Z" fill="#1c2732"/>
+            <path d="M0 64 Q9 60 18 64 Q27 68 36 64 Q45 60 54 64 Q63 68 72 64 Q81 60 90 64" stroke="#4a5866" stroke-width="1.4" fill="none" opacity="0.6"/>
+            <path d="M30 58 Q34 55 38 58" stroke="#6a7886" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <path d="M60 61 Q64 58 68 61" stroke="#6a7886" stroke-width="1.2" fill="none" opacity="0.5"/>
           </svg>
         </div>
       </div>
