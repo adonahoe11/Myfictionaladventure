@@ -41,9 +41,10 @@
   /* the whole illustrated scene lives at one fixed "design" width and is
      scaled down as a single unit on narrow screens (via JS, see fitRoomCanvas)
      rather than trying to reflow individually-positioned furniture pieces */
+  .room-canvas-wrap { overflow: hidden; }
   .room-canvas {
     position: relative; width: 1500px; max-width: none;
-    margin: 0 auto; padding-bottom: 110px;
+    transform-origin: top left; padding-bottom: 110px;
   }
   /* cozy solid wall — a soft radial glow for depth, no texture */
   #room::before {
@@ -729,6 +730,7 @@
 
 <!-- ============ HOME: THE ROOM ============ -->
 <div id="room">
+ <div class="room-canvas-wrap">
  <div class="room-canvas">
   <div class="floor-strip"></div>
   <button class="hotspot newsletter-sign" onclick="window.open('https://myfictionaladventure.substack.com/subscribe', '_blank', 'noopener')">
@@ -1118,6 +1120,7 @@
   <div class="claude-credit">Made with the help of Claude AI</div>
 
  </div>
+ </div>
 </div>
 
 <!-- ============ ABOUT ============ -->
@@ -1436,9 +1439,10 @@
   // of furniture individually. Never scales up past 1:1 on wide screens.
   function fitRoomCanvas() {
     var room = document.getElementById('room');
+    var wrap = document.querySelector('.room-canvas-wrap');
     var canvas = document.querySelector('.room-canvas');
-    if (!room || !canvas) return;
-    canvas.style.zoom = 1;
+    if (!room || !wrap || !canvas) return;
+    canvas.style.transform = 'none';
     var naturalWidth = canvas.offsetWidth;
     var naturalHeight = canvas.offsetHeight;
     var fitWidthScale = room.clientWidth / naturalWidth;
@@ -1449,13 +1453,17 @@
       // On narrow screens, prefer filling most of the screen's height
       // (letting the room scroll sideways) over shrinking to fit the full
       // width, which left the room tiny with lots of blank space below.
-      var fitHeightScale = (window.innerHeight * 0.82) / naturalHeight;
+      var fitHeightScale = (window.innerHeight * 0.9) / naturalHeight;
       scale = Math.min(1, Math.max(fitWidthScale, fitHeightScale));
     }
-    canvas.style.zoom = scale;
-    canvas.style.margin = (scale < 1) ? '0' : '0 auto';
+    canvas.style.transform = 'scale(' + scale + ')';
+    var scaledWidth = Math.ceil(naturalWidth * scale);
+    var scaledHeight = Math.ceil(naturalHeight * scale);
+    wrap.style.width = scaledWidth + 'px';
+    wrap.style.height = scaledHeight + 'px';
+    wrap.style.margin = (scale < 1) ? '0' : '0 auto';
     room.style.minHeight = '0';
-    room.style.height = Math.ceil(naturalHeight * scale) + 'px';
+    room.style.height = scaledHeight + 'px';
   }
   window.addEventListener('resize', fitRoomCanvas);
   window.addEventListener('load', fitRoomCanvas);
