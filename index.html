@@ -1453,7 +1453,7 @@
       // On narrow screens, prefer filling most of the screen's height
       // (letting the room scroll sideways) over shrinking to fit the full
       // width, which left the room tiny with lots of blank space below.
-      var fitHeightScale = (window.innerHeight * 0.9) / naturalHeight;
+      var fitHeightScale = (window.innerHeight * 0.95) / naturalHeight;
       scale = Math.min(1, Math.max(fitWidthScale, fitHeightScale));
     }
     canvas.style.transform = 'scale(' + scale + ')';
