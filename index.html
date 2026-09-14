@@ -253,6 +253,11 @@
   }
   .recliner-leg { position: absolute; bottom: -12px; width: 12px; height: 21px; background: linear-gradient(180deg,#7a5540,var(--wood-dark)); border-radius: 0 0 3px 3px; }
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
+  .recliner-pillow {
+    position: absolute; bottom: 72px; left: 32px; width: 52px; height: 52px; border-radius: 10px;
+    background: linear-gradient(155deg, #2a2a2c, #0a0a0b); transform: rotate(-8deg); z-index: 2;
+    box-shadow: 0 10px 16px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 8px 8px 12px rgba(255,255,255,0.14), inset -8px -8px 12px rgba(0,0,0,0.16);
+  }
 
   .mini-shelf {
     position: relative; top: -12px;
@@ -594,8 +599,8 @@
 
   .page-inner { max-width: 880px; margin: 0 auto; padding: 40px 24px 100px; position: relative; z-index: 1; }
 
-  #page-about { background: radial-gradient(ellipse at top, #1a1040 0%, #0a0a2a 55%, #05050f 100%); position: relative; }
-  #page-about::before {
+  #page-about, #page-contact { background: radial-gradient(ellipse at top, #1a1040 0%, #0a0a2a 55%, #05050f 100%); position: relative; }
+  #page-about::before, #page-contact::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background-image:
       radial-gradient(1.4px 1.4px at 8% 12%, #fff, transparent),
@@ -618,9 +623,10 @@
       radial-gradient(1px 1px at 82% 75%, #fff, transparent);
     opacity: 0.85;
   }
-  #page-about .page-top { background: rgba(10,10,30,0.55); border-bottom-color: rgba(222,213,200,0.2); backdrop-filter: blur(2px); }
-  #page-about .back-link, #page-about .page-title { color: var(--text-light); }
-  #page-about .back-link:hover { color: #fff; }
+  #page-about .page-top, #page-contact .page-top { background: rgba(10,10,30,0.55); border-bottom-color: rgba(222,213,200,0.2); backdrop-filter: blur(2px); }
+  #page-about .back-link, #page-about .page-title, #page-contact .back-link, #page-contact .page-title { color: var(--text-light); }
+  #page-about .back-link:hover, #page-contact .back-link:hover { color: #fff; }
+  #page-contact .page-lede { color: var(--text-light-dim); }
   .page-lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 60ch; margin-bottom: 32px; }
 
   .filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
@@ -906,6 +912,7 @@
         <div class="recliner-arm left"></div>
         <div class="recliner-arm right"></div>
         <div class="recliner-seat"></div>
+        <div class="recliner-pillow"></div>
         <div class="recliner-footrest"></div>
         <div class="recliner-leg left"></div>
         <div class="recliner-leg right"></div>
@@ -1297,7 +1304,7 @@
 <div class="page" id="page-contact">
   <div class="page-top">
     <button class="back-link" onclick="showRoom()">← Back to the room</button>
-    <span class="page-title">✉️ Contact Me</span>
+    <span class="page-title" style="position: relative; top: 5px;">✉️ Contact Me</span>
     <span></span>
   </div>
   <div class="page-inner">
