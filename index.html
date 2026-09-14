@@ -255,7 +255,7 @@
   .recliner-leg.left { left: 28px; } .recliner-leg.right { right: 28px; }
   .recliner-pillow {
     position: absolute; bottom: 76px; left: 50%; transform: translateX(-50%) rotate(-4deg);
-    width: 76px; height: 76px; border-radius: 13px;
+    width: 76px; height: 76px; border-radius: 22px 22px 26px 26px / 26px 26px 30px 30px;
     background: linear-gradient(155deg, #2a2a2c, #0a0a0b); z-index: 2;
     box-shadow: 0 10px 16px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 10px 10px 14px rgba(255,255,255,0.14), inset -10px -10px 14px rgba(0,0,0,0.16);
   }
@@ -424,9 +424,10 @@
   }
   .sofa-seat::before { left: 33%; } .sofa-seat::after { left: 66%; }
   .sofa-pillow {
-    position: absolute; width: 78px; height: 78px; border-radius: 14px;
+    position: absolute; width: 78px; height: 78px; border-radius: 22px 22px 26px 26px / 26px 26px 30px 30px;
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
   }
+  .pillow-tuft { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .sofa-pillow.p1 { bottom: 104px; left: 44px; background: linear-gradient(155deg, #2a2a2c, #0a0a0b); transform: rotate(-9deg); }
   .sofa-dragon {
     position: absolute; bottom: 78px; left: 50%; transform: translateX(-50%);
@@ -442,7 +443,7 @@
   .sofa-leg.left { left: 49px; } .sofa-leg.right { right: 49px; }
 .chair-book {
     position: absolute; bottom: 104px; right: 44px; transform: rotate(9deg);
-    width: 78px; height: 78px; border-radius: 14px;
+    width: 78px; height: 78px; border-radius: 22px 22px 26px 26px / 26px 26px 30px 30px;
     background: linear-gradient(155deg, #2a2a2c, #0a0a0b);
     box-shadow: 0 13px 22px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.18), inset 12px 12px 18px rgba(255,255,255,0.14), inset -12px -12px 18px rgba(0,0,0,0.16);
     z-index: 2;
@@ -744,13 +745,12 @@
         <circle cx="20" cy="20" r="18.3" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
         <circle cx="20" cy="20" r="15" fill="none" stroke="#5a5a5c" stroke-width="0.7" opacity="0.55" stroke-dasharray="1.6 1.8"/>
         <circle cx="20" cy="20" r="19" fill="none" stroke="#4a4a4c" stroke-width="0.5" opacity="0.3"/>
-        <g fill="#c9a876" stroke="#5c4326" stroke-width="0.3" opacity="0.95">
-          <path d="M12,28 C10.5,21 13.5,15.5 20,15 C25.5,14.6 28.5,18.3 27.8,23.5 C27.2,27.8 22.5,30.3 17.8,29.4 C15.5,29 13.2,28.6 12,28 Z"/>
-          <circle cx="12.5" cy="18.5" r="3.3"/>
-          <path d="M9.4,18.3 L4.5,17.2 L9.2,15.6 Z"/>
-          <path d="M26,23 C31,24.5 34.5,27.2 33.5,28.6 C32.5,30 29.5,29 27,27.5 C29,27.8 30.5,27.5 30,26.5 C29.6,25.6 27.5,24 26,23 Z"/>
-          <path d="M17,17.3 C21,16.6 25,19 24,24.5 C22,25.7 18.3,24.7 17,21.8 C16.4,20.4 16.5,18.6 17,17.3 Z" fill="#8a6a3a"/>
-          <circle cx="11.6" cy="17.9" r="0.55" fill="#241a10" stroke="none"/>
+        <g>
+          <ellipse cx="20" cy="22.5" rx="12.5" ry="3.2" fill="none" stroke="#8a6a3a" stroke-width="1.6" opacity="0.85" transform="rotate(-16 20 22.5)"/>
+          <circle cx="18.7" cy="18.5" r="6.6" fill="#c9a876"/>
+          <path d="M18.7,18.5 m-6.6,0 a6.6,6.6 0 0 0 6.6,6.6 a5,5 0 0 1 -6.6,-6.6 z" fill="#8a6a3a" opacity="0.55"/>
+          <circle cx="18.7" cy="18.5" r="6.6" fill="none" stroke="#5c4326" stroke-width="0.3" opacity="0.6"/>
+          <ellipse cx="20" cy="22.5" rx="12.5" ry="3.2" fill="none" stroke="#c9a876" stroke-width="1.6" opacity="0.95" transform="rotate(-16 20 22.5)" stroke-dasharray="19.6 20.6" stroke-dashoffset="19.6"/>
         </g>
       </svg>
     </div>
@@ -770,13 +770,12 @@
         <circle cx="20" cy="20" r="18.3" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
         <circle cx="20" cy="20" r="15" fill="none" stroke="#5a5a5c" stroke-width="0.7" opacity="0.55" stroke-dasharray="1.6 1.8"/>
         <circle cx="20" cy="20" r="19" fill="none" stroke="#4a4a4c" stroke-width="0.5" opacity="0.3"/>
-        <g fill="#c9a876" stroke="#5c4326" stroke-width="0.3" opacity="0.95">
-          <path d="M12,28 C10.5,21 13.5,15.5 20,15 C25.5,14.6 28.5,18.3 27.8,23.5 C27.2,27.8 22.5,30.3 17.8,29.4 C15.5,29 13.2,28.6 12,28 Z"/>
-          <circle cx="12.5" cy="18.5" r="3.3"/>
-          <path d="M9.4,18.3 L4.5,17.2 L9.2,15.6 Z"/>
-          <path d="M26,23 C31,24.5 34.5,27.2 33.5,28.6 C32.5,30 29.5,29 27,27.5 C29,27.8 30.5,27.5 30,26.5 C29.6,25.6 27.5,24 26,23 Z"/>
-          <path d="M17,17.3 C21,16.6 25,19 24,24.5 C22,25.7 18.3,24.7 17,21.8 C16.4,20.4 16.5,18.6 17,17.3 Z" fill="#8a6a3a"/>
-          <circle cx="11.6" cy="17.9" r="0.55" fill="#241a10" stroke="none"/>
+        <g>
+          <ellipse cx="20" cy="22.5" rx="12.5" ry="3.2" fill="none" stroke="#8a6a3a" stroke-width="1.6" opacity="0.85" transform="rotate(-16 20 22.5)"/>
+          <circle cx="18.7" cy="18.5" r="6.6" fill="#c9a876"/>
+          <path d="M18.7,18.5 m-6.6,0 a6.6,6.6 0 0 0 6.6,6.6 a5,5 0 0 1 -6.6,-6.6 z" fill="#8a6a3a" opacity="0.55"/>
+          <circle cx="18.7" cy="18.5" r="6.6" fill="none" stroke="#5c4326" stroke-width="0.3" opacity="0.6"/>
+          <ellipse cx="20" cy="22.5" rx="12.5" ry="3.2" fill="none" stroke="#c9a876" stroke-width="1.6" opacity="0.95" transform="rotate(-16 20 22.5)" stroke-dasharray="19.6 20.6" stroke-dashoffset="19.6"/>
         </g>
       </svg>
     </div>
@@ -873,7 +872,13 @@
           <div class="sofa-arm left"></div>
           <div class="sofa-arm right"></div>
           <div class="sofa-seat"></div>
-          <div class="sofa-pillow p1"></div>
+          <div class="sofa-pillow p1">
+            <svg class="pillow-tuft" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50,50 L16,16 M50,50 L84,16 M50,50 L16,84 M50,50 L84,84" stroke="rgba(0,0,0,0.28)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="50" cy="50" r="5.5" fill="rgba(0,0,0,0.4)"/>
+              <circle cx="48.3" cy="48.3" r="2" fill="rgba(255,255,255,0.22)"/>
+            </svg>
+          </div>
           <div class="sofa-dragon" aria-hidden="true">
             <svg viewBox="0 0 110 80" fill="none">
               <path d="M85 55 Q100 50 98 35 Q96 22 82 20 Q78 22 80 27 Q90 29 91 38 Q92 48 80 52 Q80 55 85 55 Z" fill="#3a4a58"/>
@@ -900,7 +905,13 @@
             </svg>
             <span class="dragon-zzz">z z z</span>
           </div>
-          <div class="chair-book"></div>
+          <div class="chair-book">
+            <svg class="pillow-tuft" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50,50 L16,16 M50,50 L84,16 M50,50 L16,84 M50,50 L84,84" stroke="rgba(0,0,0,0.28)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="50" cy="50" r="5.5" fill="rgba(0,0,0,0.4)"/>
+              <circle cx="48.3" cy="48.3" r="2" fill="rgba(255,255,255,0.22)"/>
+            </svg>
+          </div>
           <div class="sofa-leg left"></div>
           <div class="sofa-leg right"></div>
         </div>
@@ -959,7 +970,13 @@
         <div class="recliner-arm left"></div>
         <div class="recliner-arm right"></div>
         <div class="recliner-seat"></div>
-        <div class="recliner-pillow"></div>
+        <div class="recliner-pillow">
+          <svg class="pillow-tuft" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M50,50 L16,16 M50,50 L84,16 M50,50 L16,84 M50,50 L84,84" stroke="rgba(0,0,0,0.28)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="5.5" fill="rgba(0,0,0,0.4)"/>
+            <circle cx="48.3" cy="48.3" r="2" fill="rgba(255,255,255,0.22)"/>
+          </svg>
+        </div>
         <div class="recliner-footrest"></div>
         <div class="recliner-leg left"></div>
         <div class="recliner-leg right"></div>
@@ -1436,6 +1453,7 @@
       scale = Math.min(1, Math.max(fitWidthScale, fitHeightScale));
     }
     canvas.style.zoom = scale;
+    canvas.style.margin = (scale < 1) ? '0' : '0 auto';
     room.style.minHeight = '0';
     room.style.height = Math.ceil(naturalHeight * scale) + 'px';
   }
