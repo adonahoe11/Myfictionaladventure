@@ -70,7 +70,7 @@
   .room-head .kicker { font-family: var(--font-hand); font-size: 2.4rem; color: var(--gold); letter-spacing: 0.02em; }
   .room-head h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; color: var(--text-light); letter-spacing: 0.03em; }
   .room-head .signature { font-family: var(--font-hand); font-size: 2.1rem; color: var(--amber-glow); margin-top: -4px; }
-  .room-head p { margin-top: 10px; color: var(--text-light-dim); margin-left: auto; margin-right: auto; font-size: 1.02rem; white-space: nowrap; }
+  .room-head p { margin-top: 10px; color: var(--text-light-dim); max-width: 52ch; margin-left: auto; margin-right: auto; font-size: 1.02rem; }
 
   .room-scene {
     position: relative; max-width: 1450px; margin: 20px auto 0; padding: 0 24px;
@@ -1432,7 +1432,7 @@
       // On narrow screens, prefer filling most of the screen's height
       // (letting the room scroll sideways) over shrinking to fit the full
       // width, which left the room tiny with lots of blank space below.
-      var fitHeightScale = (window.innerHeight * 0.99) / naturalHeight;
+      var fitHeightScale = (window.innerHeight * 0.82) / naturalHeight;
       scale = Math.min(1, Math.max(fitWidthScale, fitHeightScale));
     }
     canvas.style.zoom = scale;
