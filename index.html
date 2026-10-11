@@ -731,8 +731,11 @@
   }
   .link-item:hover { transform: translateX(4px); box-shadow: 0 6px 16px rgba(58,42,51,0.1); }
   .link-item .emoji { font-size: 1.4rem; }
+  .link-logo { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
   .link-item .name { font-weight: 700; font-family: var(--font-display); }
   .link-item .desc { font-size: 0.85rem; color: var(--ink-soft); }
+  .trope-bullets { margin: 0 0 4px; padding-left: 22px; }
+  .trope-bullets li { margin-bottom: 2px; }
 
   .signup-form { display: flex; flex-direction: column; gap: 6px; max-width: 380px; }
   .signup-form label { font-weight: 700; font-size: 0.85rem; color: var(--ink-soft); margin-top: 10px; }
@@ -1242,11 +1245,11 @@
         <p>I track everything I watch there — come see what I'm into and trade recs.</p>
         <div class="link-list" style="margin-top:14px">
           <a class="link-item" href="https://screensocialapp.com" target="_blank" rel="noopener">
-            <span class="emoji">🌐</span>
+            <img class="link-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAIAAADajyQQAAAFKElEQVR4nOybb2gbZRzHf89zl9y1aS5N22xrN2tb/w7a2fnGKYg4RUQYgoMq+maoSBkKGw70xYbgqH+QgjDLts7ZqUWnL4S9UZlT6NheiP//1HXQpevWZV2TJmnaJE16ucfnnrtrkmVs3UguuSOfFw/357nk+eb3/H5PkrsvL0mdCCFCSH4LhAAv+jzrtklrexAWoJJQMovzga+iFw5n0iEwxgwIgABr6TZCHk8XAYIgq4e22Onztm6ra+7BXGVJyoXKiwWORs8PKkuRwrOcIKzKiZWqCoBv6NghrXseYR4qGDo80dONOVcychqIwkauCVC1cKK4Wlel7gPiPM3dB12+x8AiCFJnjffBePAEUVJsIoLW4mxe0dkI3JoNH9GPASyF6Nm4esMAYI5FDFiqwXLE1Oxqume3y7cZLIhDbOEcjYnZEbanzsblHANp7bPetl6wLHROyunZ9Py/WqZhFivCC40Nd+wCi9N45xucs1GNGCFYK/r1bdsrubKvEMyJ9be/oi1nasQ4ocXdvBVsgbulh3M2UW1qxBrae+mcBFtAg+Ztf5XOQZ5GzOm+D2yEWP+AWjX4mnanqw1shNPV7qjt4C26cF2fWt/jvODuAtsh1N3Lc0IT2A5aGHneaUthPh47bCiMF5p4zDnBdmDebZN1uZCqMKtRFWY1qsJWzJZH4dtD6Mh7qPNuKCOo+2kFisqpL5GrRt/2X4R3DpDfRsF8ih+xWjG73XEbfNyHju1HD20EkzEjx1qbYeAtROfn5k1gGuYVj2Yf9L+Jjg+hpx4BEzC7Kvq80LcT/fQZeuYJKCnlKfdeCfZsRyPD6IUtUCLKuY5JdbDrJUSr6KYS3Cwo/wJN1waae1Bsii+MELhZbuGSG1L+iEVi8Nre4isr5z3L2Sjs+5wc+xFKQXmEzcxC/xA5fgpKh9nCAjPw/iFy8hcoNeYJmwzAuwfJz3+BOZghbHwS+g6QP8+AmRRf2EJCXXk1xvzw9gA5cw7Mp/jCqJLe5xCteB8cJucuQLko/g/NCqH6n4fVqAqzGlVhVgMr8jzYDioKy6kQ2A4qCquP1dqOTDrIZ5bsKQyn5s+C7UgtjOFEqDQ/zctKYuYHvJTwp+MTYCPScf9S0k/XMZQMl/LPB9NJhE4AoQs0IbGpYSWTAltAhcxNfgKICkNoaXEqdmkYbEFs6tOMHGYRY/6PyMSgDb6CKPJC5Px+zeei5hih01FZCJ7dCxYnOLabyHHEHkznBGcTYrYQOT6OsFOsvx+sSXRycO7iEWQYj7D6kDrzTNA27P8wGfkVLEhidiQ83o/AsFMRgpkdBBmmEBIc3SkvXgZLQQc8/c8O1SjGPBIsxxAniD71pGHjUZRk7NIXnKNBkDrBCsQCX0//8SKQFBOlxkqTQnPMxyxXmvFKcyZlkuGTcjpU2/hwJT+PT8cZGtsTmdinlT8wXHDquYKIIWafUHfS86PxK98hLDhcd9FuUEkQujRd/ib43+vJ8GkERliYUyy7LbnXo2zKkUK/Ji+s8bS+7G7ZWgnmFyWTjAWOzk0OZdLT1xkzbZEkrb/GCxgX5Tg6QfB01616UpC6MC9h3qM+nlpiqfT7kSLHaHgUOboY/T1+5fvUwt/L48lzm+bESrv26ojpcTRqy1We1Zvok/dOuQPJ/+zYcT03snmidy84vpI+uqmWZ6UejNbooZV/NtZcJy7RuxpVFfQb48b28oG8Cww9+TeaUVat4RsFY1vP+eUR68f1kZCcSyF37cp5GfI/AAAA////ukWeAAAABklEQVQDACrwewuXMC5RAAAAAElFTkSuQmCC" alt="ScreenSocial logo">
             <div><div class="name">screensocialapp.com</div><div class="desc">Track shows &amp; movies, see what friends are watching</div></div>
           </a>
           <a class="link-item" href="https://apps.apple.com/app/id6759800666" target="_blank" rel="noopener">
-            <span class="emoji">📱</span>
+            <img class="link-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAIAAADajyQQAAAFKElEQVR4nOybb2gbZRzHf89zl9y1aS5N22xrN2tb/w7a2fnGKYg4RUQYgoMq+maoSBkKGw70xYbgqH+QgjDLts7ZqUWnL4S9UZlT6NheiP//1HXQpevWZV2TJmnaJE16ucfnnrtrkmVs3UguuSOfFw/357nk+eb3/H5PkrsvL0mdCCFCSH4LhAAv+jzrtklrexAWoJJQMovzga+iFw5n0iEwxgwIgABr6TZCHk8XAYIgq4e22Onztm6ra+7BXGVJyoXKiwWORs8PKkuRwrOcIKzKiZWqCoBv6NghrXseYR4qGDo80dONOVcychqIwkauCVC1cKK4Wlel7gPiPM3dB12+x8AiCFJnjffBePAEUVJsIoLW4mxe0dkI3JoNH9GPASyF6Nm4esMAYI5FDFiqwXLE1Oxqume3y7cZLIhDbOEcjYnZEbanzsblHANp7bPetl6wLHROyunZ9Py/WqZhFivCC40Nd+wCi9N45xucs1GNGCFYK/r1bdsrubKvEMyJ9be/oi1nasQ4ocXdvBVsgbulh3M2UW1qxBrae+mcBFtAg+Ztf5XOQZ5GzOm+D2yEWP+AWjX4mnanqw1shNPV7qjt4C26cF2fWt/jvODuAtsh1N3Lc0IT2A5aGHneaUthPh47bCiMF5p4zDnBdmDebZN1uZCqMKtRFWY1qsJWzJZH4dtD6Mh7qPNuKCOo+2kFisqpL5GrRt/2X4R3DpDfRsF8ih+xWjG73XEbfNyHju1HD20EkzEjx1qbYeAtROfn5k1gGuYVj2Yf9L+Jjg+hpx4BEzC7Kvq80LcT/fQZeuYJKCnlKfdeCfZsRyPD6IUtUCLKuY5JdbDrJUSr6KYS3Cwo/wJN1waae1Bsii+MELhZbuGSG1L+iEVi8Nre4isr5z3L2Sjs+5wc+xFKQXmEzcxC/xA5fgpKh9nCAjPw/iFy8hcoNeYJmwzAuwfJz3+BOZghbHwS+g6QP8+AmRRf2EJCXXk1xvzw9gA5cw7Mp/jCqJLe5xCteB8cJucuQLko/g/NCqH6n4fVqAqzGlVhVgMr8jzYDioKy6kQ2A4qCquP1dqOTDrIZ5bsKQyn5s+C7UgtjOFEqDQ/zctKYuYHvJTwp+MTYCPScf9S0k/XMZQMl/LPB9NJhE4AoQs0IbGpYSWTAltAhcxNfgKICkNoaXEqdmkYbEFs6tOMHGYRY/6PyMSgDb6CKPJC5Px+zeei5hih01FZCJ7dCxYnOLabyHHEHkznBGcTYrYQOT6OsFOsvx+sSXRycO7iEWQYj7D6kDrzTNA27P8wGfkVLEhidiQ83o/AsFMRgpkdBBmmEBIc3SkvXgZLQQc8/c8O1SjGPBIsxxAniD71pGHjUZRk7NIXnKNBkDrBCsQCX0//8SKQFBOlxkqTQnPMxyxXmvFKcyZlkuGTcjpU2/hwJT+PT8cZGtsTmdinlT8wXHDquYKIIWafUHfS86PxK98hLDhcd9FuUEkQujRd/ib43+vJ8GkERliYUyy7LbnXo2zKkUK/Ji+s8bS+7G7ZWgnmFyWTjAWOzk0OZdLT1xkzbZEkrb/GCxgX5Tg6QfB01616UpC6MC9h3qM+nlpiqfT7kSLHaHgUOboY/T1+5fvUwt/L48lzm+bESrv26ojpcTRqy1We1Zvok/dOuQPJ/+zYcT03snmidy84vpI+uqmWZ6UejNbooZV/NtZcJy7RuxpVFfQb48b28oG8Cww9+TeaUVat4RsFY1vP+eUR68f1kZCcSyF37cp5GfI/AAAA////ukWeAAAABklEQVQDACrwewuXMC5RAAAAAElFTkSuQmCC" alt="ScreenSocial logo">
             <div><div class="name">Get the ScreenSocial app</div><div class="desc">Available now on the App Store — Android coming soon</div></div>
           </a>
         </div>
@@ -1258,7 +1261,14 @@
       <h3>Dark Matter — Season 1 <span style="font-weight:400">— 9/10 ⭐️</span></h3>
       <div class="post-meta">Based on the book &middot; Season 1</div>
       <div class="post-body">
-        <p><strong>Tropes:</strong> World Hopping/Alt Timelines, Romance, Mystery, Powerful Corporation, Thought-Provoking</p>
+        <div><strong>Tropes:</strong></div>
+        <ul class="trope-bullets">
+          <li>World Hopping/Alt Timelines</li>
+          <li>Romance</li>
+          <li>Mystery</li>
+          <li>Powerful Corporation</li>
+          <li>Thought-Provoking</li>
+        </ul>
         <p>The MMC is kidnapped and wakes up in a whole new world &hellip; literally. Can he figure out what is going on and make his way back to his wife &amp; child?</p>
         <p>This show is soo good! It is super thought provoking &amp; also makes you appreciate life more. I could not stop watching this! Have so many questions going to do my next podcast about this soon.</p>
         <p>Also just started the book!</p>
