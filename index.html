@@ -630,6 +630,23 @@
   #page-about .back-link, #page-about .page-title, #page-contact .back-link, #page-contact .page-title { color: var(--text-light); }
   #page-about .back-link:hover, #page-contact .back-link:hover { color: #fff; }
   #page-contact .page-lede { color: var(--text-light-dim); }
+
+  /* Shows & Movies — reddish-black background, white text, per request */
+  #page-shows { background: radial-gradient(ellipse at top, #3a0f12 0%, #1c0607 55%, #0a0202 100%); }
+  #page-shows .page-top { background: rgba(20,4,4,0.6); border-bottom-color: rgba(222,213,200,0.2); backdrop-filter: blur(2px); }
+  #page-shows .back-link, #page-shows .page-title { color: var(--text-light); }
+  #page-shows .back-link:hover { color: #fff; }
+  #page-shows .page-lede { color: var(--text-light-dim); }
+  #page-shows .preview-banner { background: rgba(255,255,255,0.07); border-color: rgba(222,213,200,0.35); }
+  #page-shows .preview-banner strong { color: #fff; }
+  #page-shows .preview-banner p { color: var(--text-light-dim); }
+  #page-shows .link-item { background: rgba(255,255,255,0.07); border-color: rgba(222,213,200,0.25); color: var(--text-light); }
+  #page-shows .link-item .desc { color: var(--text-light-dim); }
+  #page-shows .post-card { background: rgba(255,255,255,0.07); border-color: rgba(222,213,200,0.25); }
+  #page-shows .post-card h3 { color: #fff; }
+  #page-shows .post-meta, #page-shows .post-body { color: var(--text-light-dim); }
+  #page-shows .example-flag { background: rgba(255,255,255,0.08); border-color: var(--gold); color: var(--gold); }
+
   .page-lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 60ch; margin-bottom: 32px; }
 
   .filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
@@ -1238,6 +1255,12 @@
       <div class="post-body"><p>I've been cautiously optimistic about this show for two seasons and this finale earned every bit of that patience. No spoilers here, just: watch it, then come discuss it below.</p></div>
       <span class="example-flag">📝 example post</span>
     </article>
+    <div class="link-list" style="margin-top:20px">
+      <a class="link-item" href="https://sites.libsyn.com/619640/dark-matter-season-1-themes-questions" target="_blank" rel="noopener">
+        <span class="emoji">🎙️</span>
+        <div><div class="name">Dark Matter Review</div><div class="desc">Podcast episode — Season 1 themes &amp; questions</div></div>
+      </a>
+    </div>
   </div>
 </div>
 
